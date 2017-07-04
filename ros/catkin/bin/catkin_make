@@ -1,0 +1,291 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import argparse
+import subprocess
+import sys
+import os
+
+# find the import relatively if available to work before installing catkin or overlaying installed version
+if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'python', 'catkin', '__init__.py')):
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'python'))
+from catkin.init_workspace import init_workspace
+from catkin.terminal_color import disable_ANSI_colors, fmt
+from catkin.builder import cmake_input_changed
+from catkin.builder import determine_path_argument
+from catkin.builder import extract_cmake_and_make_arguments
+from catkin.builder import get_package_names_with_recursive_dependencies
+from catkin.builder import handle_make_arguments
+from catkin.builder import print_command_banner
+from catkin.builder import run_command
+from catkin.builder import run_command_colorized
+from catkin_pkg.packages import find_packages
+from catkin_pkg.tool_detection import get_previous_tool_used_on_the_space
+from catkin_pkg.tool_detection import mark_space_as_built_by
+from catkin_pkg.workspaces import ensure_workspace_marker
+
+
+def main():
+    args = _parse_args()
+    cmake_args = args.cmake_args
+
+    # force --no-color if stdout is non-interactive
+    if not sys.stdout.isatty():
+        args.no_color = True
+    # disable colors if asked
+    if args.no_color:
+        disable_ANSI_colors()
+
+    # use PWD in order to work when being invoked in a symlinked location
+    cwd = os.getenv('PWD', os.curdir)
+
+    # verify that the base path is known
+    base_path = os.path.abspath(os.path.join(cwd, args.directory))
+    if not os.path.exists(base_path):
+        return fmt('@{rf}The specified base path @{boldon}"%s"@{boldoff} '
+                   'does not exist' % base_path)
+    print('Base path: %s' % base_path)
+
+    # verify that the base path does not contain a package.xml
+    if os.path.exists(os.path.join(base_path, 'package.xml')):
+        return fmt('@{rf}The specified base path @{boldon}"%s"@{boldoff} '
+                   'contains a package but "catkin_make" must be invoked '
+                   'in the root of workspace' % base_path)
+
+    # determine source space
+    source_path = determine_path_argument(cwd, base_path, args.source, 'src')
+    if not os.path.exists(source_path):
+        return fmt('@{rf}The specified source space @{boldon}"%s"@{boldoff} '
+                   'does not exist' % source_path)
+    print('Source space: %s' % source_path)
+
+    # verify that the base path does not contain a CMakeLists.txt
+    # except if base path equals source path
+    if (os.path.realpath(base_path) != os.path.realpath(source_path)) \
+       and os.path.exists(os.path.join(base_path, 'CMakeLists.txt')):
+        return fmt('@{rf}The specified base path @{boldon}"%s"@{boldoff} '
+                   'contains a CMakeLists.txt but "catkin_make" must be '
+                   'invoked in the root of workspace' % base_path)
+
+    build_path = determine_path_argument(cwd, base_path, args.build, 'build')
+    print('Build space: %s' % build_path)
+
+    # ensure the build space was previously built by catkin_make
+    previous_tool = get_previous_tool_used_on_the_space(build_path)
+    if previous_tool is not None and previous_tool != 'catkin_make':
+        if args.override_build_tool_check:
+            print(fmt(
+                "@{yf}Warning: build space at '%s' was previously built by '%s', "
+                "but --override-build-tool-check was passed so continuing anyways."
+                % (build_path, previous_tool)))
+        else:
+            return fmt(
+                "@{rf}The build space at '%s' was previously built by '%s'. "
+                "Please remove the build space or pick a different build space."
+                % (build_path, previous_tool))
+    mark_space_as_built_by(build_path, 'catkin_make')
+
+    # determine devel space
+    devel_arg = None
+    prefix = '-DCATKIN_DEVEL_PREFIX='
+    devel_prefix = [a for a in cmake_args if a.startswith(prefix)]
+    if devel_prefix:
+        devel_arg = devel_prefix[-1][len(prefix):]
+        cmake_args = [a for a in cmake_args if a not in devel_prefix]
+    devel_path = determine_path_argument(cwd, base_path, devel_arg, 'devel')
+    print('Devel space: %s' % devel_path)
+    cmake_args.append('-DCATKIN_DEVEL_PREFIX=%s' % devel_path)
+
+    # ensure the devel space was previously built by catkin_make
+    previous_tool = get_previous_tool_used_on_the_space(devel_path)
+    if previous_tool is not None and previous_tool != 'catkin_make':
+        if args.override_build_tool_check:
+            print(fmt(
+                "@{yf}Warning: devel space at '%s' was previously built by '%s', "
+                "but --override-build-tool-check was passed so continuing anyways."
+                % (devel_path, previous_tool)))
+        else:
+            return fmt(
+                "@{rf}The devel space at '%s' was previously built by '%s'. "
+                "Please remove the devel space or pick a different devel space."
+                % (devel_path, previous_tool))
+    mark_space_as_built_by(devel_path, 'catkin_make')
+
+    # determine install space
+    install_arg = None
+    prefix = '-DCMAKE_INSTALL_PREFIX='
+    install_prefix = [a for a in cmake_args if a.startswith(prefix)]
+    if install_prefix:
+        install_arg = install_prefix[-1][len(prefix):]
+        cmake_args = [a for a in cmake_args if a not in install_prefix]
+    install_path = determine_path_argument(
+        cwd, base_path, install_arg, 'install')
+    print('Install space: %s' % install_path)
+    cmake_args.append('-DCMAKE_INSTALL_PREFIX=%s' % install_path)
+
+    # ensure build folder exists
+    if not os.path.exists(build_path):
+        os.mkdir(build_path)
+
+    # ensure toplevel cmake file exists
+    toplevel_cmake = os.path.join(source_path, 'CMakeLists.txt')
+    if not os.path.exists(toplevel_cmake):
+        try:
+            init_workspace(source_path)
+        except Exception as e:
+            return fmt('@{rf}Creating the toplevel cmake file failed:@| %s' % str(e))
+
+    packages = find_packages(source_path, exclude_subspaces=True)
+
+    # whitelist packages and their dependencies in workspace
+    if args.only_pkg_with_deps:
+        package_names = [p.name for p in packages.values()]
+        unknown_packages = [name for name in args.only_pkg_with_deps if name not in package_names]
+        if len(unknown_packages) == len(args.only_pkg_with_deps):
+            # all package names are unknown
+            return fmt(
+                '@{rf}Packages @{boldon}"%s"@{boldoff} not found in the workspace'
+                % ', '.join(args.only_pkg_with_deps))
+        if unknown_packages:
+            # ignore unknown packages
+            print(fmt(
+                '@{yf}Packages @{boldon}"%s"@{boldoff} not found in the workspace - ignoring them'
+                % ', '.join(sorted(unknown_packages))), file=sys.stderr)
+            args.only_pkg_with_deps = [name for name in args.only_pkg_with_deps if name in package_names]
+
+        whitelist_pkg_names = get_package_names_with_recursive_dependencies(packages, args.only_pkg_with_deps)
+        print('Whitelisted packages: %s' % ', '.join(sorted(whitelist_pkg_names)))
+        packages = {path: p for path, p in packages.items() if p.name in whitelist_pkg_names}
+        cmake_args += ['-DCATKIN_WHITELIST_PACKAGES=%s' % ';'.join(sorted(whitelist_pkg_names))]
+
+    # verify that specified package exists in workspace
+    if args.pkg:
+        packages_by_name = {p.name: path for path, p in packages.items()}
+        unknown_packages = [name for name in args.pkg if name not in packages_by_name]
+        if len(unknown_packages) == len(args.pkg):
+            # all package names are unknown
+            return fmt('@{rf}Packages @{boldon}"%s"@{boldoff} not found in the workspace' % ', '.join(args.pkg))
+        if unknown_packages:
+            # ignore unknown packages
+            print(fmt(
+                '@{yf}Packages @{boldon}"%s"@{boldoff} not found in the workspace - ignoring them'
+                % ', '.join(sorted(unknown_packages))), file=sys.stderr)
+            args.pkg = [name for name in args.pkg if name in packages_by_name]
+
+    if not [arg for arg in cmake_args if arg.startswith('-G')]:
+        if not args.use_ninja:
+            cmake_args += ['-G', 'Unix Makefiles']
+        else:
+            cmake_args += ['-G', 'Ninja']
+    elif args.use_ninja:
+        return fmt("@{rf}Error: either specify a generator using '-G...' or '--use-ninja' but not both")
+
+    # check if cmake must be run (either for a changed list of package paths or changed cmake arguments)
+    force_cmake = cmake_input_changed(packages, build_path, cmake_args=cmake_args)
+
+    # consider calling cmake
+    if not args.use_ninja:
+        makefile = os.path.join(build_path, 'Makefile')
+    else:
+        makefile = os.path.join(build_path, 'build.ninja')
+    if not os.path.exists(makefile) or args.force_cmake or force_cmake:
+        cmd = [
+            'cmake',
+            source_path,
+        ]
+        cmd += cmake_args
+        try:
+            print_command_banner(cmd, build_path, color=not args.no_color)
+            if args.no_color:
+                run_command(cmd, build_path)
+            else:
+                run_command_colorized(cmd, build_path)
+        except subprocess.CalledProcessError:
+            return fmt('@{rf}Invoking @{boldon}"cmake"@{boldoff} failed')
+    else:
+        if not args.use_ninja:
+            cmd = ['make', 'cmake_check_build_system']
+        else:
+            cmd = ['ninja', 'build.ninja']
+        try:
+            print_command_banner(cmd, build_path, color=not args.no_color)
+            if args.no_color:
+                run_command(cmd, build_path)
+            else:
+                run_command_colorized(cmd, build_path)
+        except subprocess.CalledProcessError:
+            return fmt('@{rf}Invoking @{boldon}"%s"@{boldoff} failed' % ' '.join(cmd))
+
+    ensure_workspace_marker(base_path)
+
+    # invoke make
+    if not args.use_ninja:
+        cmd = ['make']
+    else:
+        cmd = ['ninja']
+    cmd.extend(handle_make_arguments(args.make_args))
+    try:
+        if not args.pkg:
+            make_paths = [build_path]
+        else:
+            make_paths = [os.path.join(build_path, packages_by_name[name]) for name in args.pkg]
+        for make_path in make_paths:
+            print_command_banner(cmd, make_path, color=not args.no_color)
+            run_command(cmd, make_path)
+    except subprocess.CalledProcessError:
+        return fmt('@{rf}Invoking @{boldon}"%s"@{boldoff} failed' % ' '.join(cmd))
+
+
+def _parse_args(args=sys.argv[1:]):
+    args, cmake_args, make_args = extract_cmake_and_make_arguments(args)
+
+    parser = argparse.ArgumentParser(description=(
+        'Creates the catkin workspace layout and invokes cmake and make. '
+        'Any argument starting with "-D" will be passed to the "cmake" invocation. '
+        'The -j (--jobs) and -l (--load-average) arguments for make are also extracted and passed to make directly. '
+        'If no -j/-l arguments are given, then the MAKEFLAGS environment variable is searched for -j/-l flags. '
+        'If found then no -j/-l flags are passed to make explicitly (as not to override the MAKEFLAGS). '
+        'If MAKEFLAGS is not set then the job flags in the ROS_PARALLEL_JOBS environment variable are passed to make. '
+        'Note: ROS_PARALLEL_JOBS should contain the exact job flags, not just a number. '
+        'See: http://www.ros.org/wiki/ROS/EnvironmentVariables#ROS_PARALLEL_JOBS '
+        'If ROS_PARALLEL_JOBS is not set then the flags "-jn -ln" are used, where n is number of CPU cores. '
+        'If the number of CPU cores cannot be determined then no flags are given to make. '
+        'All other arguments (i.e. target names) are passed to the "make" invocation. '
+        'To ignore certain packages place a file named CATKIN_IGNORE in the package folder. '
+        'Or you can pass the list of package names to the CMake variable CATKIN_BLACKLIST_PACKAGES. '
+        'For example: catkin_make -DCATKIN_BLACKLIST_PACKAGES="foo;bar".'))
+    add = parser.add_argument
+    add('-C', '--directory', default=os.curdir, help="The base path of the workspace (default '%s')" % os.curdir)
+    add('--source', help="The path to the source space (default 'workspace_base/src')")
+    add('--build', help="The path to the build space (default 'workspace_base/build')")
+    add('--use-ninja', action='store_true', help="Use 'ninja' instead of 'make'")
+    add('--force-cmake', action='store_true', help="Invoke 'cmake' even if it has been executed before")
+    add('--no-color', action='store_true', help='Disables colored output (only for catkin_make and CMake)')
+    add('--pkg', nargs='+', help="Invoke 'make' on specific packages only")
+    add('--only-pkg-with-deps', nargs='+',
+        help='Whitelist only the specified packages and their dependencies by '
+             'setting the CATKIN_WHITELIST_PACKAGES variable. This variable is '
+             'stored in CMakeCache.txt and will persist between CMake calls '
+             'unless explicitly cleared; e.g. catkin_make -DCATKIN_WHITELIST_PACKAGES="".')
+    add('--cmake-args', dest='cmake_args', nargs='*', type=str,
+        help='Arbitrary arguments which are passes to CMake. '
+             'It must be passed after other arguments since it collects all following options.')
+    add('--make-args', dest='make_args', nargs='*', type=str,
+        help='Arbitrary arguments which are passes to make. '
+             'It must be passed after other arguments since it collects all following options. '
+             'This is only necessary in combination with --cmake-args since else all unknown '
+             'arguments are passed to make anyway.')
+    add('--override-build-tool-check', action='store_true', default=False,
+        help='use to override failure due to using differnt build tools on the same workspace.')
+
+    namespace, unknown_args = parser.parse_known_args(args)
+    namespace.cmake_args = cmake_args
+    namespace.make_args = unknown_args + make_args
+    return namespace
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except Exception as e:
+        sys.exit(str(e))

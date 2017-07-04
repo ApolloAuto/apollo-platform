@@ -1,0 +1,5 @@
+<library path="lib/libtest_plugins">
+  <class name="pluginlib/foo" name="test_plugins::Foo" base_class_type="test_base::Fubar">
+    <description>This is a foo plugin.</description>
+  </class>
+</library>

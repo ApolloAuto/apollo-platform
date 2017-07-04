@@ -1,0 +1,26 @@
+;; Initialization for sbcl when compiling roslisp
+
+(require :asdf)
+
+;;; Handle recompilation of fasls with wrong version.
+(defmethod asdf:perform :around ((o asdf:load-op)
+                                 (c asdf:cl-source-file))
+  (handler-case (call-next-method o c)
+    ;; If a fasl was stale, try to recompile and load (once).
+    (sb-ext:invalid-fasl ()
+      (asdf:perform (make-instance 'asdf:compile-op) c)
+      (call-next-method))))
+
+;;; Add appropriate paths for asdf to look for ros-load-manifest. We
+;;; use the path of this file as base.
+(unless (asdf:find-system :ros-load-manifest nil)
+  (unless *load-truename*
+    (error 'simple-error
+           :format-control "*LOAD-TRUENAME* not bound. This script needs to be loaded with the --load parameter."))
+  (let ((load-manifest-directory (parse-namestring
+                                  (concatenate 'string
+                                               (directory-namestring *load-truename*)
+                                               "../load-manifest/"))))
+    (push load-manifest-directory asdf:*central-registry*)))
+
+(asdf:operate 'asdf:load-op :ros-load-manifest)

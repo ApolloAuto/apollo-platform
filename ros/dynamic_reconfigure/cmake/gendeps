@@ -1,0 +1,84 @@
+#! /usr/bin/env python
+#
+# Software License Agreement (BSD License)
+#
+# Copyright (c) 2010, Willow Garage, Inc.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above
+#    copyright notice, this list of conditions and the following
+#    disclaimer in the documentation and/or other materials provided
+#    with the distribution.
+#  * Neither the name of Willow Garage, Inc. nor the names of its
+#    contributors may be used to endorse or promote products derived
+#    from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+# Revision $Id$
+
+from __future__ import print_function
+
+import sys
+import inspect
+import imp
+import os.path
+
+_DYNAMIC_RECONFIGURE_GENERATING_DEPENDENCIES = True
+
+def do_nothing(*args):
+  pass
+
+if __name__ == "__main__":
+  srcfile = sys.argv[1]
+
+  start_modules = list(sys.modules)
+  sys.exit = do_nothing
+  exit = do_nothing
+  #dynamic_reconfigure.parameter_generator.ParameterGenerator.generate = do_nothing
+
+  # Remove our directory from the system path, and replace it with the one
+  # that the file expects to see.
+  sys.path[0] = os.path.dirname(srcfile)
+  f = open(srcfile, 'U')
+  stderr = sys.stderr
+  stdout = sys.stdout
+  sys.stdout = stderr # Avoid clobbering our output.
+  print("Finding dependencies for %s" % srcfile, file=stderr)
+  try:
+    imp.load_module("__main__", f, srcfile, ('.cfg', 'U', 1))
+  except:
+    errmsg = "load_module did not return. Unable to determine dependencies for file listed above."
+    print('\n'.join(["*" * len(errmsg), errmsg, "*" * len(errmsg)]), file=stderr)
+    raise
+
+  end_modules = sys.modules
+  for m in end_modules:
+    if not m in start_modules:
+      try:
+        mod_file = inspect.getsourcefile(end_modules[m])
+        if type(mod_file) == str:
+          for i in range(50): # .eggs on mac are strange, move up the hierarchy until we find the .egg, bail after 50 tries.
+            if os.path.exists(mod_file):
+              print(mod_file, file=stdout)
+              break
+            mod_file = os.path.dirname(mod_file)
+      except:
+        pass

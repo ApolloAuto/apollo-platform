@@ -1,0 +1,17 @@
+<launch>
+  <machine name="machine1" address="address1" default="true" />
+  
+  <!-- verify ros-ip and ros-host-name alias -->
+  
+  <machine name="machine6" address="address6">
+    <!-- fake attrs are okay, but will print warnings to screen -->
+    <fake name="ENV3" value="value3" />
+  </machine>
+  
+  <machine name="machine7" address="address7" timeout="10.0" />
+  <machine name="machine8" address="address8" timeout="1" />  
+  
+  <machine name="machine9" address="address19" env-loader="/opt/ros/fuerte/env.sh" />
+  
+</launch>
+

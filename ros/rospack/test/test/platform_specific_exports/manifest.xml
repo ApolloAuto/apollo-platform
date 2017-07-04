@@ -1,0 +1,8 @@
+<package>
+  <export>
+    <cpp os="other" cflags="-DOTHER"/>
+    <cpp os="linux" cflags="-DLINUX"/>
+    <cpp os="osx" cflags="-DAPPLE"/>
+    <cpp os="win32" cflags="-DWINDOWS"/>
+  </export>
+</package>

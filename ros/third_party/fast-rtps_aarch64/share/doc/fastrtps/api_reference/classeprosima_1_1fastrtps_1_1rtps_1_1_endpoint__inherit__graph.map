@@ -1,0 +1,4 @@
+<map id="Endpoint" name="Endpoint">
+<area shape="rect" id="node2" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_r_t_p_s_reader.html" title="Class RTPSReader, manages the reception of data from its matched writers. " alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node3" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_r_t_p_s_writer.html" title="Class RTPSWriter, manages the sending of data to the readers. " alt="" coords="130,80,223,107"/>
+</map>

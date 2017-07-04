@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="958.31525"
+   height="513.98163"
+   id="svg6606"
+   sodipodi:version="0.32"
+   inkscape:version="0.47pre4 r22446"
+   version="1.0"
+   sodipodi:docname="cancel_policy.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/u/eitan/wiki/actions/preempt_policy.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs6608">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 300 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="800 : 300 : 1"
+       inkscape:persp3d-origin="400 : 200 : 1"
+       id="perspective6614" />
+    <inkscape:perspective
+       id="perspective3926"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="461.0301"
+     inkscape:cy="185.75044"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1379"
+     inkscape:window-height="954"
+     inkscape:window-x="632"
+     inkscape:window-y="530"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata6611">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-7.6477224,-14.457794)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect6616"
+       width="248.48979"
+       height="248.48981"
+       x="127.67825"
+       y="173.08934"
+       rx="0.15264323"
+       ry="0.075367458"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 251.92315,172.96096 0,248.74657"
+       id="path7127"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 127.42491,297.33425 248.99647,0"
+       id="path7129"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:18;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="293.49945"
+       y="161.35841"
+       id="text7140"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7142"
+         x="293.49945"
+         y="161.35841"
+         style="font-size:18">filled</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="156.12367"
+       y="161.00139"
+       id="text7144"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7146"
+         x="156.12367"
+         y="161.00139"
+         style="font-size:18">empty</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-272.84833"
+       y="117.6222"
+       id="text7148"
+       transform="matrix(0,-1,1,0,0,0)"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7150"
+         x="-272.84833"
+         y="117.6222"
+         style="font-size:18">empty</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="-385.19232"
+       y="121.51474"
+       id="text7152"
+       transform="matrix(0,-1,1,0,0,0)"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7154"
+         x="-385.19232"
+         y="121.51474"
+         style="font-size:18">filled</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="249.24095"
+       y="131.58717"
+       id="text7156"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7158"
+         x="249.24095"
+         y="131.58717"
+         style="font-size:20px;text-align:center;text-anchor:middle">stamp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="80.276649"
+       y="304.75568"
+       id="text7160"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7162"
+         x="80.276649"
+         y="304.75568"
+         style="font-size:20px;text-align:center;text-anchor:middle">ID</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="189.57484"
+       y="230.75166"
+       id="text7164"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7166"
+         x="192.12172"
+         y="230.75166"
+         style="font-size:14;text-align:center;text-anchor:middle">cancel all </tspan><tspan
+         sodipodi:role="line"
+         x="189.57484"
+         y="250.75166"
+         style="font-size:14;text-align:center;text-anchor:middle"
+         id="tspan7168">goals</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="316.88861"
+       y="224.50166"
+       id="text7170"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="319.43549"
+         y="224.50166"
+         style="font-size:14;text-align:center;text-anchor:middle"
+         id="tspan7174">cancel all </tspan><tspan
+         sodipodi:role="line"
+         x="319.43549"
+         y="244.50166"
+         style="font-size:14;text-align:center;text-anchor:middle"
+         id="tspan7178">goals before </tspan><tspan
+         sodipodi:role="line"
+         x="316.88861"
+         y="264.50165"
+         style="font-size:14;font-style:italic;text-align:center;text-anchor:middle"
+         id="tspan7196">stamp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="189.00014"
+       y="353.0141"
+       id="text7180"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="189.00014"
+         y="353.0141"
+         style="font-size:14;text-align:center;text-anchor:middle"
+         id="tspan7190">cancel goal</tspan><tspan
+         sodipodi:role="line"
+         x="189.00014"
+         y="373.0141"
+         style="font-size:14;font-style:italic;text-align:center;text-anchor:middle"
+         id="tspan3095">Goal ID</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="314.71918"
+       y="324.76947"
+       id="text7198"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="324.76947"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan7202">cancel goal</tspan><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="342.26947"
+         style="font-size:14px;font-style:italic;text-align:center;text-anchor:middle"
+         id="tspan3896">Goal ID</tspan><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="359.76947"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan3910">+</tspan><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="377.26947"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan3894">cancel all</tspan><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="394.76947"
+         style="font-size:14px;font-style:italic;text-align:center;text-anchor:middle"
+         id="tspan3886"><tspan
+   id="tspan3914"
+   style="font-size:14px;font-style:normal;text-align:center;text-anchor:middle">goals before</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="314.71918"
+         y="412.26947"
+         style="font-size:14px;font-style:italic;text-align:center;text-anchor:middle"
+         id="tspan3916">stamp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="39.160015"
+       y="96.725761"
+       id="text7210"
+       inkscape:transform-center-x="78.867159"
+       inkscape:transform-center-y="-21.946782"
+       inkscape:export-filename="/wg/arc/vpradeep/ros-64/pkgs-trunk/common/actionlib/docs/cancel_policy.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7212"
+         x="39.160015"
+         y="96.725761"
+         style="font-size:20px;fill:#336699;fill-opacity:1">Cancel Request Policy</tspan></text>
+  </g>
+</svg>

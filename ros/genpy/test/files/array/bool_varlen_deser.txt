@@ -1,0 +1,8 @@
+start = end
+end += 4
+(length,) = _struct_I.unpack(str[start:end])
+pattern = '<%sB'%length
+start = end
+end += struct.calcsize(pattern)
+data = struct.unpack(pattern, str[start:end])
+data = map(bool, data)

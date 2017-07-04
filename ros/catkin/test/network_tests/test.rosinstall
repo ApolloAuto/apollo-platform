@@ -1,0 +1,79 @@
+# Using catkin from source instead
+# - git:
+#     uri: 'git://github.com/ros/catkin.git'
+#     local-name: catkin
+#     version: master
+
+- git:
+    uri: 'git://github.com/ros/genmsg.git'
+    local-name: genmsg
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/gencpp.git'
+    local-name: gencpp
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/genlisp.git'
+    local-name: genlisp
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/genpy.git'
+    local-name: genpy
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/langs.git'
+    local-name: langs
+    version: master
+
+# - git:
+#     uri: 'git://github.com/ros/langs-dev.git'
+#     local-name: langs-dev
+#     version: master
+
+- git:
+    uri: 'git://github.com/ros/message_generation.git'
+    local-name: message_generation
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/message_runtime.git'
+    local-name: message_runtime
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/std_msgs.git'
+    local-name: std_msgs
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/roscpp_core.git'
+    local-name: roscpp_core
+    version: master
+
+# - git:
+#     uri: 'git://github.com/ros/ros_comm.git'
+#     local-name: ros_comm
+
+# - git:
+#     uri: 'git://github.com/ros/ros_tutorials.git'
+#     local-name: ros_tutorials
+
+- svn:
+    uri: 'https://code.ros.org/svn/ros/stacks/ros/trunk/'
+    local-name: ros
+
+- git:
+    uri: 'git://github.com/ros/common_msgs.git'
+    local-name: common_msgs
+
+- git:
+    uri: 'git://github.com/ros/rospack.git'
+    local-name: rospack
+
+# - hg:
+#     local-name: actionlib
+#     uri: https://kforge.ros.org/common/actionlib

@@ -1,0 +1,17 @@
+<package>
+  <name>rosbash</name>
+  <version>1.11.14</version>
+  <description>
+    Assorted shell commands for using ros with bash.
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url>http://www.ros.org/wiki/rosbash</url>
+  <author>Jeremy Leibs</author>
+  <author>Thibault Kruse</author>
+
+  <buildtool_depend version_gte="0.5.72">catkin</buildtool_depend>
+
+  <run_depend>catkin</run_depend>
+</package>

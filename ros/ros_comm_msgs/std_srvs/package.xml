@@ -1,0 +1,16 @@
+<package>
+  <name>std_srvs</name>
+  <version>1.11.2</version>
+  <description>Common service definitions.</description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/std_srvs</url>
+  <author>Morgan Quigley</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+</package>

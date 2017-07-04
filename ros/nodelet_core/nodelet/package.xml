@@ -1,0 +1,43 @@
+<package>
+  <name>nodelet</name>
+  <version>1.9.10</version>
+  <description>
+    The nodelet package is designed to provide a way to run multiple
+    algorithms in the same process with zero copy transport between
+    algorithms.
+
+    This package provides both the nodelet base class needed for
+    implementing a nodelet, as well as the NodeletLoader class used
+    for instantiating nodelets.
+  </description>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/nodelet</url>
+  <url type="bugtracker">https://github.com/ros/nodelet_core/issues</url>
+  <url type="repository">https://github.com/ros/nodelet_core</url>
+  <author>Tully Foote</author>
+  <author>Radu Bogdan Rusu</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>bondcpp</build_depend>
+  <build_depend>boost</build_depend>
+  <build_depend version_gte="0.3.2">cmake_modules</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend version_gte="1.10.0">pluginlib</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>uuid</build_depend>
+
+  <run_depend>bondcpp</run_depend>
+  <run_depend>boost</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend version_gte="1.10.0">pluginlib</run_depend>
+  <run_depend>rosconsole</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>uuid</run_depend>
+</package>

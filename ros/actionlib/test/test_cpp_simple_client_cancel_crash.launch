@@ -1,0 +1,3 @@
+<launch>
+  <test test-name="test_cpp_simple_client_cancel_crash" pkg="actionlib" type="actionlib-test_cpp_simple_client_cancel_crash"/>
+</launch>

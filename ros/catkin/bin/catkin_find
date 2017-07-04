@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import argparse
+import sys
+import os
+
+# find the import relatively if available to work before installing catkin or overlaying installed version
+if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'python', 'catkin', '__init__.py')):
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'python'))
+from catkin.find_in_workspaces import find_in_workspaces
+
+
+def parse_args(args=sys.argv[1:]):
+    parser = argparse.ArgumentParser(description='Searches the catkin workspaces for project-specific files/folders.')
+    parser.add_argument('project', nargs='?', help='The project to find a path for')
+    parser.add_argument('path', nargs='?', help='The relative path of a project file/folder (a prefix is sufficient)')
+    parser.add_argument('--first-only', action='store_true', help='Flag if only the first result should be returned')
+    parser.add_argument('--without-underlays', action='store_true', help='Flag if further workspaces should be skipped after finding matches in one workspace')
+
+    group = parser.add_argument_group('Search folders', 'Restrict the folders to search in')
+    for foldername, subfolder_help in {'bin': 'Search in "bin" folder',
+                                       'etc': 'Search in "etc(/PROJECT)" folder',
+                                       'include': 'Search in "include(/PROJECT)" folder',
+                                       'lib': 'Search in "lib" folder',
+                                       'libexec': 'Search in "lib/PROJECT" folder',
+                                       'share': 'Search in "share(/PROJECT)" folder (and source of PROJECT if not installed)'}.items():
+        group.add_argument('--%s' % foldername,
+                           dest='install_folders',
+                           action='append_const',
+                           const=foldername,
+                           help=subfolder_help)
+    return parser.parse_args(args=args)
+
+
+def main():
+    args = parse_args()
+    try:
+        # keep order of folders to search in
+        checked = []
+        results = find_in_workspaces(args.install_folders, args.project, args.path, first_matching_workspace_only=args.without_underlays, first_match_only=args.first_only, considered_paths=checked)
+
+        if args.first_only:
+            if len(results) > 1:
+                raise RuntimeError('Could not find unique path, the following paths are matching:\n%s' % '\n'.join(results))
+            elif len(results) == 0:
+                raise RuntimeError('Could not find any path, checked the following paths:\n%s' % '\n'.join(checked))
+        if results:
+            print('\n'.join(results))
+
+    except Exception as e:
+        sys.exit(str(e))
+
+
+if __name__ == '__main__':
+    main()

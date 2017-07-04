@@ -1,0 +1,6 @@
+start = end
+end += 4
+(length,) = _struct_I.unpack(str[start:end])
+start = end
+end += length
+data = str[start:end]

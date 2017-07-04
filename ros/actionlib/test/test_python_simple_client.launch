@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="actionlib" type="actionlib-simple_execute_ref_server" name="ref_server" output="screen" />
+  
+  <test test-name="simple_python_client_test" pkg="actionlib" type="simple_python_client_test.py" />
+</launch>

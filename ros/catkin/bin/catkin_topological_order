@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import argparse
+import os
+import sys
+
+# find the import relatively if available to work before installing catkin or overlaying installed version
+if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'python', 'catkin', '__init__.py')):
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'python'))
+try:
+    from catkin_pkg.topological_order import topological_order
+except ImportError as e:
+    sys.exit('ImportError: "from catkin_pkg.topological_order import topological_order" failed: %s\nMake sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.' % e)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Outputs the catkin projects of a workspace in topological order.')
+    parser.add_argument('workspace', nargs='?', default='.', help='The path to a workspace (default: .)')
+    parser.add_argument('--underlay-workspaces', nargs='*', default=[], help='The paths to underlay workspaces which are only used to resolve dependencies')
+    parser.add_argument('--only-folders', action='store_true', help='Only output the project folders')
+    parser.add_argument('--only-names', action='store_true', help='Only output the project names')
+    args = parser.parse_args()
+
+    # verify reasonable argument combination
+    if args.only_folders and args.only_names:
+        parser.error('Use either "--only-folders" or "--only-names" but not both')
+
+    # verify that workspace folder exists
+    workspace = os.path.abspath(args.workspace)
+    if not os.path.isdir(workspace):
+        sys.exit('Workspace "%s" does not exist' % workspace)
+
+    ordered_projects = topological_order(workspace, underlay_workspaces=args.underlay_workspaces)
+    if not ordered_projects:
+        sys.stderr.write('Workspace "%s" seems to not contain any projects.'
+                         ' Have you passed the correct path to a '
+                         'catkin workspace?' % workspace)
+        sys.exit(3)
+
+    for (path, package) in ordered_projects:
+        if path is None:
+            sys.exit('The workspace contains packages with a circular dependency: %s' % package)
+
+        if args.only_folders:
+            print('%s' % path)
+        elif args.only_names:
+            print('%s' % package.name)
+        else:
+            print('%s %s' % (package.name, path))
+
+if __name__ == '__main__':
+    main()

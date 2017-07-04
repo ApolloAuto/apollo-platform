@@ -1,0 +1,27 @@
+<package>
+  <name>nodelet_topic_tools</name>
+  <version>1.9.10</version>
+  <description>
+    This package contains common nodelet tools such as a mux, demux and throttle.
+  </description>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/nodelet_topic_tools</url>
+  <url type="bugtracker">https://github.com/ros/nodelet_core/issues</url>
+  <url type="repository">https://github.com/ros/nodelet_core</url>
+  <author>Radu Bogdan Rusu</author>
+  <author>Tully Foote</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>message_filters</run_depend>
+  <run_depend>nodelet</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>roscpp</run_depend>
+</package>

@@ -1,0 +1,16 @@
+<package>
+  <name>rosclean</name>
+  <version>1.11.14</version>
+  <description>
+    rosclean: cleanup filesystem resources (e.g. log files).
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/rosclean</url>
+  <author>Ken Conley</author>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <run_depend>python-rospkg</run_depend>
+</package>

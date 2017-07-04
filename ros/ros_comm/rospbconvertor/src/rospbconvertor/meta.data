@@ -1,0 +1,6 @@
+MODULE class topic topic_out
+CHASSIS chassis_pb2.Chassis() /planning/proxy/DuDriveChassis /apollo/canbus/chassis
+CONTROL control_cmd_pb2.ControlCommand() /pnc/control /apollo/control
+LOCALIZATION localization_pb2.LocalizationEstimate() /localization/100hz/localization_pose /apollo/localization/pose
+PLANNING planning_pb2.ADCTrajectory() /pnc/planning /apollo/planning
+Pad pad_msg_pb2.PadMessage() /pnc/control/PadMessage /apollo/control/pad

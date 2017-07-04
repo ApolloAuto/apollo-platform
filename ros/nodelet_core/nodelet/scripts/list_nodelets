@@ -1,0 +1,43 @@
+#! /usr/bin/env python
+# Provides quick access to the services exposed by MechanismControlNode
+
+from __future__ import print_function
+import roslib
+roslib.load_manifest('nodelet')
+
+from optparse import OptionParser
+
+import rospy
+from nodelet.srv import NodeletList
+
+
+class NodeletInterface():
+    def list_nodelets(self, manager):
+        service_manager = manager + "/list"
+        rospy.loginfo('Waiting for service: %s', service_manager)
+        rospy.wait_for_service(service_manager)
+        service_client = rospy.ServiceProxy(service_manager, NodeletList)
+        resp = service_client()
+        print(resp)
+
+
+def usage():
+    return '''list_nodelets <manager>       - List active nodelets on the manager'''
+
+
+if __name__ == '__main__':
+    parser = OptionParser(usage=usage())
+
+    rospy.init_node("nodelet", anonymous=True)
+    options, args = parser.parse_args(rospy.myargv())
+
+    if len(args) != 2:
+        parser.error("Command 'list_nodelets' requires 2 arguments not %d" % len(args))
+
+    manager = args[1]
+    service_manager = manager + "/list"
+    rospy.loginfo('Waiting for service: %s', service_manager)
+    rospy.wait_for_service(service_manager)
+    service_client = rospy.ServiceProxy(service_manager, NodeletList)
+    resp = service_client()
+    print(resp)

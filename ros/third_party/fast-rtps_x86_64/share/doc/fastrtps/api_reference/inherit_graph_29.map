@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_history.html" title="Class History, container of the different CacheChanges and the methods to access them. " alt="" coords="5,31,69,57"/>
+<area shape="rect" id="node2" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_reader_history.html" title="Class ReaderHistory, container of the different CacheChanges of a reader. " alt="" coords="117,5,224,32"/>
+<area shape="rect" id="node3" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_writer_history.html" title="Class WriterHistory, container of the different CacheChanges of a writer. " alt="" coords="121,56,220,83"/>
+</map>

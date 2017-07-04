@@ -1,0 +1,2236 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fast RTPS 1.4.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="_static/css/fiware_readthedocs.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="None" href="index.html#document-index"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://docs.eprosima.com/en/latest/" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'index'
+</script>
+
+<script type="text/javascript" src="_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html#document-index" class="icon icon-home"> Fast RTPS
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><p class="caption"><span class="caption-text">Installation manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-requirements">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#common-dependencies">Common Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#gtest">Gtest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#java">Java</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#windows-7-32-bit-and-64-bit">Windows 7 32-bit and 64-bit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#visual-c-2013-or-2015-redistributable-package">Visual C++ 2013 or 2015 Redistributable Package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-binaries">Installation from Binaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#windows-7-32-bit-and-64-bit">Windows 7 32-bit and 64-bit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#environmental-variables">Environmental Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-sources">Installation from Sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#openssl-installation-on-linux">OpenSSL installation on Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#openssl-installation-on-windows">OpenSSL installation on Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-introduction">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#brief-introduction-to-the-rtps-protocol">Brief introduction to the RTPS protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#building-your-first-application">Building your first application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-overview">Library Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#fast-rtps-architecture">Fast RTPS architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#threads">Threads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#events">Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-list">Objects and Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publisher-subscriber-module">Publisher Subscriber Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#rtps-module">RTPS Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#rtps-common">RTPS Common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#rtps-domain">RTPS Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#rtps-reader">RTPS Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#rtps-writer">RTPS Writer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-pubsub">Publisher-Subscriber Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-the-publisher-subscriber-layer">How to use the Publisher-Subscriber Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#participant-configuration">Participant Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setting-the-name-and-domain-of-the-participant">Setting the name and Domain of the Participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setting-up-network-configuration">Setting up network configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="index.html#listening-locators">Listening locators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#sending-locators">Sending locators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#initial-peers">Initial peers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#publisher-and-subscriber-configuration">Publisher and Subscriber Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setting-the-name-and-data-type-of-the-topic">Setting the name and data type of the topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reliability-kind">Reliability Kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#configuring-sample-storage">Configuring sample storage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#additional-concepts">Additional Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#built-in-protocols">Built-In Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#using-message-meta-data">Using message meta-data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#defining-callbacks">Defining callbacks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-rtps">Writer-Reader Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#relation-to-the-publisher-subscriber-layer">Relation to the Publisher-Subscriber Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-the-writer-reader-layer">How to use the Writer-Reader Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#managing-the-participant">Managing the Participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#managing-the-writers-and-readers">Managing the Writers and Readers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#using-the-history-to-send-and-receive-data">Using the History to Send and Receive Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-readers-and-writers">Configuring Readers and Writers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setting-the-input-and-output-channels">Setting the Input and Output Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#setting-the-data-durability-kind">Setting the data durability kind</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuring-the-history">Configuring the History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#changing-the-maximum-size-of-the-payload">Changing the maximum size of the payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#changing-the-size-of-the-history">Changing the size of the History</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-advanced">Advanced Functionalities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#topics-and-keys">Topics and Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning-realiable-mode">Tuning Realiable mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#flow-controllers">Flow Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sending-large-data">Sending large data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#example-sending-a-unique-large-file">Example: Sending a unique large file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#example-video-streaming">Example: Video streaming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transport-layer">Transport Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#matching-endpoints-the-manual-way">Matching endpoints the manual way</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#subscribing-to-discovery-topics">Subscribing to Discovery Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#additional-quality-of-service-options">Additional Quality of Service options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-security">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication-plugins">Authentication plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#cryptographic-plugins">Cryptographic plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#built-in-plugins">Built-in plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#auth-pki-dh">Auth:PKI-DH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="index.html#generation-of-x509-certificates">Generation of x509 certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#crypto-aes-gcm-gmac">Crypto:AES-GCM-GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-fastrtpsgen">Code generation using fastrtpsgen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#compilation">Compilation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">FastRTPSGen Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-geninfo">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-genuse">Execution and IDL Definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#building-publisher-subscriber-code">Building publisher/subscriber code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#defining-a-data-type-via-idl">Defining a data type via IDL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#arrays">Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#sequences">Sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#structures">Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#unions">Unions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#enumerations">Enumerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#keyed-types">Keyed Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-notes">Version 1.4.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#previous-versions">Previous versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#version-1-3-1">Version 1.3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#version-1-3-0">Version 1.3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#version-1-2-0">Version 1.2.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#document-index">Fast RTPS</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html#document-index">Docs</a> &raquo;</li>
+        
+      <li>Fast RTPS 1.4.0 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/eProsima/Fast-RTPS-docs/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="eprosima-fast-rtps-documentation">
+<h1>eProsima Fast RTPS Documentation<a class="headerlink" href="#eprosima-fast-rtps-documentation" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://www.eprosima.com/"><img alt="eProsima" class="align-left" src="_images/logo.png" style="width: 100px; height: 100px;" /></a>
+<p><em>eprosima Fast RTPS</em> is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol, which provides publisher-subscriber communications over unreliable transports such as UDP,
+as defined and maintained by the Object Management Group (OMG) consortium. RTPS is also the wire interoperability protocol defined for the Data Distribution
+Service (DDS) standard, again by the OMG. <em>eProsima Fast RTPS</em> holds the benefit of being standalone and up-to-date, as most vendor solutions either implement RTPS as a tool to implement
+DDS or use past versions of the specification.</p>
+<p>Some of the main features of this library are:</p>
+<ul class="simple">
+<li>Configurable best-effort and reliable publish-subscribe communication policies for real-time applications.</li>
+<li>Plug and play connectivity so that any new applications are automatically discovered by any other members of the network.</li>
+<li>Modularity and scalability to allow continuous growth with complex and simple devices in the network.</li>
+<li>Configurable network behavior and interchangeable transport layer: Choose the best protocol and system input/output channel combination for each deployment.</li>
+<li>Two API Layers: a high-level Publisher-Subscriber one focused on usability and a lower-level Writer-Reader one that provides finer access to the inner workings of the RTPS protocol.</li>
+</ul>
+<p>eProsima Fast RTPS has been adopted by multiple organizations in many sectors including these important cases:</p>
+<ul class="simple">
+<li>Robotics: ROS (Robotic Operating System) as their default middleware for ROS2.</li>
+<li>EU R&amp;D: FIWARE Incubated GE.</li>
+</ul>
+<p>This documentation is organized into the following sections:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#installation"><span class="std std-ref">Installation manual</span></a></li>
+<li><a class="reference internal" href="#user"><span class="std std-ref">User Manual</span></a></li>
+<li><a class="reference internal" href="#gen"><span class="std std-ref">FastRTPSGen Manual</span></a></li>
+<li><a class="reference internal" href="#notes"><span class="std std-ref">Release Notes</span></a></li>
+</ul>
+<div class="toctree-wrapper compound" id="installation">
+<span id="document-requirements"></span><div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p><em>eProsima Fast RTPS</em> requires the following packages to work.</p>
+<div class="section" id="common-dependencies">
+<h3>Common Dependencies<a class="headerlink" href="#common-dependencies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gtest">
+<h4>Gtest<a class="headerlink" href="#gtest" title="Permalink to this headline">¶</a></h4>
+<p>Gtest is needed to compile the tests when building from sources.</p>
+</div>
+<div class="section" id="java">
+<h4>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h4>
+<p>Java is required to make use of our buil-in code generation tool <em>fastrtpsgen</em>.</p>
+</div>
+</div>
+<div class="section" id="windows-7-32-bit-and-64-bit">
+<h3>Windows 7 32-bit and 64-bit<a class="headerlink" href="#windows-7-32-bit-and-64-bit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="visual-c-2013-or-2015-redistributable-package">
+<h4>Visual C++ 2013 or 2015 Redistributable Package<a class="headerlink" href="#visual-c-2013-or-2015-redistributable-package" title="Permalink to this headline">¶</a></h4>
+<p><em>eProsima Fast RTPS</em> requires the Visual C++ Redistributable packages for the Visual Studio version you choose during the installation or compilation. The installer gives you the option of downloading and installing them.</p>
+</div>
+</div>
+</div>
+<span id="document-binaries"></span><div class="section" id="installation-from-binaries">
+<h2>Installation from Binaries<a class="headerlink" href="#installation-from-binaries" title="Permalink to this headline">¶</a></h2>
+<p>You can always download the latest binary realese of <em>eProsima Fast RTPS</em> from the <a class="reference external" href="https://www.eprosima.com/">company website</a>.</p>
+<div class="section" id="windows-7-32-bit-and-64-bit">
+<h3>Windows 7 32-bit and 64-bit<a class="headerlink" href="#windows-7-32-bit-and-64-bit" title="Permalink to this headline">¶</a></h3>
+<p>Execute the installer and follow the instructions, choosing your preffered Visual Studio version and architecture when prompted.</p>
+<div class="section" id="environmental-variables">
+<h4>Environmental Variables<a class="headerlink" href="#environmental-variables" title="Permalink to this headline">¶</a></h4>
+<p><em>eProsima Fast RTPS</em> requires the following environmental variable setup in order to function properly</p>
+<ul class="simple">
+<li>FASTRTPSHOME: Root folder where <em>eProsima Fast RTPS</em> is installed.</li>
+<li>Additions to the PATH: the /bin folder and the subfolder for your Visual Studio version of choice should be appended to the PATH.</li>
+</ul>
+<p>These variables are set automatically by checking the corresponding box during the installation process.</p>
+</div>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Extract the contents of the package. It will containt both <em>eProsima Fast RTPS</em> and its required package <em>eProsima Fast CDR</em>. You will have follow the same procedure for both packages, starting with <em>Fast CDR</em>.</p>
+<p>Configure the compilation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./configure --libdir=/usr/lib
+</pre></div>
+</div>
+<p>If you want to compile with debug symbols (which also enables verbose mode):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./configure CXXFLAGS=&quot;-g -D__DEBUG&quot;  --libdir=/usr/lib
+</pre></div>
+</div>
+<p>After configuring the project compile and install the library:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo make install
+</pre></div>
+</div>
+</div>
+</div>
+<span id="document-sources"></span><div class="section" id="installation-from-sources">
+<span id="id1"></span><h2>Installation from Sources<a class="headerlink" href="#installation-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>Clone the project from Github:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/eProsima/Fast-RTPS
+$ mkdir Fast-RTPS/build &amp;&amp; cd Fast-RTPS/build
+</pre></div>
+</div>
+<p>If you are on Linux, execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cmake -DTHIRDPARTY=ON ..
+$ make
+$ sudo make install
+</pre></div>
+</div>
+<p>If you are on Windows, choose your version of Visual Studio:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">-</span><span class="n">G</span> <span class="s2">&quot;Visual Studio 14 2015 Win64&quot;</span> <span class="o">-</span><span class="n">DTHIRDPARTY</span><span class="o">=</span><span class="n">ON</span> <span class="o">..</span>
+<span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">.</span> <span class="o">--</span><span class="n">target</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>If you want to compile the examples, you will need to add the argmuent <code class="docutils literal"><span class="pre">-DCOMPILE_EXAMPLES=ON</span></code> when calling CMake.</p>
+<p>If you want to compile the performance tests, you will need to add the argument <code class="docutils literal"><span class="pre">-DPERFORMANCE_TESTS=ON</span></code> when calling CMake.</p>
+<div class="section" id="security">
+<h3>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h3>
+<p>By default Fast RTPS doesn&#8217;t compile security support. You can activate it adding <code class="docutils literal"><span class="pre">-DSECURITY=ON</span></code> at CMake
+configuration step. More information about security on Fast RTPS, see <a class="reference internal" href="index.html#security"><span class="std std-ref">Security</span></a>.</p>
+<p>When security is activated on compilation Fast RTPS builds two built-tin security plugins. Both have the dependency of
+OpenSSL library.</p>
+<div class="section" id="openssl-installation-on-linux">
+<h4>OpenSSL installation on Linux<a class="headerlink" href="#openssl-installation-on-linux" title="Permalink to this headline">¶</a></h4>
+<p>Surely you can install OpenSSL using the package manager of your Linux distribution. For example on Fedora you can
+install OpenSSL using its package manager with next command.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo yum install openssl-devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="openssl-installation-on-windows">
+<h4>OpenSSL installation on Windows<a class="headerlink" href="#openssl-installation-on-windows" title="Permalink to this headline">¶</a></h4>
+<p>You can download OpenSSL for Windows in this <a class="reference external" href="https://slproweb.com/products/Win32OpenSSL.html">webpage</a>. This is the OpenSSL version tested by our team. Download the
+installer that fits your requirements and install it. After installing, add the environment variable
+<code class="docutils literal"><span class="pre">OPENSSL_ROOT_DIR</span></code> pointing to the installation root directory. For example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">OPENSSL_ROOT_DIR</span><span class="o">=</span>C:<span class="se">\O</span>penSSL-Win64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound" id="user">
+<span id="document-introduction"></span><div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="brief-introduction-to-the-rtps-protocol">
+<h3>Brief introduction to the RTPS protocol<a class="headerlink" href="#brief-introduction-to-the-rtps-protocol" title="Permalink to this headline">¶</a></h3>
+<p>At the top of RTPS we find the Domain, which defines a separate plane of communication. A domain contains any number of Participants, elements capable of sending and receiving data. To do this, the participants use their Endpoints:</p>
+<ul class="simple">
+<li>Reader: Endpoint able to receive data.</li>
+<li>Writer: Endpoint able to send data.</li>
+</ul>
+<p>A Participant can have any number of writer and reader endpoints.</p>
+<img alt="_images/RTPS-structure.png" src="_images/RTPS-structure.png" />
+<p>Communication revolves around Topics, which define the data being exchanged. Topics don’t belong to any participant in particular; instead, all interested participants keep track of changes to the topic data, and make sure to keep each other up to date.
+The unit of communication is called a Change, which represents an update to a topic. Endpoints register these changes on their History, a data structure that serves as a cache for recent changes.
+When you publish a change through a writer endpoint, the following steps happen behind the scenes:</p>
+<ul class="simple">
+<li>The change is added to the writer’s history cache.</li>
+<li>The writer informs any readers it knows about.</li>
+<li>Any interested (subscribed) readers request the change.</li>
+<li>After receiving data, readers update their history cache with the new change.</li>
+</ul>
+<p>By choosing Quality of Service policies, you can affect how these history caches are managed in several ways, but the communication loop remains the same.</p>
+</div>
+<div class="section" id="building-your-first-application">
+<h3>Building your first application<a class="headerlink" href="#building-your-first-application" title="Permalink to this headline">¶</a></h3>
+<p>To build a minimal application, you must first define the topic. Write an IDL file containing the specification you want. In this case, a single string is sufficient.</p>
+<div class="highlight-idl"><div class="highlight"><pre><span></span><span class="o">//</span> HelloWorld.idl
+struct HelloWorld
+{
+    <span class="nb">string</span> msg;
+};
+</pre></div>
+</div>
+<p>Now we need to translate this file to something Fast RTPS understands. For this we have a code generation tool called fastrtpsgen, which can do two different things:</p>
+<ul class="simple">
+<li>Generate C++ definitions for your custom topic.</li>
+<li>Optionally, generate a working example that uses your topic data.</li>
+</ul>
+<p>You may want to check out the fastrtpsgen user manual, which comes with the distribution of the library. But for now the following commands will do:</p>
+<p>On Windows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fastrtpsgen</span><span class="o">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">example</span> <span class="n">x64Win64VS2015</span> <span class="n">HelloWorld</span><span class="o">.</span><span class="n">idl</span>
+</pre></div>
+</div>
+<p>On Linux:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fastrtpsgen</span> <span class="o">-</span><span class="n">example</span> <span class="n">x64Linux2</span><span class="o">.</span><span class="mi">6</span><span class="n">gcc</span> <span class="n">HelloWorld</span><span class="o">.</span><span class="n">idl</span>
+</pre></div>
+</div>
+<p>The <cite>-example</cite> option creates an example application, which you can use to spawn any number of publishers and a subscribers associated with your topic.i</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">HelloWorldPublisherSubscriber</span> <span class="n">publisher</span>
+<span class="o">./</span><span class="n">HelloWorldPublisherSubscriber</span> <span class="n">subscriber</span>
+</pre></div>
+</div>
+<p>On Windows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HelloWorldPublisherSubscriber</span><span class="o">.</span><span class="n">exe</span> <span class="n">publisher</span>
+<span class="n">HelloWorldPublisherSubscriber</span><span class="o">.</span><span class="n">exe</span> <span class="n">subscriber</span>
+</pre></div>
+</div>
+<p>You may need to set up a special rule in your Firewall for <em>eprosima Fast RTPS</em> to work correctly on Windows.</p>
+<p>Each time you press &lt;Enter&gt; on the Publisher, a new datagram is generated, sent over the network
+and receiver by Subscribers currently online. If more than one subscriber is available, it can be seen that the
+message is equally received on all listening nodes.</p>
+<p>You can modify any values on your custom, IDL-generated data type before sending.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HelloWorld</span> <span class="n">myHelloWorld</span><span class="p">;</span>
+<span class="n">myHelloWorld</span><span class="p">.</span><span class="n">message</span><span class="p">(</span><span class="s">&quot;HelloWorld&quot;</span><span class="p">);</span>
+<span class="n">mp_publisher</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">((</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">myHelloWorld</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Take a look at the <cite>examples/</cite> folder for ideas on how to improve this basic application through different configuration options, and for examples of advanced Fast RTPS features.</p>
+</div>
+</div>
+<span id="document-overview"></span><div class="section" id="library-overview">
+<h2>Library Overview<a class="headerlink" href="#library-overview" title="Permalink to this headline">¶</a></h2>
+<p>You can interact with Fast RTPS at two different levels:</p>
+<ul class="simple">
+<li>Publisher-Subscriber: Simplified abstraction over RTPS.</li>
+<li>Writer-Reader: Direct control over RTPS endpoints.</li>
+</ul>
+<img alt="_images/architecture.png" src="_images/architecture.png" />
+<p>In red, the Publisher-Subscriber layer offers a convenient abstraction for most use cases. It allows you to define Publishers and Subscribers associated to a topic, and a simple way to transmit topic data. You may remember this from the example we generated in the &#8220;Getting Started&#8221; section, where we updated our local copy of the topic data, and called a write() method on it.
+In blue, the Writer-Reader layer is closer to the concepts defined in the RTPS standard, and allows for finer control, but requires you to interact directly with history caches for each endpoint.</p>
+<div class="section" id="fast-rtps-architecture">
+<h3>Fast RTPS architecture<a class="headerlink" href="#fast-rtps-architecture" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="threads">
+<h4>Threads<a class="headerlink" href="#threads" title="Permalink to this headline">¶</a></h4>
+<p>eProsima Fast RTPS is concurrent and event-based. Each participant spawns a set of threads to take care of background tasks such as logging, message reception and asynchronous communication.
+This should not impact the way you use the library: the public API is thread safe, so you can fearlessly call any methods on the same participant from different threads. However, it is still useful to know how Fast RTPS schedules work:</p>
+<ul class="simple">
+<li>Main thread: Managed by the application.</li>
+<li>Event thread: Each participant owns one of these, and it processes periodic and triggered events.</li>
+<li>Asynchronous writer thread: This thread manages asynchronous writes for all participants. Even for synchronous writers, some forms of communication must be initiated in the background.</li>
+<li>Reception threads: Participants spawn a thread for each reception channel, where the concept of  channel depends on the transport layer (e.g.  an UDP port).</li>
+</ul>
+</div>
+<div class="section" id="events">
+<h4>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h4>
+<p>There is an event system that enables Fast RTPS to respond to certain conditions, as well as schedule periodic activities. Few of them are visible to the user, since most are related to RTPS metadata. However, you can define your own periodic events by inheriting from the TimedEvent class.</p>
+</div>
+</div>
+</div>
+<span id="document-list"></span><div class="section" id="objects-and-data-structures">
+<h2>Objects and Data Structures<a class="headerlink" href="#objects-and-data-structures" title="Permalink to this headline">¶</a></h2>
+<p>In order to make the most of <em>eProsima Fast RTPS</em> it is important to have a grasp of the objects and data structures that conform the library. <em>eProsima Fast RTPS</em> objects are classified by modules, which are briefly listed and descripted in this section. For full coverage take a look at the API Reference document that comes with the distribution.</p>
+<div class="section" id="publisher-subscriber-module">
+<h3>Publisher Subscriber Module<a class="headerlink" href="#publisher-subscriber-module" title="Permalink to this headline">¶</a></h3>
+<p>This module composes the Publisher-Subscriber abstraction we saw in the Library Overview. The concepts here are higher level than the RTPS standard.</p>
+<ul>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code> Used to create, manage and destroy high-level Participants.</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Participant</span></code> Contains Publishers and Subscribers, and manages their configuration.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">ParticipantAttributes</span></code> Configuration parameters used in the creation of a Participant.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">ParticipantListener</span></code> Allows you to implement callbacks within scope of the Participant.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code> Sends (publishes) data in the form of topic changes.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">PublisherAttributes</span></code> Configuration parameters for the construction of a Publisher.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">PublisherListener</span></code> Allows you to implement callbacks within scope of the Publisher.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Subscriber</span></code> Receives data for the topics it subscribes to.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">SubscriberAttributes</span></code> Configuration parameters for the construction of a Subscriber.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">SubscriberListener</span></code> Allows you to implement callbacks within scope of the Subscriber.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="rtps-module">
+<h3>RTPS Module<a class="headerlink" href="#rtps-module" title="Permalink to this headline">¶</a></h3>
+<p>This module directly maps to the ideas defined in the RTPS standard, and allows you to interact with RTPS entities directly. It consists of a few sub-modules:</p>
+<div class="section" id="rtps-common">
+<h4>RTPS Common<a class="headerlink" href="#rtps-common" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">CacheChange_t</span></code> Represents a change to a topic, to be stored in a history cache.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">Data</span></code> Payload associated to a cache change. May be empty depending on the message and change type.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">Message</span></code> Defines the organization of a RTPS Message.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">Header</span></code> Standard header that identifies a message as belonging to the RTPS protocol, and includes the vendor id.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">Sub-Message</span> <span class="pre">Header</span></code> Identifier for an RTPS sub-message. An RTPS Message can be composed of several sub-messages.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">MessageReceiver</span></code> Deserializes and processes received RTPS messages.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">RTPSMessageCreator</span></code> Composes RTPS messages.</li>
+</ul>
+</div>
+<div class="section" id="rtps-domain">
+<h4>RTPS Domain<a class="headerlink" href="#rtps-domain" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">RTPSDomain</span></code> Use it to create, manage and destroy low-level RTPSParticipants.</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">RTPSParticipant</span></code> Contains RTPS Writers and Readers, and manages their configuration.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">RTPSParticipantAttributes</span></code> Configuration parameters used in the creation of an RTPS Participant.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">PDPSimple</span></code> Allows the participant to become aware of the other participants within the Network, through the Participant Discovery Protocol.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">EDPSimple</span></code> Allows the Participant to become aware of the endpoints (RTPS Writers and Readers) present in the other Participants within the network, through the Endpoint Discovery Protocol.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">EDPStatic</span></code> Reads information about remote endpoints from a user file.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">TimedEvent</span></code>  Base class for periodic or timed events.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="rtps-reader">
+<h4>RTPS Reader<a class="headerlink" href="#rtps-reader" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">RTPSReader</span></code> Base class for the reader endpoint.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">ReaderAttributes</span></code> Configuration parameters used in the creation of an RTPS Reader.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">ReaderHistory</span></code> History data structure. Stores recent topic changes.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">ReaderListener</span></code> Use it to define callbacks in scope of the Reader.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="rtps-writer">
+<h4>RTPS Writer<a class="headerlink" href="#rtps-writer" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">RTPSWriter</span></code> Base class for the writer endpoint.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="xref py py-class docutils literal"><span class="pre">WriterAttributes</span></code> Configuration parameters used in the creation of an RTPS Writer.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">WriterHistory</span></code> History data structure. Stores outgoing topic changes and schedules them to be sent.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<span id="document-pubsub"></span><div class="section" id="publisher-subscriber-layer">
+<h2>Publisher-Subscriber Layer<a class="headerlink" href="#publisher-subscriber-layer" title="Permalink to this headline">¶</a></h2>
+<p><em>eprosima Fast RTPS</em> provides a high level Publisher-Subscriber Layer, which is a simple to use abstraction over the RTPS protocol.
+By using this layer, you can code a straight-to-the-point application while letting the library take care of the lower level configuration.</p>
+<div class="section" id="how-to-use-the-publisher-subscriber-layer">
+<h3>How to use the Publisher-Subscriber Layer<a class="headerlink" href="#how-to-use-the-publisher-subscriber-layer" title="Permalink to this headline">¶</a></h3>
+<p>We are going to use the example built in the previous section to explain how this layer works.</p>
+<p>The first step to create a <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code> instance, which will act as a container for the Publishers and
+Subscribers our application needs. For this we use <code class="xref py py-class docutils literal"><span class="pre">Domain</span></code>, a static class that manages RTPS entities.
+We also need to pass a configuration structure for the Participant, which can be left in its default configuration for now:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">ParticipantAttributes</span> <span class="n">Pparam</span><span class="p">;</span> <span class="c1">//Configuration structure</span>
+<span class="n">Participant</span> <span class="o">*</span><span class="n">mp_participant</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">createParticipant</span><span class="p">(</span><span class="n">Pparam</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The default configuration provides a basic working set of options with predefined ports for communications.
+During this tutorial you will learn to tune <em>eProsima Fast RTPS</em>.</p>
+<p>In order to use our topic, we have to register it within the <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code> using the code generated with <em>fastrtpsgen</em>. Once again, this is done by using the <code class="xref py py-class docutils literal"><span class="pre">Domain</span></code> class:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HelloWorldPubSubType</span> <span class="n">m_type</span><span class="p">;</span> <span class="c1">//Auto-generated type from FastRTPSGen</span>
+<span class="n">Domain</span><span class="o">::</span><span class="n">registerType</span><span class="p">(</span><span class="n">mp_participant</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once set up, we instantiate a <code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code> within our <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code>:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">PublisherAttributes</span> <span class="n">Wparam</span><span class="p">;</span> <span class="c1">//Configuration structure</span>
+<span class="n">PubListener</span> <span class="n">m_listener</span><span class="p">;</span> <span class="c1">//Class that implements callbacks from the publisher</span>
+<span class="n">Publisher</span> <span class="o">*</span><span class="n">mp_publisher</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">createPublisher</span><span class="p">(</span><span class="n">mp_participant</span><span class="p">,</span> <span class="n">Wparam</span><span class="p">,</span> <span class="p">(</span><span class="n">PublisherListener</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_listener</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once the <code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code> is functional, posting data is a simple process:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HelloWorld</span> <span class="n">m_Hello</span><span class="p">;</span> <span class="c1">//Auto-generated container class for topic data from FastRTPSGen</span>
+<span class="n">m_Hello</span><span class="p">.</span><span class="n">msg</span><span class="p">(</span><span class="s">&quot;Hello there!&quot;</span><span class="p">);</span> <span class="c1">// Add contents to the message</span>
+<span class="n">mp_publisher</span><span class="o">-&gt;</span><span class="n">write</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_Hello</span><span class="p">);</span> <span class="c1">//Publish</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code> has a set of optional callback functions that are triggered when events happen. An example is when a <code class="xref py py-class docutils literal"><span class="pre">Subscriber</span></code> starts listening to our topic.</p>
+<p>To implement these callbacks we create the class <code class="xref py py-class docutils literal"><span class="pre">PubListener</span></code>, which inherits from the base class <code class="xref py py-class docutils literal"><span class="pre">PublisherListener</span></code>.
+We pass an instance to this class during the creation of the <code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PubListener</span> <span class="o">:</span> <span class="k">public</span> <span class="n">PublisherListener</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">PubListener</span><span class="p">(){};</span>
+    <span class="o">~</span><span class="n">PubListener</span><span class="p">(){};</span>
+    <span class="kt">void</span> <span class="nf">onPublicationmatched</span><span class="p">(</span><span class="n">Publisher</span><span class="o">*</span> <span class="n">pub</span><span class="p">,</span> <span class="n">MatchingInfo</span><span class="o">&amp;</span> <span class="n">info</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Callback implementation. This is called each time the Publisher finds a Subscriber on the network that listens to the same topic.</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="n">m_listener</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-class docutils literal"><span class="pre">Subscriber</span></code> creation and implementation is symmetric.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">SubscriberAttributes</span> <span class="n">Rparam</span><span class="p">;</span> <span class="c1">//Configuration structure</span>
+<span class="n">SubListener</span> <span class="n">m_listener</span><span class="p">;</span> <span class="c1">//Class that implements callbacks from the Subscriber</span>
+<span class="n">Subscriber</span> <span class="o">*</span><span class="n">mp_subscriber</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">createSubscriber</span><span class="p">(</span><span class="n">mp_participant</span><span class="p">,</span><span class="n">Rparam</span><span class="p">,(</span><span class="n">SubsciberListener</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_listener</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Incoming messages are processed within the callback that is called when a new message is received:</p>
+</div>
+<div class="section" id="participant-configuration">
+<h3>Participant Configuration<a class="headerlink" href="#participant-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code> is configured via the <code class="xref py py-class docutils literal"><span class="pre">ParticipantAttributes</span></code> structure. We will now go over the most common configuration options.</p>
+<div class="section" id="setting-the-name-and-domain-of-the-participant">
+<h4>Setting the name and Domain of the Participant<a class="headerlink" href="#setting-the-name-and-domain-of-the-participant" title="Permalink to this headline">¶</a></h4>
+<p>The name of the <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code>, which forms part of the meta-data of the RTPS protocol, can be changed from within the <code class="xref py py-class docutils literal"><span class="pre">ParticipantAttributes</span></code>:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Pparam</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&quot;my_participant&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Publishers and Subscribers can only talk to each other if their Participants belong to the same DomainId. To set the Domain:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Pparam</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">domainId</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-network-configuration">
+<h4>Setting up network configuration<a class="headerlink" href="#setting-up-network-configuration" title="Permalink to this headline">¶</a></h4>
+<p><em>eProsima Fast RTPS</em> implements an architecture of pluggable network transports. Current version implements two network
+transports: UDPv4 and UDPv6. By default, when a <code class="xref py py-class docutils literal"><span class="pre">Participant</span></code> is created, one built-in UDPv4 network transport is
+configured.</p>
+<p>You can add custom transport using the attribute <code class="docutils literal"><span class="pre">rtps.userTransports</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">//Creation of the participant</span>
+<span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="k">auto</span> <span class="n">customTransport</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">UDPv4TransportDescriptor</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">customTransport</span><span class="o">-&gt;</span><span class="n">sendBufferSize</span> <span class="o">=</span> <span class="mi">9216</span><span class="p">;</span>
+    <span class="n">customTransport</span><span class="o">-&gt;</span><span class="n">receiveBufferSize</span> <span class="o">=</span> <span class="mi">9216</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">userTransports</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">customTransport</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Also you can disable built-in UDPv4 network transport using the attribute <code class="docutils literal"><span class="pre">rtps.useBuiltinTransports</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">useBuiltinTransports</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Network endpoints are defined by <em>eProsima Fast RTPS</em> as locators. Locators in <em>eProsima Fast RTPS</em> are enclosed as type <code class="xref py py-class docutils literal"><span class="pre">Locator_t</span></code>, which has the following fields:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">kind</span></code>: Defines the protocol. <em>eProsima Fast RTPS</em> currently supports UDPv4 or UDPv6</li>
+<li><code class="docutils literal"><span class="pre">port</span></code>: Port as an UDP/IP port.</li>
+<li><code class="docutils literal"><span class="pre">address</span></code>: Maps to IP address</li>
+</ul>
+<div class="section" id="listening-locators">
+<h5>Listening locators<a class="headerlink" href="#listening-locators" title="Permalink to this headline">¶</a></h5>
+<p><em>eProsima Fast RTPS</em> divides listening locators in four categories:</p>
+<ul>
+<li><p class="first">Metatraffic Multicast Locators: these locators are used to receive metatraffic information using multicast.
+They usually are used by built-in endpoints, like the discovery built-in endpoints. You can set your own locators
+using attribute <code class="docutils literal"><span class="pre">rtps.builtin.metatrafficMulticastLocatorList</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator will open a socket to listen network messages on UDPv4 port 22222 over multicast address 239.255.0.1</span>
+<span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">rtps</span><span class="o">::</span><span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">239</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">22222</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">metatrafficMulticastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Metatraffic Unicast Locators: these locators are used to receive metatraffic information using unicast.
+The usually are used by built-in endpoints, like the discovery built-in endpoints. You can set your own locators using
+attribute <code class="docutils literal"><span class="pre">rtps.builtin.metatrafficUnicastLocatorList</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator will open a socket to listen network messages on UDPv4 port 22223 over network interface 192.168.0.1</span>
+<span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">rtps</span><span class="o">::</span><span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">22223</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">metatrafficUniicastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">User Multicast Locators: these locators are used to receive user information using multicast. They are used by user
+endpoints. You can set your own locators using attribute <code class="docutils literal"><span class="pre">rtps.defaultMulticastLocatorList</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator will open a socket to listen network messages on UDPv4 port 22224 over multicast address 239.255.0.1</span>
+<span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">rtps</span><span class="o">::</span><span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">239</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">22224</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">defaultMulticastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">User Unicast Locators: these locators are used to receive user information using unicast. They are used by user
+endpoints. You can set your own locators using attributes <code class="docutils literal"><span class="pre">rtps.defaultUnicastLocatorList</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator will open a socket to listen network messages on UDPv4 port 22225 over network interface 192.168.0.1</span>
+<span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">rtps</span><span class="o">::</span><span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">22225</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">defaultUnicastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>By default <em>eProsima Fast RTPS</em> calculates the listening locators for the built-in UDPv4 network transport using
+well-known ports. These well-known ports are calculated using next predefined rules:</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Ports used</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Traffic type</th>
+<th class="head">Well-known port expression</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Metatraffic multicast</td>
+<td>PB + DG * <em>domainId</em> + offsetd0</td>
+</tr>
+<tr class="row-odd"><td>Metatraffic unicast</td>
+<td>PB + DG * <em>domainId</em> + offsetd1 + PG * <em>participantId</em></td>
+</tr>
+<tr class="row-even"><td>User multicast</td>
+<td>PB + DG * <em>domainId</em> + offsetd2</td>
+</tr>
+<tr class="row-odd"><td>User unicast</td>
+<td>PB + DG * <em>domainId</em> + offsetd3 + PG * <em>participantId</em></td>
+</tr>
+</tbody>
+</table>
+<p>These predefined rules use some values explained here:</p>
+<ul class="simple">
+<li>DG: DomainId Gain. You can set this value using attribute <code class="docutils literal"><span class="pre">rtps.port.domainIDGain</span></code>. Default value is <code class="docutils literal"><span class="pre">250</span></code>.</li>
+<li>PG: ParticipantId Gain. You can set this value using attribute <code class="docutils literal"><span class="pre">rtps.port.participantIDGain</span></code>. Default value is <code class="docutils literal"><span class="pre">2</span></code>.</li>
+<li>PB: Port Base number. You can set this value using attribute <code class="docutils literal"><span class="pre">rtps.port.portBase</span></code>. Default value is <code class="docutils literal"><span class="pre">7400</span></code>.</li>
+<li>offsetd0, offsetd1, offsetd2, offsetd3: Additional offsets. You can set these values using attributes
+<code class="docutils literal"><span class="pre">rtps.port.offsetdN</span></code>. Default values are: <code class="docutils literal"><span class="pre">offsetd0</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal"><span class="pre">offsetd1</span> <span class="pre">=</span> <span class="pre">10</span></code>, <code class="docutils literal"><span class="pre">offsetd2</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal"><span class="pre">offsetd3</span> <span class="pre">=</span> <span class="pre">11</span></code>.</li>
+</ul>
+<p>A UDPv4 unicast locator supports to have a null address. In that case <em>eProsima Fast RTPS</em> understands to get local network
+addresses and use them.</p>
+<p>A UDPv4 locator support to have a zero port. In that case <em>eProsima Fast RTPS</em> understands to calculate well-known port
+for that type of traffic.</p>
+</div>
+<div class="section" id="sending-locators">
+<h5>Sending locators<a class="headerlink" href="#sending-locators" title="Permalink to this headline">¶</a></h5>
+<p>These locators are used to create network endpoints to send all network messages. You can set your own locators using
+the attribute <code class="docutils literal"><span class="pre">rtps.defaultOutLocatorList</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator will create a socket to send network message on UDPv4 port 34000 over network interface 192.168.0.1</span>
+<span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mf">192.168.0.1</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">34000</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">defaultOutLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By default <em>eProsima Fast RTPS</em> sends network messages using a random UDPv4 port over all interface networks.</p>
+<p>A UDPv4 unicast locator supports to have a null address. In that case <em>eProsima Fast RTPS</em> understands to get local network
+addresses and use them to listen network messages.</p>
+<p>A UDPv4 locator support to have a zero port. In that case <em>eProsima Fast RTPS</em> understands to get a random UDPv4 port.</p>
+</div>
+<div class="section" id="initial-peers">
+<h5>Initial peers<a class="headerlink" href="#initial-peers" title="Permalink to this headline">¶</a></h5>
+<p>These locators are used to know where to send initial discovery network messages. You can set your own locators using
+attribute <code class="docutils literal"><span class="pre">rtps.builtin.initialPeersList</span></code>. By default <em>eProsima Fast RTPS</em> uses as initial peers the Metatraffic
+Multicast Locators.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// This locator configures as initial peer the UDPv4 address 192.168.0.2:7600.</span>
+<span class="c1">// Initial discovery network messages will send to this UDPv4 address.</span>
+<span class="n">Locator_t</span> <span class="n">locator</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mf">192.168.0.2</span><span class="p">);</span>
+<span class="n">locator</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">7600</span><span class="p">;</span>
+
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">initialPeersList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tips">
+<h5>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h5>
+<p><strong>Disabling all multicast traffic</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// Metatraffic Multicast Locator List will be empty.</span>
+<span class="c1">// Metatraffic Unicast Locator List will contain one locator, with null address and null port.</span>
+<span class="c1">// Then eProsima Fast RTPS will use all network interfaces to receive network messages using a well-known port.</span>
+<span class="n">Locator_t</span> <span class="n">default_unicast_locator</span><span class="p">;</span>
+<span class="n">participant_attr_</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">metatrafficUnicastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">default_unicast_locator</span><span class="p">);</span>
+
+<span class="c1">// Initial peer will be UDPv4 addresss 192.168.0.1. The port will be a well-known port.</span>
+<span class="c1">// Initial discovery network messages will be sent to this UDPv4 address.</span>
+<span class="n">Locator_t</span> <span class="n">initial_peer</span><span class="p">;</span>
+<span class="n">initial_peer</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">participant_attr_</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">initialPeersList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">initial_peer</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="publisher-and-subscriber-configuration">
+<h3>Publisher and Subscriber Configuration<a class="headerlink" href="#publisher-and-subscriber-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Publishers and Subscribers inherit traits from the configuration of their Participant. You can override these traits by
+providing different values at their configuration structures. For example, you can specify a different set of
+Locators for a Publisher to use:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Locator_t</span> <span class="n">my_locator</span><span class="p">;</span>
+<span class="c1">//Initialize the Locator</span>
+<span class="n">SubAttr</span><span class="p">.</span><span class="n">unicastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">my_locator</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="setting-the-name-and-data-type-of-the-topic">
+<h4>Setting the name and data type of the topic<a class="headerlink" href="#setting-the-name-and-data-type-of-the-topic" title="Permalink to this headline">¶</a></h4>
+<p>The topic name and data type are used as meta-data to determine whether Publishers and Subscribers can exchange messages.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">// Topic name and type for Publisher</span>
+<span class="n">Wparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">topicDataType</span> <span class="o">=</span> <span class="s">&quot;HelloWorldType&quot;</span>
+<span class="n">Wparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">topicName</span> <span class="o">=</span> <span class="s">&quot;HelloWorldTopic&quot;</span>
+<span class="c1">// Topic name and type for Subscriber</span>
+<span class="n">Rparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">topicName</span> <span class="o">=</span> <span class="s">&quot;HelloWorldTopic&quot;</span>
+<span class="n">Rparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">topicDataType</span> <span class="o">=</span> <span class="s">&quot;HelloWorldType&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reliability-kind">
+<h4>Reliability Kind<a class="headerlink" href="#reliability-kind" title="Permalink to this headline">¶</a></h4>
+<p>The RTPS standard defines two behaviour modes for message delivery:</p>
+<ul class="simple">
+<li>Best-Effort (default): Messages are sent without arrival confirmation from the receiver (subscriber). It is fast, but messages can be lost.</li>
+<li>Reliable: The sender agent (publisher) expects arrival confirmation from the receiver (subscriber). It is slower, but prevents data loss.</li>
+</ul>
+<p>You can specify which mode you want to use in the publisher or subscriber parameters:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Wparam</span><span class="p">.</span><span class="n">qos</span><span class="p">.</span><span class="n">m_reliability</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">RELIABLE_RELIABILITY_QOS</span><span class="p">;</span> <span class="c1">//Set the publisher to Realiable Mode</span>
+<span class="n">Rparam</span><span class="p">.</span><span class="n">qos</span><span class="p">.</span><span class="n">m_reliability</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">BEST_EFFORT_RELIABILITY_QOS</span><span class="p">;</span> <span class="c1">//Set the subscriber to Best Effort</span>
+</pre></div>
+</div>
+<p>Keep in mind that different reliability mode configurations will make a Publisher and a Subscriber incompatible and unable to talk to each other. Read more about this in the [Built-In Prococols](#built-in-procotols) section.</p>
+</div>
+<div class="section" id="configuring-sample-storage">
+<h4>Configuring sample storage<a class="headerlink" href="#configuring-sample-storage" title="Permalink to this headline">¶</a></h4>
+<p><em>eProsima Fast RTPS</em> provides two policies for sample storage:</p>
+<ul class="simple">
+<li>Keep-All (Default): Store all samples in memory.</li>
+<li>Keep-Last: Store samples up to a maximum <em>depth</em>. When this limit is reached, they start to become overwritten.</li>
+</ul>
+<p>The mode is changed the following way:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Wparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">historyQos</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">KEEP_LAST</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The depth of the stored samples in keep-last mode is changes in the following way:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Wparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">historyQos</span><span class="p">.</span><span class="n">depth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">//changes the maximum number of stored samples</span>
+</pre></div>
+</div>
+<p>The durability configuration of the endpoint defines how it behaves regarding samples that existed on the topic before a Subscriber joins</p>
+<ul class="simple">
+<li>Volatile: Past samples are ignored, a joining Subscriber receives samples generated after the moment it matches.</li>
+<li>Transient Local (Default): When a new Subscriber joins, its History is filled with past samples.</li>
+</ul>
+<p>To set the durability mode:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Rparam</span><span class="p">.</span><span class="n">qos</span><span class="p">.</span><span class="n">m_durability</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">VOLATILE_DURABILITY_QOS</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It is also possible to control the maximum size of the History:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Rparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">resourceLimitsQos</span><span class="p">.</span><span class="n">max_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span> <span class="c1">// Sets the History to hold a maximum of 200 samples</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="additional-concepts">
+<h3>Additional Concepts<a class="headerlink" href="#additional-concepts" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="built-in-protocols">
+<h4>Built-In Protocols<a class="headerlink" href="#built-in-protocols" title="Permalink to this headline">¶</a></h4>
+<p>Before a Publisher and a Subscriber can exchange messages, they must be matched. The matching process is performed by the built-in protocols.</p>
+<p>The RTPS Standard defines two built-in protocols that are used by Endpoints to gain information about other elements in the network</p>
+<ul class="simple">
+<li>Participant Discovery Protocol (PDP): Used by the Participant to gain knowledge of other Participants in the network.</li>
+<li>Endpoint Discovery Protocol (EDP): Used to gain knowledge of the endpoints (Publishers and Subscribers) a remote Participant has.</li>
+</ul>
+<p>When a local and a remote endpoint have the same topic name, data type and have compatible configuration they are matched and data posted by Publisher is delivered to the Subscriber.
+When a Publisher posts data it is sent to all of its matching Subscribers.  This includes the exchange arrival confirmation messages from both parties in the case of Reliable Mode.</p>
+<p>As an user, you can actually interact with the way the Built-in protocols behave. To learn more, go to the [Advanced Topics](#Advanced Topics) section.</p>
+</div>
+<div class="section" id="using-message-meta-data">
+<h4>Using message meta-data<a class="headerlink" href="#using-message-meta-data" title="Permalink to this headline">¶</a></h4>
+<p>When a message is taken from the Subscriber, an auxiliary <code class="xref py py-class docutils literal"><span class="pre">SampleInfo_t</span></code> structure instance is also returned.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HelloWorld</span> <span class="n">m_Hello</span><span class="p">;</span>
+<span class="n">SampleInfo_t</span> <span class="n">m_info</span><span class="p">;</span>
+<span class="n">sub</span><span class="o">-&gt;</span><span class="n">takeNextData</span><span class="p">((</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">m_Hello</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m_info</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This <code class="xref py py-class docutils literal"><span class="pre">SampleInfo_t</span></code> structure contains meta-data on the incoming message:</p>
+<ul class="simple">
+<li>sampleKind: type of the sample, as defined by the RTPS Standard. Healthy messages from a topic are always ALIVE.</li>
+<li>WriterGUID: Signature of the sender (Publisher) the message comes from.</li>
+<li>OwnershipStrength: When several senders are writing the same data, this field can be used to determine which data is more reliable.</li>
+<li>SourceTimestamp: A timestamp on the sender side that indicates the moment the sample was encapsulated and sent.</li>
+</ul>
+<p>This meta-data can be used to implement filters:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span> <span class="k">if</span><span class="p">((</span><span class="n">m_info</span><span class="o">-&gt;</span><span class="n">sampleKind</span> <span class="o">==</span> <span class="n">ALIVE</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">m_info</span><span class="o">-&gt;</span><span class="n">OwnershipStrength</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="p">){</span>
+     <span class="c1">//Process data</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-callbacks">
+<h4>Defining callbacks<a class="headerlink" href="#defining-callbacks" title="Permalink to this headline">¶</a></h4>
+<p>As we saw in the example, both the <code class="xref py py-class docutils literal"><span class="pre">Publisher</span></code> and <code class="xref py py-class docutils literal"><span class="pre">Subscriber</span></code> have a set of callbacks you can use
+in your application. These callbacks are to be implemented within classes that derive from
+<code class="xref py py-class docutils literal"><span class="pre">SubscriberListener</span></code> or <code class="xref py py-class docutils literal"><span class="pre">PublisherListener</span></code>. The following table gathers information about
+the possible callbacks that can be implemented in both cases:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="24%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Callback</th>
+<th class="head">Publisher</th>
+<th class="head">Subscriber</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>onNewDataMessage</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr class="row-odd"><td>onSubscriptionMatched</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr class="row-even"><td>onPublicationMatched</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+</div>
+<span id="document-rtps"></span><div class="section" id="writer-reader-layer">
+<h2>Writer-Reader Layer<a class="headerlink" href="#writer-reader-layer" title="Permalink to this headline">¶</a></h2>
+<p>The lower level Writer-Reader Layer of <em>eprosima Fast RTPS</em> provides a raw implementation of th RTPS protocol.
+It provides more control over the internals of the protocol than the Publisher-Subscriber layer.
+Advanced users can make use of this layer directly to gain more control over the functionality of the library.</p>
+<div class="section" id="relation-to-the-publisher-subscriber-layer">
+<h3>Relation to the Publisher-Subscriber Layer<a class="headerlink" href="#relation-to-the-publisher-subscriber-layer" title="Permalink to this headline">¶</a></h3>
+<p>Elements of this layer map one-to-one with elements from the Publisher-Subscriber Layer, with a few additions.
+The following table shows the name correspondence between layers:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="57%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Publisher-Subscriber Layer</th>
+<th class="head">Writer-Reader Layer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Domain</td>
+<td>RTPSDomain</td>
+</tr>
+<tr class="row-odd"><td>Participant</td>
+<td>RTPSParticipant</td>
+</tr>
+<tr class="row-even"><td>Publisher</td>
+<td>RTPSWriter</td>
+</tr>
+<tr class="row-odd"><td>Subscriber</td>
+<td>RTPSReader</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-use-the-writer-reader-layer">
+<h3>How to use the Writer-Reader Layer<a class="headerlink" href="#how-to-use-the-writer-reader-layer" title="Permalink to this headline">¶</a></h3>
+<p>We will now go over the use of the Writer-Reader Layer like we did with the Publish-Subscriber one,
+explaining the new features it presents.</p>
+<p>We recommend you to look at the two examples of how to use this layer the distribution comes with while reading
+this section. They are located in <cite>examples/RTPSTest_as_socket</cite> and in <cite>examples/RTPSTest_registered</cite></p>
+<div class="section" id="managing-the-participant">
+<h4>Managing the Participant<a class="headerlink" href="#managing-the-participant" title="Permalink to this headline">¶</a></h4>
+<p>To create a <code class="xref py py-class docutils literal"><span class="pre">RTPSParticipant</span></code>, the process is very similar to the one shown in the Publisher-Subscriber layer.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">RTPSParticipantAttributes</span> <span class="n">Pparam</span><span class="p">;</span>
+<span class="n">Pparam</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&quot;participant&quot;</span><span class="p">);</span>
+<span class="n">RTPSParticipant</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">RTPSDomain</span><span class="o">::</span><span class="n">createRTPSParticipant</span><span class="p">(</span><span class="n">PParam</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-class docutils literal"><span class="pre">RTPSParticipantAttributes</span></code> structure is equivalent to the <cite>rtps</cite> member of <code class="xref py py-class docutils literal"><span class="pre">ParticipantAttributes</span></code>
+field in the Publisher-Subscriber Layer, so you can configure your <code class="xref py py-class docutils literal"><span class="pre">RTPSParticipant</span></code> the same way as before:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">RTPSParticipantAttributes</span> <span class="n">Pparam</span><span class="p">;</span>
+<span class="n">Pparam</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&quot;my_participant&quot;</span><span class="p">);</span>
+<span class="c1">//etc.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="managing-the-writers-and-readers">
+<h4>Managing the Writers and Readers<a class="headerlink" href="#managing-the-writers-and-readers" title="Permalink to this headline">¶</a></h4>
+<p>As the RTPS standard specifies, Writers and Readers are always associated with a History element.
+In the Publisher-Subscriber Layer its creation and management is hidden,
+but in the Writer-Reader Layer you have full control over its creation and configuration.</p>
+<p>Writers are configured with a <code class="xref py py-class docutils literal"><span class="pre">WriterAttributes</span></code> structure. They also need a <code class="xref py py-class docutils literal"><span class="pre">WriterHistory</span></code> which is configured with a <code class="xref py py-class docutils literal"><span class="pre">HistoryAttributes</span></code> structure.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HistoryAttributes</span> <span class="n">hatt</span><span class="p">;</span>
+<span class="n">WriterHistory</span> <span class="o">*</span> <span class="n">history</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WriterHistory</span><span class="p">(</span><span class="n">hatt</span><span class="p">);</span>
+<span class="n">WriterAttributes</span> <span class="n">watt</span><span class="p">;</span>
+<span class="n">RTPSWriter</span><span class="o">*</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">RTPSDomain</span><span class="o">::</span><span class="n">createRTPSWriter</span><span class="p">(</span><span class="n">rtpsParticipant</span><span class="p">,</span><span class="n">watt</span><span class="p">,</span><span class="n">hist</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The creation of a Reader is similar. Note that in this case you can provide a <code class="xref py py-class docutils literal"><span class="pre">ReaderListener</span></code> instance that
+implements your callbacks:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyReaderListener</span><span class="o">:</span><span class="k">public</span> <span class="n">ReaderListener</span><span class="p">;</span>
+<span class="n">MyReaderListener</span> <span class="n">listen</span><span class="p">;</span>
+<span class="n">HistoryAttributes</span> <span class="n">hatt</span><span class="p">;</span>
+<span class="n">ReaderHistory</span> <span class="o">*</span> <span class="n">history</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReaderHistory</span><span class="p">(</span><span class="n">hatt</span><span class="p">);</span>
+<span class="n">ReaderAttributes</span> <span class="n">ratt</span><span class="p">;</span>
+<span class="n">RTPSReader</span><span class="o">*</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">RTPSDomain</span><span class="o">::</span><span class="n">createRTPSReader</span><span class="p">(</span><span class="n">rtpsParticipant</span><span class="p">,</span><span class="n">watt</span><span class="p">,</span><span class="n">hist</span><span class="p">,</span><span class="o">&amp;</span><span class="n">listen</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-history-to-send-and-receive-data">
+<h4>Using the History to Send and Receive Data<a class="headerlink" href="#using-the-history-to-send-and-receive-data" title="Permalink to this headline">¶</a></h4>
+<p>In the RTPS Protocol, Readers and Writers save the data about a topic in their associated History.
+Each piece of data is represented by a Change, which <em>eprosima Fast RTPS</em> implements as <code class="xref py py-class docutils literal"><span class="pre">CacheChange_t</span></code>.
+Changes are always managed by the History. As an user, the procedure for interacting with the History is always the same:</p>
+<ol class="arabic simple">
+<li>Request a <code class="xref py py-class docutils literal"><span class="pre">CacheChange_t</span></code> from the History</li>
+<li>Use it</li>
+<li>Release it</li>
+</ol>
+<p>You can interact with the History of the Writer to send data:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">CacheChange_t</span><span class="o">*</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">writer</span><span class="o">-&gt;</span><span class="n">newCacheChange</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">);</span> <span class="c1">//Request a change from the history</span>
+<span class="n">ch</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="o">-&gt;</span><span class="n">length</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">ch</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="s">&quot;My String %d&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//Write serialized data into the change</span>
+<span class="n">history</span><span class="o">-&gt;</span><span class="n">add_change</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span> <span class="c1">//Insert change back into the history. The Writer takes care of the rest.</span>
+</pre></div>
+</div>
+<p>If your topic data type has several fields, you will have to provide functions to serialize and deserialize
+your data in and out of the <code class="xref py py-class docutils literal"><span class="pre">CacheChange_t</span></code>. <em>FastRTPSGen</em> does this for you.</p>
+<p>You can receive data from within a <code class="xref py py-class docutils literal"><span class="pre">ReaderListener</span></code> callback method as we did in the Publisher-Subscriber Layer:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyReaderListener</span><span class="o">:</span> <span class="k">public</span> <span class="n">ReaderListener</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+
+    <span class="n">MyReaderListener</span><span class="p">(){}</span>
+    <span class="o">~</span><span class="n">MyReaderListener</span><span class="p">(){}</span>
+    <span class="kt">void</span> <span class="n">onNewCacheChangeAdded</span><span class="p">(</span><span class="n">RTPSReader</span><span class="o">*</span> <span class="n">reader</span><span class="p">,</span><span class="k">const</span> <span class="n">CacheChange_t</span><span class="o">*</span> <span class="k">const</span> <span class="n">change</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">change</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="p">.</span><span class="n">data</span><span class="p">);</span> <span class="c1">// The incoming message is enclosed within the `change` in the function parameters</span>
+        <span class="n">reader</span><span class="o">-&gt;</span><span class="n">getHistory</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">remove_change</span><span class="p">((</span><span class="n">CacheChange_t</span><span class="o">*</span><span class="p">)</span><span class="n">change</span><span class="p">);</span> <span class="c1">//Once done, remove the change</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Additionally you can read an incoming message directly by interacting with the History:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">reader</span><span class="o">-&gt;</span><span class="n">waitForUnreadMessage</span><span class="p">();</span> <span class="c1">//Blocking method</span>
+<span class="n">CacheChange_t</span><span class="o">*</span> <span class="n">change</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">reader</span><span class="o">-&gt;</span><span class="n">nextUnreadCache</span><span class="p">(</span><span class="o">&amp;</span><span class="n">change</span><span class="p">))</span> <span class="c1">//Take the first unread change present in the History</span>
+<span class="p">{</span>
+    <span class="cm">/* use data */</span>
+<span class="p">}</span>
+<span class="n">history</span><span class="o">-&gt;</span><span class="n">remove_change</span><span class="p">(</span><span class="n">change</span><span class="p">);</span> <span class="c1">//Once done, remove the change</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-readers-and-writers">
+<h3>Configuring Readers and Writers<a class="headerlink" href="#configuring-readers-and-writers" title="Permalink to this headline">¶</a></h3>
+<p>One of the benefits of using the Writer-Reader layer is that it provides new configuration possibilities while maintaining the options from the Publisher-Subscriber layer.
+For example, you can set a Writer or a Reader as a Reliable or Best-Effort endpoint as previously:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Wattr</span><span class="p">.</span><span class="n">endpoint</span><span class="p">.</span><span class="n">reliabilityKind</span> <span class="o">=</span> <span class="n">BEST_EFFORT</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="setting-the-input-and-output-channels">
+<h4>Setting the Input and Output Channels<a class="headerlink" href="#setting-the-input-and-output-channels" title="Permalink to this headline">¶</a></h4>
+<p>As in the Publisher-Subscriber Layer, you can specify the input and output channels you want your Writer/Reader to listen to or speak from in the form of Locators.
+This configuration overrides the one inherited from the <code class="xref py py-class docutils literal"><span class="pre">RTPSParticipant</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">WriterAttributes</span> <span class="n">Wattr</span><span class="p">;</span>
+<span class="n">Locator_t</span> <span class="n">my_locator</span><span class="p">;</span>
+<span class="c1">//Set up your Locator</span>
+<span class="n">Wattr</span><span class="p">.</span><span class="n">endpoint</span><span class="p">.</span><span class="n">OutLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">my_locator</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-data-durability-kind">
+<h4>Setting the data durability kind<a class="headerlink" href="#setting-the-data-durability-kind" title="Permalink to this headline">¶</a></h4>
+<p>The Durability parameter defines the behaviour of the Writer regarding samples already sent when a new Reader matches. <em>eProsima Fast RTPS</em> offers two Durability options:</p>
+<ul class="simple">
+<li>VOLATILE (default): Messages are discarded as they are sent. If a new Reader matches after message <em>n</em>, it will start received from message <em>n+1</em>.</li>
+<li>TRANSIENT_LOCAL: The Writer saves a record of the lask <em>k</em> messages it has sent. If a new reader matches after message <em>n</em>, it will start receiving from message <em>n-k</em></li>
+</ul>
+<p>To choose you preferred option:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">WriterAttributes</span> <span class="n">Wparams</span><span class="p">;</span>
+<span class="n">Wparams</span><span class="p">.</span><span class="n">endpoint</span><span class="p">.</span><span class="n">durabilityKind</span> <span class="o">=</span> <span class="n">TRANSIENT_LOCAL</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Because in the Writer-Reader layer you have control over the History, in TRANSIENT_LOCAL mode the Writer send all changes you have not explicitly released from the History.</p>
+</div>
+</div>
+<div class="section" id="configuring-the-history">
+<h3>Configuring the History<a class="headerlink" href="#configuring-the-history" title="Permalink to this headline">¶</a></h3>
+<p>The History has its own configuration structure, the <code class="xref py py-class docutils literal"><span class="pre">HistoryAttributes</span></code>.</p>
+<div class="section" id="changing-the-maximum-size-of-the-payload">
+<h4>Changing the maximum size of the payload<a class="headerlink" href="#changing-the-maximum-size-of-the-payload" title="Permalink to this headline">¶</a></h4>
+<p>You can choose the maximum size of they Payload that can go into a <code class="xref py py-class docutils literal"><span class="pre">CacheChange_t</span></code>. Be sure to choose a size that allows it to hold the biggest possible piece of data:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HistoryAttributes</span><span class="p">.</span><span class="n">payloadMaxSize</span>  <span class="o">=</span> <span class="mi">250</span><span class="p">;</span> <span class="c1">//Defaults to 500 bytes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changing-the-size-of-the-history">
+<h4>Changing the size of the History<a class="headerlink" href="#changing-the-size-of-the-history" title="Permalink to this headline">¶</a></h4>
+<p>You can specify a maximum amount of changes for the History to hold and initial amount of allocated changes:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HistoryAttributes</span><span class="p">.</span><span class="n">initialReservedCaches</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span> <span class="c1">//Defaults to 500</span>
+<span class="n">HistoryAttributes</span><span class="p">.</span><span class="n">maximumReservedCaches</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//Dedaults to 0 = Unlimited Changes</span>
+</pre></div>
+</div>
+<p>When the initial amount of reserved changes is lower than the maximum, the History will allocate more changes as they are needed until it reaches the maximum size.</p>
+</div>
+</div>
+</div>
+<span id="document-advanced"></span><div class="section" id="advanced-functionalities">
+<h2>Advanced Functionalities<a class="headerlink" href="#advanced-functionalities" title="Permalink to this headline">¶</a></h2>
+<p>This section covers slightly more advanced, but useful features that enriches your implementation.</p>
+<div class="section" id="topics-and-keys">
+<h3>Topics and Keys<a class="headerlink" href="#topics-and-keys" title="Permalink to this headline">¶</a></h3>
+<p>The RTPS standard contemplates the use of keys to define multiple data sources/sinks within a single topic.</p>
+<p>There are two ways of implementing keys into your topic:</p>
+<ul class="simple">
+<li>Defining a <cite>&#64;Key</cite> field in the IDL file when using FastRTPSGen (see the examples that come with the distribution).</li>
+<li>Manually implementing and using a <code class="xref py py-func docutils literal"><span class="pre">getKey()</span></code> method.</li>
+</ul>
+<p>Publishers and Subscribers using topics with keys must be configured to use them, otherwise they will have no effect:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">//Publisher-Subscriber Layer configuration</span>
+<span class="n">PubAttributes</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">topicKind</span> <span class="o">=</span> <span class="n">WITH_KEY</span>
+</pre></div>
+</div>
+<p>The RTPS Layer requires you to call the <code class="xref py py-func docutils literal"><span class="pre">getKey()</span></code> method manually within your callbacks.</p>
+<p>You can tweak the History to accomodate data from multiples keys based on your current configuration. This consinst on defining a maximum number of data sinks and a maximum size for each sink:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">Rparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">resourceLimitsQos</span><span class="p">.</span><span class="n">max_instances</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//Set the subscriber to remember and store up to 3 different keys</span>
+<span class="n">Rparam</span><span class="p">.</span><span class="n">topic</span><span class="p">.</span><span class="n">resourceLimitsQos</span><span class="p">.</span><span class="n">max_samples_per_instance</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//Hold a maximum of 20 samples per key</span>
+</pre></div>
+</div>
+<p>Note that your History must be big enough to accomodate the maximum number of samples for each key. eProsima Fast RTPS will notify you if your History is too small.</p>
+</div>
+<div class="section" id="tuning-realiable-mode">
+<span id="tuning-reliable-mode"></span><h3>Tuning Realiable mode<a class="headerlink" href="#tuning-realiable-mode" title="Permalink to this headline">¶</a></h3>
+<p>RTPS protocol uses Heartbeat messages to make matched endpoints exchange meta-data on what pieces of data
+they hold so the missing ones can be re-sent (on Reliable mode of course).
+You can modify the frequency of this meta-data exchange by specifying a custom heartbeat period.</p>
+<p>The heartbeat period in the Publisher-Subscriber level is configured as part of the <code class="xref py py-class docutils literal"><span class="pre">ParticipantAttributes</span></code>:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">PublisherAttributes</span> <span class="n">pubAttr</span><span class="p">;</span>
+<span class="n">pubAttr</span><span class="p">.</span><span class="n">times</span><span class="p">.</span><span class="n">heartbeatPeriod</span><span class="p">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">pubAttr</span><span class="p">.</span><span class="n">times</span><span class="p">.</span><span class="n">heartbeatPeriod</span><span class="p">.</span><span class="n">fraction</span> <span class="o">=</span> <span class="mi">4294967</span> <span class="o">*</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//500 ms</span>
+</pre></div>
+</div>
+<p>In the Writer-Reader layer, this belong to the <code class="xref py py-class docutils literal"><span class="pre">WriterAttributes</span></code>:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">WriterAttributes</span> <span class="n">Wattr</span><span class="p">;</span>
+<span class="n">Wattr</span><span class="p">.</span><span class="n">times</span><span class="p">.</span><span class="n">heartbeatPeriod</span><span class="p">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">Wattr</span><span class="p">.</span><span class="n">times</span><span class="p">.</span><span class="n">heartbeatPeriod</span><span class="p">.</span><span class="n">fraction</span> <span class="o">=</span> <span class="mi">4294967</span> <span class="o">*</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">//500 ms</span>
+</pre></div>
+</div>
+<p>A smaller heartbeat period increases the amount of overhead messages in the network,
+but speeds up the system response when a piece of data is lost.</p>
+</div>
+<div class="section" id="flow-controllers">
+<span id="id1"></span><h3>Flow Controllers<a class="headerlink" href="#flow-controllers" title="Permalink to this headline">¶</a></h3>
+<p><em>eprosima Fast RTPS</em> supports user configurable flow controllers on a Publisher and Participant level. These
+controllers can be used to limit the amount of data to be sent under certain conditions depending on the
+kind of controller implemented.</p>
+<p>The current release implement throughput controllers, which can be used to limit the total message throughput to be sent
+over the network per time measurement unit. In order to use them, a descriptor must be passed into the Participant
+or Publisher Attributes.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">PublisherAttributes</span> <span class="n">WparamSlow</span><span class="p">;</span>
+<span class="n">ThroughputControllerDescriptor</span> <span class="n">slowPublisherThroughputController</span><span class="p">{</span><span class="mi">300000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">};</span> <span class="c1">//Limit to 300kb per second</span>
+<span class="n">WparamSlow</span><span class="p">.</span><span class="n">throughputController</span> <span class="o">=</span> <span class="n">slowPublisherThroughputController</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In the Writer-Reader layer, the throughput controllers is built-in and the descriptor defaults to infinite throughput.
+To change the values:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">WriterAttributes</span> <span class="n">WParams</span><span class="p">;</span>
+<span class="n">WParams</span><span class="p">.</span><span class="n">throughputController</span><span class="p">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">300000</span><span class="p">;</span> <span class="c1">//300kb</span>
+<span class="n">WParams</span><span class="p">.</span><span class="n">throughputController</span><span class="p">.</span><span class="n">timeMS</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">//1000ms</span>
+</pre></div>
+</div>
+<p>Note that specifying a throughput controller with a size smaller than the socket size can cause messages to never become sent.</p>
+</div>
+<div class="section" id="sending-large-data">
+<h3>Sending large data<a class="headerlink" href="#sending-large-data" title="Permalink to this headline">¶</a></h3>
+<p>The default size <em>eProsima Fast RTPS</em> uses to create sockets is a conservative value of 65kb. If your topic data is bigger, it must be fragmented.</p>
+<p>Fragmented messages are sent over multiple packets, as understood by the particular transport layer.
+To make this possible, you must configure the Publisher to work in asynchronous mode.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">PublisherAttributes</span> <span class="n">Wparam</span><span class="p">;</span>
+<span class="n">Wparam</span><span class="p">.</span><span class="n">qos</span><span class="p">.</span><span class="n">m_publishMode</span><span class="p">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">ASYNCHRONOUS_PUBLISH_MODE</span><span class="p">;</span> <span class="c1">// Allows fragmentation</span>
+</pre></div>
+</div>
+<p>In the Writer-Subscriber layer, you have to configure the Writer:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">WriterAttributes</span> <span class="n">Wparam</span><span class="p">;</span>
+<span class="n">Wparam</span><span class="p">.</span><span class="n">mode</span><span class="o">=</span> <span class="n">ASYNCHRONOUS_WRITER</span><span class="p">;</span>   <span class="c1">// Allows fragmentation</span>
+</pre></div>
+</div>
+<p>Note that in best-effort mode messages can be lost if you send big data too fast and the buffer is filled at a faster rate than what the client can process messages. In the other hand, in reliable mode, the existence of a lot of data fragments could decrease the frecuency in which messages are received. If this happens, it can be resolved setting a lower Heartbeat period, as stated in <a class="reference internal" href="#tuning-reliable-mode"><span class="std std-ref">Tuning Realiable mode</span></a>.</p>
+<p>When you are sending large data, it is convenient to setup a flow controller to avoid a burst of messages in the network and increase performance. See <a class="reference internal" href="#flow-controllers"><span class="std std-ref">Flow Controllers</span></a></p>
+<div class="section" id="example-sending-a-unique-large-file">
+<h4>Example: Sending a unique large file<a class="headerlink" href="#example-sending-a-unique-large-file" title="Permalink to this headline">¶</a></h4>
+<p>This is a proposed example of how should the user configure its application in order to achieve the best performance. To make this example more tangible, it is going to be supposed that the file have a size of 9.9MB and the network in which the publisher and the subscriber are operating has a bandwith of 100MB/s</p>
+<p>First of all, asynchronous mode has to be activated in the publisher parameters. Then, a suitable reliability mode has to be selected. In this case it is important to make sure that all fragments of the message are received. The loss of a fragment means the loss of the entire message, so it would be best to choose reliable mode.</p>
+<p>The default size of this fragments using the UDPv4 transport has a value of 65kb (which includes the space reserved to the data and the message header).This means that the publisher would have to write at least about 1100 fragments.</p>
+<p>This amount of fragment could slow down the transmission, so it could be interesting to decrease the heartbeat period in order to increase the reactivity of the publisher.</p>
+<p>Another important consideration is the addition of a flow controller. Without a flow controller, the publisher can occupy the entire bandwith. A reasonable flow controller for this application could be a limit of 5MB/s, which represents only a 5% of the total bandwith. Anyway, this values are highly dependant of the specific application and its desired behaviour.</p>
+<p>At last, there is another detail to have in mind: it is critical to check the size of the system UDP buffers. In Linux, buffers can be enlarged with</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sysctl -w net.ipv4.udp_mem<span class="o">=</span><span class="s2">&quot;102400 873800 16777216&quot;</span>
+sysctl -w net.core.netdev_max_backlog<span class="o">=</span><span class="s2">&quot;30000&quot;</span>
+sysctl -w net.core.rmem_max<span class="o">=</span><span class="s2">&quot;16777216&quot;</span>
+sysctl -w net.core.wmem_max<span class="o">=</span><span class="s2">&quot;16777216&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-video-streaming">
+<h4>Example: Video streaming<a class="headerlink" href="#example-video-streaming" title="Permalink to this headline">¶</a></h4>
+<p>In this example the target application transmits video between a publisher and a subscriber. This video will have a resolution of 640x480 and a frequency of 50fps.</p>
+<p>As in the previous example, since the application is sending data that requires fragmentation, asynchronous mode has to be activated in the publisher parameters.</p>
+<p>In audio or video transmissions, sometimes is better to have an stable and high datarate feed than a 100% lossless communication. Working with a frequency of 50hz, makes insignificant the loss of one or two samples each second. Thus, for a higher performance it can be appropiate to configure the reliability mode to best-effort.</p>
+</div>
+</div>
+<div class="section" id="transport-layer">
+<h3>Transport Layer<a class="headerlink" href="#transport-layer" title="Permalink to this headline">¶</a></h3>
+<p>Unless you specify other configuration, <em>eprosima Fast RTPS</em> will use its built in UDPv4 Transport Layer with
+a default configuration. You can change this default configuration or switch to UDPv6
+by providing an alternative configuration when you create the Participant.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">RTPSParticipantAttributes</span> <span class="n">Pparams</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">my_transport</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">UDPv6Transport</span><span class="o">::</span><span class="n">TransportDescriptor</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">//Create a descriptor for the new transport</span>
+<span class="n">my_transport</span><span class="o">-&gt;</span><span class="n">receiveBufferSize</span> <span class="o">=</span> <span class="mi">65536</span><span class="p">;</span> <span class="c1">//Configuration parameters</span>
+<span class="n">Pparams</span><span class="p">.</span><span class="n">useBuiltinTransport</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Disable the built-in Transport Layer</span>
+<span class="n">Pparams</span><span class="p">.</span><span class="n">userTransports</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">my_transport</span><span class="p">);</span> <span class="c1">//Link the Transport Layer to the Participant</span>
+</pre></div>
+</div>
+<p>Note that unless you manually disable the built-in transport layer, the Participant will use
+your custom transport configuration along the built-in one.</p>
+<p>This distribution comes with an example of how to change the configuration of the transport layer. It can be found <a class="reference external" href="https://github.com/eProsima/Fast-RTPS/tree/master/examples/C%2B%2B/UserDefinedTransportExample">here</a>.</p>
+</div>
+<div class="section" id="matching-endpoints-the-manual-way">
+<h3>Matching endpoints the manual way<a class="headerlink" href="#matching-endpoints-the-manual-way" title="Permalink to this headline">¶</a></h3>
+<p>By default, when you create a Participant or a RTPS Participant the built-in protocols for automatic discovery of
+endpoints will be active. You can disable them by configuring the Participant:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">ParticipantAttributes</span> <span class="n">Pparam</span><span class="p">;</span>
+<span class="n">Pparam</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">use_SIMPLE_EndpointDiscoveryProtocol</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">Pparam</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">use_SIMPLE_RTPSParticipantDiscoveryProtocol</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you disable the built-in discovery protocols, you will need to manually match Readers and Writers.
+To inform a Writer about a remote Reader, you can either provide an XML configuration
+file or use the :class::<cite>RemoteReaderAttributes</cite> structure:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">RemoteReaderAttributes</span> <span class="n">ratt</span><span class="p">;</span>
+<span class="n">Locator_t</span> <span class="n">loc</span><span class="p">;</span> <span class="c1">//Add the locator that represents a channel the Reader listens to</span>
+<span class="n">loc</span><span class="p">.</span><span class="n">set_IP4_address</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">loc</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">22222</span><span class="p">;</span>
+<span class="n">ratt</span><span class="p">.</span><span class="n">endpoint</span><span class="p">.</span><span class="n">unicastLocatorList</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+<span class="n">ratt</span><span class="p">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">c_Guid_Unknown</span><span class="p">;</span> <span class="c1">//GUID_t is left blank, but must be configured when using Reliable Mode.</span>
+<span class="n">writer</span><span class="o">-&gt;</span><span class="n">matched_writer_add</span><span class="p">(</span><span class="n">ratt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Registering a remote Writer into a Reliable mode Reader works the same way:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">RemoteWriterAttributes</span> <span class="n">watt</span><span class="p">;</span>
+<span class="c1">//Configure watt</span>
+<span class="n">reader</span><span class="o">-&gt;</span><span class="n">matched_reader_add</span><span class="p">(</span><span class="n">watt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you decide to provide the information via XML, you have to specify the file where you want to load from:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">participant_attributes</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">use_STATIC_EndpointDiscoveryProtocol</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">participant_attributes</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">builtin</span><span class="p">.</span><span class="n">setStaticEndpointXMLFilename</span><span class="p">(</span><span class="s">&quot;my_xml_configuration.xml&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can use this sample XML as a base for building your configuration files:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;staticdiscovery&gt;</span>
+    <span class="nt">&lt;participant&gt;</span>
+        <span class="nt">&lt;name&gt;</span>RTPSParticipant<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;reader&gt;</span>
+            <span class="nt">&lt;userId&gt;</span>3<span class="nt">&lt;/userId&gt;</span>
+            <span class="nt">&lt;entityId&gt;</span>4<span class="nt">&lt;/entityId&gt;</span>
+            <span class="nt">&lt;expectsInlineQos&gt;</span>false<span class="nt">&lt;/expectsInlineQos&gt;</span>
+            <span class="nt">&lt;topicName&gt;</span>TEST_TOPIC_NAME<span class="nt">&lt;/topicName&gt;</span>
+            <span class="nt">&lt;topicDataType&gt;</span>HelloWorldType<span class="nt">&lt;/topicDataType&gt;</span>
+            <span class="nt">&lt;topicKind&gt;</span>NO_KEY<span class="nt">&lt;/topicKind&gt;</span>
+            <span class="nt">&lt;reliabilityQos&gt;</span>RELIABLE_RELIABILITY_QOS<span class="nt">&lt;/reliabilityQos&gt;</span>
+            <span class="nt">&lt;unicastLocator</span>
+                <span class="na">address=</span><span class="s">&quot;127.0.0.1&quot;</span>
+                <span class="na">port=</span><span class="s">&quot;31377&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/unicastLocator&gt;</span>
+            <span class="nt">&lt;multicastLocator</span>
+                <span class="na">address=</span><span class="s">&quot;127.0.0.1&quot;</span>
+                <span class="na">port=</span><span class="s">&quot;31378&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/multicastLocator&gt;</span>
+            <span class="nt">&lt;durabilityQos&gt;</span>TRANSIENT_LOCAL_DURABILITY_QOS<span class="nt">&lt;/durabilityQos&gt;</span>
+        <span class="nt">&lt;/reader&gt;</span>
+    <span class="nt">&lt;/participant&gt;</span>
+<span class="nt">&lt;/staticdiscovery&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subscribing-to-discovery-topics">
+<h3>Subscribing to Discovery Topics<a class="headerlink" href="#subscribing-to-discovery-topics" title="Permalink to this headline">¶</a></h3>
+<p>As specified in the Built-In protocols section, the Participant or RTPS Participant has a series of meta-data endpoints
+for use during the discovery process.  It is possible to create a custom listener that listens
+to the Endpoint Discovery Protocol meta-data. This allows you to create your own network analysis tools.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cm">/* Create Custom user ReaderListeners */</span>
+<span class="n">CustomReaderListener</span> <span class="o">*</span><span class="n">my_readerListenerSub</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n">CustomReaderListener</span><span class="p">);</span>
+<span class="n">CustomReaderListener</span> <span class="o">*</span><span class="n">my_readerListenerPub</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n">CustomReaderListener</span><span class="p">);</span>
+<span class="cm">/* Get access to the EDP endpoints */</span>
+<span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">StatefulReader</span><span class="o">*</span><span class="p">,</span><span class="n">StatefulReader</span><span class="o">*&gt;</span> <span class="n">EDPReaders</span> <span class="o">=</span> <span class="n">my_participant</span><span class="o">-&gt;</span><span class="n">getEDPReaders</span><span class="p">();</span>
+<span class="cm">/* Install the listeners for Subscribers and Publishers Discovery Data*/</span>
+<span class="n">EDPReaders</span><span class="p">.</span><span class="n">first</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setListener</span><span class="p">(</span><span class="n">my_readerListenerSub</span><span class="p">);</span>
+<span class="n">EDPReaders</span><span class="p">.</span><span class="n">second</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setListener</span><span class="p">(</span><span class="n">my_readerListenerPub</span><span class="p">);</span>
+<span class="cm">/* ... */</span>
+<span class="cm">/* Custom Reader Listener onNewCacheChangeAdded*/</span>
+<span class="kt">void</span> <span class="nf">onNewCacheChangeAdded</span><span class="p">(</span><span class="n">RTPSReader</span> <span class="o">*</span> <span class="n">reader</span><span class="p">,</span> <span class="k">const</span> <span class="n">CacheChange_t</span> <span class="o">*</span> <span class="k">const</span> <span class="n">change</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">reader</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">change</span><span class="o">-&gt;</span><span class="n">kind</span> <span class="o">==</span> <span class="n">ALIVE</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">WriterProxyData</span> <span class="n">proxyData</span><span class="p">;</span>
+   <span class="n">CDRMessage_t</span> <span class="n">tempMsg</span><span class="p">;</span>
+   <span class="n">tempMsg</span><span class="p">.</span><span class="n">msg_endian</span> <span class="o">=</span> <span class="n">change</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="p">.</span><span class="n">encapsulation</span> <span class="o">==</span>
+     <span class="n">PL_CDR_BE</span> <span class="o">?</span> <span class="nl">BIGEND</span> <span class="p">:</span> <span class="n">LITTLEEND</span><span class="p">;</span>
+   <span class="n">tempMsg</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">change</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+   <span class="n">memcpy</span><span class="p">(</span><span class="n">tempMsg</span><span class="p">.</span><span class="n">buffer</span><span class="p">,</span> <span class="n">change</span><span class="o">-&gt;</span><span class="n">serializedPayload</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">tempMsg</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">proxyData</span><span class="p">.</span><span class="n">readFromCDRMessage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tempMsg</span><span class="p">))</span> <span class="p">{</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">proxyData</span><span class="p">.</span><span class="n">topicName</span><span class="p">();</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">proxyData</span><span class="p">.</span><span class="n">typeName</span><span class="p">();</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>The callbacks defined in the ReaderListener you attach to the EDP will execute for each data message after
+the built-in protocols have processed it.</p>
+</div>
+<div class="section" id="additional-quality-of-service-options">
+<h3>Additional Quality of Service options<a class="headerlink" href="#additional-quality-of-service-options" title="Permalink to this headline">¶</a></h3>
+<p>As a user, you can implement your own quality of service (QoS) restrictions in your application. <em>eProsima Fast RTPS</em>
+comes bundles with a set of examples of how to implement common client-wise QoS settings:</p>
+<ul class="simple">
+<li>Deadline: Rise an alarm when the frequency of message arrival for a topic falls below a certain threshold.</li>
+<li>Ownership Srength: When multiple data sources come online, filter duplicates by focusing on the higher priority sources.</li>
+<li>Filtering: Filter incoming messages based on content, time, or both.</li>
+</ul>
+<p>These examples come with their own <cite>Readme.txt</cite> that explains how the implementations work.</p>
+<p>This marks the end of this document. We recommend you to take a look at the doxygen API reference and
+the embedded examples that come with the distribution. If you need more help, send us an email it <cite>support&#64;eprosima.com</cite>.</p>
+</div>
+</div>
+<span id="document-security"></span><div class="section" id="security">
+<span id="id1"></span><h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>Fast RTPS can be configured to provide secure communications. For this purpose Fast RTPS implements pluggable security
+at two levels: authentication of remote participants and encryption of data.</p>
+<p>By default Fast RTPS doesn&#8217;t compile security support. You can activate it adding <code class="docutils literal"><span class="pre">-DSECURITY=ON</span></code> at CMake
+configuration step. More information about Fast RTPS compilation, see <a class="reference internal" href="index.html#installation-from-sources"><span class="std std-ref">Installation from Sources</span></a>.</p>
+<p>You can activate and configure security plugins through <code class="xref py py-class docutils literal"><span class="pre">eprosima::fastrtps::Participant</span></code> attributes using properties.
+A <code class="xref py py-class docutils literal"><span class="pre">eprosima::fastrtps::rtps::Property</span></code> is defined by its name (<code class="xref py py-class docutils literal"><span class="pre">std::string</span></code>) and its value (<code class="xref py py-class docutils literal"><span class="pre">std::string</span></code>).
+Throughout this page there are tables showing you the properties used by each security plugin.</p>
+<div class="section" id="authentication-plugins">
+<h3>Authentication plugins<a class="headerlink" href="#authentication-plugins" title="Permalink to this headline">¶</a></h3>
+<p>They provide authentication on discovery of remote participants. When a remote participant is detected, Fast RTPS tries
+to authenticate using the activated Authentication plugin. If the authentication process finishes successfully then both
+participants matches and discovery protocol continues. On failure, the remote participant is rejected.</p>
+<p>You can activate an Authentication plugin using Participant property <code class="docutils literal"><span class="pre">dds.sec.auth.plugin</span></code>. Fast RTPS provides a
+built-in Authentication plugin. More information on <a class="reference internal" href="#auth-pki-dh"><span class="std std-ref">Auth:PKI-DH</span></a>.</p>
+</div>
+<div class="section" id="cryptographic-plugins">
+<h3>Cryptographic plugins<a class="headerlink" href="#cryptographic-plugins" title="Permalink to this headline">¶</a></h3>
+<p>They provide encryption support. Encryption can be applied over three different levels of RTPS protocol. Cryptographic
+plugins can encrypt whole RTPS messages, RTPS submessages of a particular entity (Writer or Reader) or the payload
+(user data) of a particular Writer. You can combine them.</p>
+<p>You can activate an Cryptographic plugin using Participant property <code class="docutils literal"><span class="pre">dds.sec.crypto.plugin</span></code>. Fast RTPS provides a
+built-in Cryptographic plugin. More information on <a class="reference internal" href="#crypto-aes-gcm-gmac"><span class="std std-ref">Crypto:AES-GCM-GMAC</span></a>.</p>
+<p><strong>Encrypt whole RTPS messages</strong></p>
+<p>You can configure a Participant to encrypt all RTPS messages using Participant property <code class="docutils literal"><span class="pre">rtps.participant.rtps_protection_kind</span></code>
+with the value <code class="docutils literal"><span class="pre">ENCRYPT</span></code>.</p>
+<p><strong>Encrypt RTPS submessages of a particular entity</strong></p>
+<p>You can configure an entity (Writer or Reader) to encrypt its RTPS submessages using Entity property <code class="docutils literal"><span class="pre">rtps.endpoint.submessage_protection_kind</span></code>
+with the value <code class="docutils literal"><span class="pre">ÈNCRYPT</span></code>.</p>
+<p><strong>Encrypt payload of a particular Writer</strong></p>
+<p>You can configure a Writer to encrypt its payload using Writer property <code class="docutils literal"><span class="pre">rtps.endpoint.payload_protection_kind</span></code> with
+the value <code class="docutils literal"><span class="pre">ENCRYPT</span></code>.</p>
+</div>
+<div class="section" id="built-in-plugins">
+<h3>Built-in plugins<a class="headerlink" href="#built-in-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Current version comes out with two security built-in plugins:</p>
+<ul class="simple">
+<li><strong>Auth:PKI-DH</strong>: this plugin provides authentication using a trusted <em>Certificate Authority</em> (CA).</li>
+<li><strong>Crypto:AES-GCM-GMAC</strong>: this plugin provides authenticated encryption using Advanced Encryption Standard (AES) in Galois Counter
+Mode (AES-GCM).</li>
+</ul>
+<div class="section" id="auth-pki-dh">
+<span id="id2"></span><h4>Auth:PKI-DH<a class="headerlink" href="#auth-pki-dh" title="Permalink to this headline">¶</a></h4>
+<p>This built-in plugin provides authentication between discovered participants. It is supplied by a trusted <em>Certificate
+Authority</em> (CA) and uses ECDSA Digital Signature Algorithms to perform the mutual authentication. It also establishes a shared
+secret using Elliptic Curve Diffie-Hellman (ECDH) Key Agreement Methods. This shared secret can be used by other
+security plugins as <a class="reference internal" href="#crypto-aes-gcm-gmac"><span class="std std-ref">Crypto:AES-GCM-GMAC</span></a>.</p>
+<p>You can activate this plugin using Participant property <code class="docutils literal"><span class="pre">dds.sec.auth.plugin</span></code> with the value <code class="docutils literal"><span class="pre">builtin.PKI-DH</span></code>.
+Next tables show you the Participant properties used by this security plugin.</p>
+<table border="1" class="docutils align-left" id="id4">
+<caption><span class="caption-text"><strong>Properties to configure Auth::PKI-DH</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property name <br />
+(all properties have &#8220;dds.sec.auth.builtin.PKI-DH.&#8221; prefix)</th>
+<th class="head">Property value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>identity_ca</td>
+<td>URI to the X509 certificate of the Identity CA. <br />
+Supported URI schemes: file. <br />
+The <strong>file</strong> schema shall refer to a X.509 v3 certificate in PEM format.</td>
+</tr>
+<tr class="row-odd"><td>identity_certificate</td>
+<td>URI to a X509 certificate signed by the Identity CA in PEM format containing the signed public key for the Participant. <br />
+Supported URI schemes: file.</td>
+</tr>
+<tr class="row-even"><td>identity_crl <em>(optional)</em></td>
+<td>URI to a X509 Certificate Revocation List (CRL). <br />
+Supported URI schemes: file.</td>
+</tr>
+<tr class="row-odd"><td>private_key</td>
+<td>URI to access the private Private Key for the Participant. <br />
+Supported URI schemes: file.</td>
+</tr>
+<tr class="row-even"><td>password <em>(optional)</em></td>
+<td>A password used to decrypt the private_key.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="generation-of-x509-certificates">
+<h5>Generation of x509 certificates<a class="headerlink" href="#generation-of-x509-certificates" title="Permalink to this headline">¶</a></h5>
+<p>You can generate you own x509 certificates using OpenSSL application. This section teaches you how to do this.</p>
+<p><strong>Generate a certificate for the CA</strong></p>
+<p>Wether you want to create your own CA certificate, first you have to write a configuration file with your CA
+information.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># File: maincaconf.cnf</span>
+<span class="c1"># OpenSSL example Certificate Authority configuration file</span>
+
+<span class="c1">####################################################################</span>
+<span class="k">[ ca ]</span>
+<span class="na">default_ca</span> <span class="o">=</span> <span class="s">CA_default # The default ca section</span>
+
+<span class="c1">####################################################################</span>
+<span class="k">[ CA_default ]</span>
+
+<span class="na">dir</span> <span class="o">=</span> <span class="s">. # Where everything is kept</span>
+<span class="na">certs</span> <span class="o">=</span> <span class="s">$dir/certs # Where the issued certs are kept</span>
+<span class="na">crl_dir</span> <span class="o">=</span> <span class="s">$dir/crl # Where the issued crl are kept</span>
+<span class="na">database</span> <span class="o">=</span> <span class="s">$dir/index.txt # database index file.</span>
+<span class="na">unique_subject</span> <span class="o">=</span> <span class="s">no # Set to &#39;no&#39; to allow creation of</span>
+<span class="s">                    # several ctificates with same subject.</span>
+<span class="na">new_certs_dir</span> <span class="o">=</span> <span class="s">$dir</span>
+
+<span class="na">certificate</span> <span class="o">=</span> <span class="s">$dir/maincacert.pem # The CA certificate</span>
+<span class="na">serial</span> <span class="o">=</span> <span class="s">$dir/serial # The current serial number</span>
+<span class="na">crlnumber</span> <span class="o">=</span> <span class="s">$dir/crlnumber # the current crl number</span>
+<span class="s">                           # must be commented out to leave a V1 CRL</span>
+<span class="na">crl</span> <span class="o">=</span> <span class="s">$dir/crl.pem # The current CRL</span>
+<span class="na">private_key</span> <span class="o">=</span> <span class="s">$dir/maincakey.pem # The private key</span>
+<span class="na">RANDFILE</span> <span class="o">=</span> <span class="s">$dir/private/.rand # private random number file</span>
+
+<span class="na">name_opt</span> <span class="o">=</span> <span class="s">ca_default # Subject Name options</span>
+<span class="na">cert_opt</span> <span class="o">=</span> <span class="s">ca_default # Certificate field options</span>
+
+<span class="na">default_days</span><span class="o">=</span> <span class="s">1825 # how long to certify for</span>
+<span class="na">default_crl_days</span> <span class="o">=</span> <span class="s">30 # how long before next CRL</span>
+<span class="na">default_md</span> <span class="o">=</span> <span class="s">sha256 # which md to use.</span>
+<span class="na">preserve</span> <span class="o">=</span> <span class="s">no # keep passed DN ordering</span>
+
+<span class="na">policy</span> <span class="o">=</span> <span class="s">policy_match</span>
+
+<span class="c1"># For the CA policy</span>
+<span class="k">[ policy_match ]</span>
+<span class="na">countryName</span> <span class="o">=</span> <span class="s">match</span>
+<span class="na">stateOrProvinceName</span> <span class="o">=</span> <span class="s">match</span>
+<span class="na">organizationName</span> <span class="o">=</span> <span class="s">match</span>
+<span class="na">organizationalUnitName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">supplied</span>
+<span class="na">emailAddress</span> <span class="o">=</span> <span class="s">optional</span>
+
+<span class="c1"># For the &#39;anything&#39; policy</span>
+<span class="c1"># At this point in time, you must list all acceptable &#39;object&#39;</span>
+<span class="c1"># types.</span>
+<span class="k">[ policy_anything ]</span>
+<span class="na">countryName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">stateOrProvinceName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">localityName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">organizationName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">organizationalUnitName</span> <span class="o">=</span> <span class="s">optional</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">supplied</span>
+<span class="na">emailAddress</span> <span class="o">=</span> <span class="s">optional</span>
+
+<span class="k">[ req ]</span>
+<span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
+<span class="c1">#default_bits = 1024</span>
+<span class="c1">#default_keyfile = privkey.pem</span>
+<span class="na">distinguished_name</span><span class="o">=</span> <span class="s">req_distinguished_name</span>
+<span class="c1">#attributes = req_attributes</span>
+<span class="c1">#x509_extensions = v3_ca # The extentions to add to the self signed cert</span>
+<span class="na">string_mask</span> <span class="o">=</span> <span class="s">utf8only</span>
+
+<span class="k">[ req_distinguished_name ]</span>
+<span class="na">countryName</span> <span class="o">=</span> <span class="s">ES</span>
+<span class="na">stateOrProvinceName</span> <span class="o">=</span> <span class="s">MA</span>
+<span class="na">localityName</span> <span class="o">=</span> <span class="s">Tres Cantos</span>
+<span class="na">0.organizationName</span> <span class="o">=</span> <span class="s">eProsima</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">eProsima Main Test CA</span>
+<span class="na">emailAddress</span> <span class="o">=</span> <span class="s">mainca@eprosima.com</span>
+</pre></div>
+</div>
+<p>After writing the configuration file, next commands generate the certificate using ECDSA.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>openssl ecparam -name prime256v1 &gt; ecdsaparam
+
+openssl req -nodes -x509 -days <span class="m">3650</span> -newkey ec:ecdsaparam -keyout maincakey.pem -out maincacert.pem -config maincaconf.cnf
+</pre></div>
+</div>
+<p><strong>Generate a certificate for the Participant</strong></p>
+<p>Wether you want to create your own certificate for your Participant, first you have to write a configuration file.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># File: appconf.cnf</span>
+
+<span class="na">prompt</span> <span class="o">=</span> <span class="s">no</span>
+<span class="na">string_mask</span> <span class="o">=</span> <span class="s">utf8only</span>
+<span class="na">distinguished_name</span> <span class="o">=</span> <span class="s">req_distinguished_name</span>
+
+<span class="k">[ req_distinguished_name ]</span>
+<span class="na">countryName</span> <span class="o">=</span> <span class="s">ES</span>
+<span class="na">stateOrProvinceName</span> <span class="o">=</span> <span class="s">MA</span>
+<span class="na">localityName</span> <span class="o">=</span> <span class="s">Tres Cantos</span>
+<span class="na">organizationName</span> <span class="o">=</span> <span class="s">eProsima</span>
+<span class="na">emailAddress</span> <span class="o">=</span> <span class="s">example@eprosima.com</span>
+<span class="na">commonName</span> <span class="o">=</span> <span class="s">AppName</span>
+</pre></div>
+</div>
+<p>After writing the configuration file, next commands generate the certificate, using ECDSA, for your Participant.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>openssl ecparam -name prime256v1 &gt; ecdsaparam
+
+openssl req -nodes -new -newkey ec:ecdsaparam -config appconf.cnf -keyout appkey.pem -out appreq.pem
+
+openssl ca -batch -create_serial -config maincaconf.cnf -days <span class="m">3650</span> -in appreq.pem -out appcert.pem
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="crypto-aes-gcm-gmac">
+<span id="id3"></span><h4>Crypto:AES-GCM-GMAC<a class="headerlink" href="#crypto-aes-gcm-gmac" title="Permalink to this headline">¶</a></h4>
+<p>This built-in plugin provides authenticated encryption using AES in Galois Counter Mode (AES-GCM).
+It also provide additional reader-specific message authentication codes (MACs) using Galois MAC (AES-GMAC).
+This plugin needs the activation of the security plugin <a class="reference internal" href="#auth-pki-dh"><span class="std std-ref">Auth:PKI-DH</span></a>.</p>
+<p>You can activate this plugin using Participant property <code class="docutils literal"><span class="pre">dds.sec.crypto.plugin</span></code> with the value <code class="docutils literal"><span class="pre">builtin.AES-GCM-GMAC</span></code>.</p>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>This example show you how to configure a Participant to activate and configure <a class="reference internal" href="#auth-pki-dh"><span class="std std-ref">Auth:PKI-DH</span></a> and
+<a class="reference internal" href="#crypto-aes-gcm-gmac"><span class="std std-ref">Crypto:AES-GCM-GMAC</span></a> plugins. Also it configures Participant to encrypt its RTPS messages, Writer and Reader to
+encrypt their RTPS submessages and Writer to encrypt the payload (user data).</p>
+<p><strong>Participant attributes</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">ParticipantAttributes</span> <span class="n">part_attr</span><span class="p">;</span>
+
+<span class="c1">// Activate Auth:PKI-DH plugin</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;dds.sec.auth.plugin&quot;</span><span class="p">,</span> <span class="s">&quot;builtin.PKI-DH&quot;</span><span class="p">);</span>
+
+<span class="c1">// Configure Auth:PKI-DH plugin</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;dds.sec.auth.builtin.PKI-DH.identity_ca&quot;</span><span class="p">,</span> <span class="s">&quot;maincacert.pem&quot;</span><span class="p">);</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;dds.sec.auth.builtin.PKI-DH.identity_certificate&quot;</span><span class="p">,</span> <span class="s">&quot;appcert.pem&quot;</span><span class="p">);</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;dds.sec.auth.builtin.PKI-DH.private_key&quot;</span><span class="p">,</span> <span class="s">&quot;appkey.pem&quot;</span><span class="p">);</span>
+
+<span class="c1">// Activate Crypto:AES-GCM-GMAC plugin</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;dds.sec.crypto.plugin&quot;</span><span class="p">,</span> <span class="s">&quot;builtin.AES-GCM-GMAC&quot;</span><span class="p">);</span>
+
+<span class="c1">// Encrypt all RTPS submessages</span>
+<span class="n">part_attr</span><span class="p">.</span><span class="n">rtps</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;rtps.participant.rtps_protection_kind&quot;</span><span class="p">,</span> <span class="s">&quot;ENCRYPT&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Writer attributes</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">PublisherAttributes</span> <span class="n">pub_attr</span><span class="p">;</span>
+
+<span class="c1">// Encrypt RTPS submessages</span>
+<span class="n">pub_attr</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;rtps.endpoint.submessage_protection_kind&quot;</span><span class="p">,</span> <span class="s">&quot;ENCRYPT&quot;</span><span class="p">);</span>
+
+<span class="c1">// Encrypt payload</span>
+<span class="n">pub_attr</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;rtps.endpoint.payload_protection_kind&quot;</span><span class="p">,</span> <span class="s">&quot;ENCRYPT&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Reader attributes</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">eprosima</span><span class="o">::</span><span class="n">fastrtps</span><span class="o">::</span><span class="n">SubscriberAttributes</span> <span class="n">sub_attr</span><span class="p">;</span>
+
+<span class="c1">// Encrypt RTPS submessages</span>
+<span class="n">sub_attr</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">properties</span><span class="p">().</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&quot;rtps.endpoint.submessage_protection_kind&quot;</span><span class="p">,</span> <span class="s">&quot;ENCRYPT&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<span id="document-fastrtpsgen"></span><div class="section" id="code-generation-using-fastrtpsgen">
+<h2>Code generation using fastrtpsgen<a class="headerlink" href="#code-generation-using-fastrtpsgen" title="Permalink to this headline">¶</a></h2>
+<p><em>eprosima Fast RTPS</em> comes with a built-in code generation tool, fastrtpsgen, which eases the process of
+translating an IDL specification of a topic to a working implementation of the methods needed to create
+publishers and subscribers of that type. This tool can be instructed to generate a sample application using
+this data type, providing a Makefile to compile it on Linux and a Visual Studio project for Windows.</p>
+<p><em>fastrtpsgen</em> can be invoked by calling fastrtpsgen on Linux or fastrtpsgen.bat on Windows.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fastrtpsgen</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">outputdir</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">example</span> <span class="o">&lt;</span><span class="n">platform</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">replace</span> <span class="o">&lt;</span><span class="n">IDLfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <cite>-replace</cite> argument is needed to replace the currently existing files in case the files for the IDL have been
+generated previously.</p>
+<p>When the <cite>-example</cite> argument is added, the tool will generate an automated example and the files to build
+it for the platform currently invoked. The <cite>-help</cite> argument provides a list of currently supported Visual Studio
+versions and platforms.</p>
+<div class="section" id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p><em>fastrtpsgen</em> outputs the several files. Assuming the IDL file had the name <em>“Mytype”</em>, these files are:</p>
+<ul class="simple">
+<li>MyType.cxx/.h: Type definition.</li>
+<li>MyTypePublisher.cxx/.h: Definition of the Publisher as well as of a PublisherListener. The user must fill the needed methods for his application.</li>
+<li>MyTypeSubscriber.cxx/.h: Definition of the Subscriber as well as of a SubscriberListener. The behavior of the subscriber can be altered changing the methods implemented on these files.</li>
+<li>MyTypePubSubType.cxx/.h: Serialization and Deserialization code for the type. It also defines the getKey method in case the topic uses keys.</li>
+<li>MyTypePubSubMain.cxx: Main file of the example application in case it is generated.</li>
+<li>Makefiles or Visual studio project files.</li>
+</ul>
+</div>
+<div class="section" id="compilation">
+<h3>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h3>
+<p>If you are using the binary distribution of <em>eProsima Fast RTPS</em>, <em>fastrtpsgen</em> is already compiled for you.
+If you are building from sources, you will need to compile the tool manually using &#8216;gradle&#8217;</p>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound" id="gen">
+<span id="document-geninfo"></span><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>eProsima FASTRTPSGEN is a Java application that generates source code using the data types defined in an IDL file. This generated source code can be used in your applications in order to publish and subscribe to a topic of your defined type.</p>
+<p>To declare your structured data, you have to use IDL (Interface Definition Language) format. IDL is a specification language, made by OMG (Object Management Group), which describes an interface in a language-independent way, enabling communication between software components that do not share the same language.</p>
+<p>eProsima FASTRTPSGEN is a tool that reads IDL files and parses a subset of the OMG IDL specification to generate serialization source code. This subset includes the data type descriptions included in section 3. The rest of the file content is ignored.</p>
+<p>eProsima FASTRTPSGEN generated source code uses a relevant component: a C++11 library that provides a serialization mechanism. In this case, as indicated by the RTPS specification document, the serialization mechanism used in CDR. The standard CDR (Common Data Representation)1 is a transfer syntax low-level representation for transfer between agents, mapping from data types defined in OMG IDL to byte streams.</p>
+<p>One of the main features of eProsima FASTRTPSGEN is to avoid the users the trouble of knowing anything about serialization or deserialization procedures. It also provides a first implementation of a publisher and a subscriber using eProsima RTPS library.
+This document presents a brief guide of how to use eProsima FASTRTPSGEN. The structure of the document is presented below:</p>
+</div>
+<span id="document-genuse"></span><div class="section" id="execution-and-idl-definition">
+<h2>Execution and IDL Definition<a class="headerlink" href="#execution-and-idl-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="building-publisher-subscriber-code">
+<h3>Building publisher/subscriber code<a class="headerlink" href="#building-publisher-subscriber-code" title="Permalink to this headline">¶</a></h3>
+<p>This section guides you through the usage of this Java application and briefly describes the generated files.</p>
+<p>The Java application can be executed using the following scripts depending on if you are on Windows or Linux:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&gt; fastrtpsgen.bat
+$ fastrtpsgen
+</pre></div>
+</div>
+<p>The expected argument list of the application is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fastrtpsgen</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">IDL</span> <span class="n">file</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">IDL</span> <span class="n">file</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Where the option choices are:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-help</td>
+<td>Shows the help information.</td>
+</tr>
+<tr class="row-odd"><td>-version</td>
+<td>Shows the current version of eProsima FASTRTPSGEN.</td>
+</tr>
+<tr class="row-even"><td>-d &lt;directory&gt;</td>
+<td>Output directory where the generated files are created.</td>
+</tr>
+<tr class="row-odd"><td>-example &lt;platform&gt;</td>
+<td>Generates an example and a solution to compile the generated source code for a specific platform. The help command shows the supported platforms.</td>
+</tr>
+<tr class="row-even"><td>-replace</td>
+<td>Replaces the generated source code files whether they exist.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="defining-a-data-type-via-idl">
+<h3>Defining a data type via IDL<a class="headerlink" href="#defining-a-data-type-via-idl" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the basic IDL types supported by <em>fastrtpsgen</em> and how they are mapped to C++11.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="62%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">IDL</th>
+<th class="head">C++11</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>char</td>
+<td>char</td>
+</tr>
+<tr class="row-odd"><td>octet</td>
+<td>uint8_t</td>
+</tr>
+<tr class="row-even"><td>short</td>
+<td>int16_t</td>
+</tr>
+<tr class="row-odd"><td>unsigned short</td>
+<td>uint16_t</td>
+</tr>
+<tr class="row-even"><td>long long</td>
+<td>int64_t</td>
+</tr>
+<tr class="row-odd"><td>unsigned long long</td>
+<td>uint64_t</td>
+</tr>
+<tr class="row-even"><td>float</td>
+<td>float</td>
+</tr>
+<tr class="row-odd"><td>double</td>
+<td>double</td>
+</tr>
+<tr class="row-even"><td>boolean</td>
+<td>bool</td>
+</tr>
+<tr class="row-odd"><td>string</td>
+<td>std::string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="section" id="arrays">
+<h4>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h4>
+<p><em>fastrtpsgen</em> supports unidimensional and multidimensional arrays. Arrays are always mapped to std::array containers. The following table shows the array types supported and how they map.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">IDL</th>
+<th class="head">C++11</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>char a[5]</td>
+<td>std::array&lt;char,5&gt; a</td>
+</tr>
+<tr class="row-odd"><td>octet a[5]</td>
+<td>std::array&lt;uint8_t,5&gt; a</td>
+</tr>
+<tr class="row-even"><td>short a[5]</td>
+<td>std::array&lt;int16_t,5&gt; a</td>
+</tr>
+<tr class="row-odd"><td>unsigned short a[5]</td>
+<td>std::array&lt;uint16_t,5&gt; a</td>
+</tr>
+<tr class="row-even"><td>long long a[5]</td>
+<td>std::array&lt;int64_t,5&gt; a</td>
+</tr>
+<tr class="row-odd"><td>unsigned long long a[5]</td>
+<td>std::array&lt;uint64_t,5&gt; a</td>
+</tr>
+<tr class="row-even"><td>float a[5]</td>
+<td>std::array&lt;float,5&gt; a</td>
+</tr>
+<tr class="row-odd"><td>double a[5]</td>
+<td>std::array&lt;double,5&gt; a</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="sequences">
+<h4>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h4>
+<p><em>fastrtpsgen</em> fupports sequences, which map into the STD vector container. The following table represents how the map between IDL and C++11 is handled.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="54%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">IDL</th>
+<th class="head">C++11</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sequence&lt;char&gt;</td>
+<td>std::vector&lt;char&gt;</td>
+</tr>
+<tr class="row-odd"><td>sequence&lt;octet&gt;</td>
+<td>std::vector&lt;uint8_t&gt;</td>
+</tr>
+<tr class="row-even"><td>sequence&lt;short&gt;</td>
+<td>std::vector&lt;int16_t&gt;</td>
+</tr>
+<tr class="row-odd"><td>sequence&lt;unsigned short&gt;</td>
+<td>std::vector&lt;uint16_t&gt;</td>
+</tr>
+<tr class="row-even"><td>sequence&lt;long long&gt;</td>
+<td>std::vector&lt;int64_t&gt;</td>
+</tr>
+<tr class="row-odd"><td>sequence&lt;unsigned long long&gt;</td>
+<td>std::vector&lt;uint64_t&gt;</td>
+</tr>
+<tr class="row-even"><td>sequence&lt;float&gt;</td>
+<td>std::vector&lt;float&gt;</td>
+</tr>
+<tr class="row-odd"><td>sequence&lt;double&gt;</td>
+<td>std::vector&lt;double&gt;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="structures">
+<h4>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h4>
+<p>You can define an IDL structure with a set of members with multiple types. It will be converted into a C++ class with each member mapped as an attributes plus method to <em>get</em> and <em>set</em> each member.</p>
+<p>The following IDL structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Structure</span>
+<span class="p">{</span>
+<span class="n">octet</span> <span class="n">octet_value</span><span class="p">;</span>
+<span class="n">long</span> <span class="n">long_value</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">string_value</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Would be converted to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Structure</span>
+<span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+   <span class="n">Structure</span><span class="p">();</span>
+   <span class="o">~</span><span class="n">Structure</span><span class="p">();</span>
+   <span class="n">Structure</span><span class="p">(</span><span class="n">const</span> <span class="n">Structure</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Structure</span><span class="p">(</span><span class="n">Structure</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Structure</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span> <span class="n">const</span> <span class="n">Structure</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Structure</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Structure</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">);</span>
+
+   <span class="n">void</span> <span class="n">octet_value</span><span class="p">(</span><span class="n">uint8_t</span> <span class="n">_octet_value</span><span class="p">);</span>
+   <span class="n">uint8_t</span> <span class="n">octet_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">uint8_t</span><span class="o">&amp;</span> <span class="n">octet_value</span><span class="p">();</span>
+   <span class="n">void</span> <span class="n">long_value</span><span class="p">(</span><span class="n">int64_t</span> <span class="n">_long_value</span><span class="p">);</span>
+   <span class="n">int64_t</span> <span class="n">long_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">int64_t</span><span class="o">&amp;</span> <span class="n">long_value</span><span class="p">();</span>
+   <span class="n">void</span> <span class="n">string_value</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span>
+      <span class="o">&amp;</span><span class="n">_string_value</span><span class="p">);</span>
+   <span class="n">void</span> <span class="n">string_value</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;&amp;</span><span class="n">_string_value</span><span class="p">);</span>
+   <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">string_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">string_value</span><span class="p">();</span>
+
+<span class="n">private</span><span class="p">:</span>
+   <span class="n">uint8_t</span> <span class="n">m_octet_value</span><span class="p">;</span>
+   <span class="n">int64_t</span> <span class="n">m_long_value</span><span class="p">;</span>
+   <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">m_string_value</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unions">
+<h4>Unions<a class="headerlink" href="#unions" title="Permalink to this headline">¶</a></h4>
+<p>In IDL, a union is defined as a sequence of members with their own types and a discriminant that specifies which member is in use. An IDL union type is mapped as a C++ class with access functions to the union members and the discriminant.</p>
+<p>The following IDL union:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">union</span> <span class="n">Union</span> <span class="n">switch</span><span class="p">(</span><span class="n">long</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="n">case</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">octet</span> <span class="n">octet_value</span><span class="p">;</span>
+  <span class="n">case</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">long</span> <span class="n">long_value</span><span class="p">;</span>
+  <span class="n">case</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">string</span> <span class="n">string_value</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Would be converted to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Union</span>
+<span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+   <span class="n">Union</span><span class="p">();</span>
+   <span class="o">~</span><span class="n">Union</span><span class="p">();</span>
+   <span class="n">Union</span><span class="p">(</span><span class="n">const</span> <span class="n">Union</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Union</span><span class="p">(</span><span class="n">Union</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Union</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">const</span> <span class="n">Union</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+   <span class="n">Union</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Union</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">);</span>
+
+   <span class="n">void</span> <span class="n">d</span><span class="p">(</span><span class="n">int32t</span> <span class="n">__d</span><span class="p">);</span>
+   <span class="n">int32_t</span> <span class="n">_d</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">int32_t</span><span class="o">&amp;</span> <span class="n">_d</span><span class="p">();</span>
+
+   <span class="n">void</span> <span class="n">octet_value</span><span class="p">(</span><span class="n">uint8_t</span> <span class="n">_octet_value</span><span class="p">);</span>
+   <span class="n">uint8_t</span> <span class="n">octet_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">uint8_t</span><span class="o">&amp;</span> <span class="n">octet_value</span><span class="p">();</span>
+   <span class="n">void</span> <span class="n">long_value</span><span class="p">(</span><span class="n">int64_t</span> <span class="n">_long_value</span><span class="p">);</span>
+   <span class="n">int64_t</span> <span class="n">long_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">int64_t</span><span class="o">&amp;</span> <span class="n">long_value</span><span class="p">();</span>
+   <span class="n">void</span> <span class="n">string_value</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span>
+      <span class="o">&amp;</span><span class="n">_string_value</span><span class="p">);</span>
+   <span class="n">void</span> <span class="n">string_value</span><span class="p">(</span><span class="n">std</span><span class="p">::</span> <span class="n">string</span> <span class="o">&amp;&amp;</span><span class="n">_string_value</span><span class="p">);</span>
+   <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">string_value</span><span class="p">()</span> <span class="n">const</span><span class="p">;</span>
+   <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">string_value</span><span class="p">();</span>
+
+<span class="n">private</span><span class="p">:</span>
+   <span class="n">int32_t</span> <span class="n">m__d</span><span class="p">;</span>
+   <span class="n">uint8_t</span> <span class="n">m_octet_value</span><span class="p">;</span>
+   <span class="n">int64_t</span> <span class="n">m_long_value</span><span class="p">;</span>
+   <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">m_string_value</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enumerations">
+<h4>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h4>
+<p>An enumeration in IDL format is a collection of identifiers that have a numeric value associated. An IDL enumeration type is mapped directly to the corresponding C++11 enumeration definition.</p>
+<p>The following IDL enumeration:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Enumeration</span>
+<span class="p">{</span>
+    <span class="n">RED</span><span class="p">,</span>
+    <span class="n">GREEN</span><span class="p">,</span>
+    <span class="n">BLUE</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Would be converted to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Enumeration</span> <span class="p">:</span> <span class="n">uint32_t</span>
+<span class="p">{</span>
+    <span class="n">RED</span><span class="p">,</span>
+    <span class="n">GREEN</span><span class="p">,</span>
+    <span class="n">BLUE</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyed-types">
+<h4>Keyed Types<a class="headerlink" href="#keyed-types" title="Permalink to this headline">¶</a></h4>
+<p>In order to use keyed topics the user should define some key members inside the structure. This is achieved by writting “&#64;Key” before the members of the structure you want to use as keys.
+For example in the following IDL file the <em>id</em> and <em>type</em> field would be the keys:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">MyType</span>
+<span class="p">{</span>
+    <span class="nd">@Key</span> <span class="n">long</span> <span class="nb">id</span><span class="p">;</span>
+    <span class="nd">@Key</span> <span class="n">string</span> <span class="nb">type</span><span class="p">;</span>
+    <span class="n">long</span> <span class="n">positionX</span><span class="p">;</span>
+    <span class="n">long</span> <span class="n">positionY</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><em>fastrtpsgen</em> automatically detects these tags and correctly generates the serialization methods for the key generation function in TopicDataType (getKey). This function will obtain the 128 MD5 digest  of the big endian serialization of the Key Members.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound" id="notes">
+<span id="document-notes"></span><div class="section" id="version-1-4-0">
+<h2>Version 1.4.0<a class="headerlink" href="#version-1-4-0" title="Permalink to this headline">¶</a></h2>
+<p>This release includes the following:</p>
+<ul class="simple">
+<li>Added secure communications.</li>
+<li>Removed all Boost dependencies. Fast RTPS is not using Boost libraries anymore.</li>
+<li>Added compatibility with Android.</li>
+<li>Bug fixing.</li>
+</ul>
+<div class="section" id="previous-versions">
+<h3>Previous versions<a class="headerlink" href="#previous-versions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="version-1-3-1">
+<h4>Version 1.3.1<a class="headerlink" href="#version-1-3-1" title="Permalink to this headline">¶</a></h4>
+<p>This release includes the following:</p>
+<ul class="simple">
+<li>New examples that illustrate how to tweak Fast RTPS towards different applications.</li>
+<li>Improved support for embedded Linux.</li>
+<li>Bug fixing.</li>
+</ul>
+</div>
+<div class="section" id="version-1-3-0">
+<h4>Version 1.3.0<a class="headerlink" href="#version-1-3-0" title="Permalink to this headline">¶</a></h4>
+<p>This release introduces several new features:</p>
+<ul class="simple">
+<li>Unbound Arrays support: Now you can send variable size data arrays.</li>
+<li>Extended Fragmentation Configuration: It allows you to setup a Message/Fragment max size different to the standard 64Kb limit.</li>
+<li>Improved logging system: Get even more introspection about the status of your communications system.</li>
+<li>Static Discovery: Use XML to map your network and keep discovery traffic to a minimum.</li>
+<li>Stability and performance improvements: A new iteration of our built-in performance tests will make benchmarking easier for you.</li>
+<li>ReadTheDocs Support: We improved our documentation format and now our installation and user manuals are available online on ReadTheDocs.</li>
+</ul>
+</div>
+<div class="section" id="version-1-2-0">
+<h4>Version 1.2.0<a class="headerlink" href="#version-1-2-0" title="Permalink to this headline">¶</a></h4>
+<p>This release introduces two important new features:</p>
+<ul class="simple">
+<li>Flow Controllers: A mechanism to control how you use the available bandwidth avoiding data bursts. The controllers allow you to specify the maximum amount of data to be sent in a specific period of time. This is very useful when you are sending large messages requiring fragmentation.</li>
+<li>Discovery Listeners: Now the user can subscribe to the discovery information to know the entities present in the network (Topics, Publishers &amp; Subscribers) dynamically without prior knowledge of the system. This enables the creation of generic tools to inspect your system.</li>
+</ul>
+<p>But there is more:</p>
+<ul class="simple">
+<li>Full ROS2 Support: Fast RTPS is used by ROS2, the upcoming release of the Robot Operating System (ROS).</li>
+<li>Better documentation: More content and examples.</li>
+<li>Improved performance.</li>
+<li>Bug fixing.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, eProsima.
+      
+        <span class="commit">
+          Revision <code>c6eb8acd</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/1.3.1/">1.3.1</a></dd>
+        
+          <dd><a href="/en/fiware/">fiware</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/eprosima-fast-rtps/downloads/pdf/latest/">pdf</a></dd>
+        
+          <dd><a href="//readthedocs.org/projects/eprosima-fast-rtps/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+          <dd><a href="//readthedocs.org/projects/eprosima-fast-rtps/downloads/epub/latest/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/eprosima-fast-rtps/?fromdocs=eprosima-fast-rtps">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/eprosima-fast-rtps/?fromdocs=eprosima-fast-rtps">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.4.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

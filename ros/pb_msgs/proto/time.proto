@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package pb_msgs;
+
+message Time {
+    required int64 sec = 1;
+    required int64 nsec = 2;
+}

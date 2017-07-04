@@ -1,0 +1,85 @@
+- svn:
+    local-name: visualization
+    uri: https://code.ros.org/svn/ros-pkg/stacks/visualization/tags/visualization-1.7.4
+
+- svn:
+    local-name: rx
+    uri: https://code.ros.org/svn/ros/stacks/rx/tags/rx-1.6.2
+
+- svn:
+    local-name: visualization_common
+    uri: https://code.ros.org/svn/ros-pkg/stacks/visualization_common/tags/visualization_common-1.7.0
+
+- svn:
+    local-name: laser_pipeline
+    uri: https://code.ros.org/svn/ros-pkg/stacks/laser_pipeline/tags/laser_pipeline-1.4.3
+
+- hg:
+    local-name: pluginlib
+    uri: https://kforge.ros.org/common/pluginlib
+    version: pluginlib-1.7.0
+
+- hg:
+    local-name: geometry
+    uri: https://kforge.ros.org/geometry/geometry
+    version: geometry-1.7.1
+
+- hg:
+    local-name: bullet
+    uri: https://kforge.ros.org/geometry/bullet
+    version: bullet-2.79
+
+- git:
+    local-name: orocos_kinematics_dynamics
+    uri: http://git.mech.kuleuven.be/robotics/orocos_kinematics_dynamics.git
+    version: orocos_kinematics_dynamics-0.2.3
+
+- hg:
+    local-name: common_rosdeps
+    uri: https://kforge.ros.org/common/rosdepcore
+    version: common_rosdeps-1.0.2
+- hg:
+    local-name: filters
+    uri: https://kforge.ros.org/common/filters
+    version: filters-1.6.0
+
+- hg:
+    local-name: robot_model
+    uri: https://kforge.ros.org/robotmodel/robot_model
+    version: robot_model-1.7.1
+
+- svn:
+    local-name: image_common
+    uri: https://code.ros.org/svn/ros-pkg/stacks/image_common/tags/image_common-1.7.0
+
+- hg:
+    local-name: common
+    uri: https://kforge.ros.org/common/common
+    version: common-1.8.0
+
+- hg:
+    local-name: nodelet_core
+    uri: https://kforge.ros.org/common/nodeletcore
+    version: nodelet_core-1.5.0
+
+- hg:
+    local-name: bond_core
+    uri: https://kforge.ros.org/common/bondcore
+    version: bond_core-1.6.3
+
+- svn:
+    local-name: perception_pcl
+    uri: http://svn.pointclouds.org/ros/tags/perception_pcl_unstable-1.1.2
+
+- svn:
+    local-name: driver_common
+    uri: https://code.ros.org/svn/ros-pkg/stacks/driver_common/tags/driver_common-1.2.3
+
+- svn:
+    local-name: diagnostics
+    uri: https://code.ros.org/svn/ros-pkg/stacks/diagnostics/tags/diagnostics-1.6.1
+
+- hg:
+    local-name: eigen
+    uri: https://kforge.ros.org/geometry/eigen
+    version: eigen-1.6.0

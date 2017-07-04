@@ -1,0 +1,12 @@
+<package>
+  <name>badly_specified_changelog</name>
+  <version>0.0.0</version>
+  <description>foo</description>
+  <author>Somebody</author>
+  <maintainer email="Somebody@somewhere.org">Somebody</maintainer>
+  <license>Unknown</license>
+  <copyright>Someone</copyright>
+  <url/>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

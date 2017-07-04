@@ -1,0 +1,22 @@
+<package>
+  <name>kdl_conversions</name>
+  <version>1.11.8</version>
+  <description>
+
+     Conversion functions between KDL and geometry_msgs types.
+
+  </description>
+  <author>Adam Leeper</author>
+  <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+
+  <license>BSD</license>
+  <url>http://ros.org/wiki/kdl_conversions</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+</package>

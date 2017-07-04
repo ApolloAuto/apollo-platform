@@ -1,0 +1,28 @@
+digraph G 
+{
+        graph [ rankdir=BT, nodesep=2 ];
+        catkin->python;
+        catkin->cmake;
+        genmsg->catkin;
+        langs [
+               label = "<all> languages | {<cpp>gencpp | genpy | ... | genlisp}"
+               shape = "record"
+               ];
+        
+
+langs:all ->genmsg;
+
+
+std_msgs -> langs:all
+common_msgs -> langs:all
+roscpp_core [ label = "<stack> roscpp_core | {rostime | cpp_common | roscpp_serialization | roscpp_traits}"
+             shape = "record"
+             ]
+ros_comm [ label = "<stack> ros_comm | { rosgraph_msgs | xmlrpcpp | rosconsole | roscpp }"
+          shape = "record" ]
+ros_comm:stack -> catkin
+ros_comm:stack -> roscpp_core:stack
+ros_comm:stack -> langs:all
+roscpp_core:stack -> catkin
+}
+

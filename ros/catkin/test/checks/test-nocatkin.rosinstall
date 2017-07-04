@@ -1,0 +1,76 @@
+# - git:
+#     uri: 'git://github.com/willowgarage/catkin-debs.git'
+#     local-name: catkin_debs
+#     version: master
+
+- git:
+    uri: 'git://github.com/ros/genmsg.git'
+    local-name: genmsg
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/gencpp.git'
+    local-name: gencpp
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/genlisp.git'
+    local-name: genlisp
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/genpy.git'
+    local-name: genpy
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/langs.git'
+    local-name: langs
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/langs-dev.git'
+    local-name: langs-dev
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/std_msgs.git'
+    local-name: std_msgs
+    version: master
+
+- git:
+    uri: 'git://github.com/ros/roscpp_core.git'
+    local-name: roscpp_core
+    version: master
+
+- svn:
+    uri: 'https://code.ros.org/svn/ros/stacks/ros_comm/trunk/'
+    local-name: ros_comm
+
+- svn:
+    uri: 'https://code.ros.org/svn/ros/stacks/ros_tutorials/trunk/'
+    local-name: ros_tutorials
+
+- svn:
+    uri: 'https://code.ros.org/svn/ros/stacks/ros/trunk/'
+    local-name: ros
+
+- svn:
+    uri: 'https://code.ros.org/svn/ros-pkg/stacks/common_msgs/trunk'
+    local-name: common_msgs
+
+- hg:
+    local-name: rospkg
+    uri: https://kforge.ros.org/rosrelease/rospkg
+
+- hg:
+    local-name: rospack
+    uri: https://kforge.ros.org/rosrelease/rospack
+
+- svn:
+    local-name: rx
+    uri: https://code.ros.org/svn/ros/stacks/rx/trunk
+
+- hg:
+    local-name: actionlib
+    uri: https://kforge.ros.org/common/actionlib

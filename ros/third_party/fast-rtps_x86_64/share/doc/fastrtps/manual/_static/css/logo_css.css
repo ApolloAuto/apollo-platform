@@ -1,0 +1,4 @@
+@import url("theme.css");
+
+a.icon-home{color:#fff !important;font-family:"Neo Tech W02 Medium" !important;font-size:25px !important;font-weight:normal !important;color:#aeadb3 !important; text-transform:uppercase !important}
+fa-home:before, .icon-home:before{content:url('imgs/logo.png') !important}

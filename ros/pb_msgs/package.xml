@@ -1,0 +1,19 @@
+<package>
+<name>pb_msgs</name>
+  <version>1.0.0</version>
+  <description>
+    Protobuf messages for adu common proto.
+  </description>
+  <maintainer email="info@apollo.auto">Apollo Authors</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>gencpp</build_depend>
+  <build_depend>genmsg</build_depend>
+  <build_depend>genpy</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>gencpp</run_depend>
+  <run_depend>genmsg</run_depend>
+  <run_depend>genpy</run_depend>
+
+</package>

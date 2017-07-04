@@ -1,0 +1,50 @@
+- git:
+    uri: 'git@github.com:wg-debs/genmsg-release.git'
+    local-name: genmsg
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/gencpp-release.git'
+    local-name: gencpp
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/genpy-release.git'
+    local-name: genpy
+    version: master
+- git:
+    uri: 'git@github.com:wg-debs/ros-release.git'
+    local-name: ros
+    version: master 
+- git:
+    uri: 'git@github.com:wg-debs/std_msgs-release.git'
+    local-name: std_msgs
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/roscpp_core-release.git'
+    local-name: roscpp_core
+    version: master
+- git:
+    uri: 'git@github.com:wg-debs/catkin-release.git'
+    local-name: catkin
+    version: master
+- git:
+    uri: 'git@github.com:wg-debs/common_msgs-release.git'
+    local-name: common_msgs
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/rospack-release.git'
+    local-name: rospack
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/ros_comm-release.git'
+    local-name: ros_comm
+    version: master
+  
+- git:
+    uri: 'git@github.com:wg-debs/langs-release.git'
+    local-name: langs
+    version: master

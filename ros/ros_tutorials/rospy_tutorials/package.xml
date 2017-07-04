@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>rospy_tutorials</name>
+  <version>0.5.5</version>
+  <description>
+    This package attempts to show the features of ROS python API step-by-step,
+    including using messages, servers, parameters, etc. These tutorials are compatible with the nodes in roscpp_tutorial.
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/rospy_tutorials</url>
+  <url type="bugtracker">https://github.com/ros/ros_tutorials/issues</url>
+  <url type="repository">https://github.com/ros/ros_tutorials</url>
+  <author>Ken Conley</author>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>rostest</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

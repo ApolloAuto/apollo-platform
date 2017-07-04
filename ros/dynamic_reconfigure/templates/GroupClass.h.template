@@ -1,0 +1,27 @@
+class ${upper}
+{
+  public:
+    ${upper}()
+    {
+      state = true;
+      name = "${name}";
+    }
+
+    void setParams(${configname}Config &config, const std::vector<AbstractParamDescriptionConstPtr> params)
+    {
+      for (std::vector<AbstractParamDescriptionConstPtr>::const_iterator _i = params.begin(); _i != params.end(); ++_i)
+      {
+        boost::any val;
+        (*_i)->getValue(config, val);
+
+${setters}
+      }
+    }
+
+    ${params}
+
+    bool state;
+    std::string name;
+
+    ${subgroups}
+}${lower};

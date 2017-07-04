@@ -1,0 +1,3 @@
+start = end
+end += 20
+data = numpy.frombuffer(str[start:end], dtype=numpy.int16, count=10)

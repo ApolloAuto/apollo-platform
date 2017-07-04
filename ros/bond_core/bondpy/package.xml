@@ -1,0 +1,28 @@
+<package>
+  <name>bondpy</name>
+  <version>1.7.19</version>
+  <description>
+    Python implementation of bond, a mechanism for checking when
+    another process has terminated.
+  </description>
+  <author>Stuart Glaser</author>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/bondpy</url>
+  <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
+  <url type="repository">https://github.com/ros/bond_core</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>bond</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>smclib</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>smclib</run_depend>
+  <run_depend>uuid</run_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

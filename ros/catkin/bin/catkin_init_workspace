@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import argparse
+import os
+import sys
+
+# find the import relatively if available to work before installing catkin or overlaying installed version
+if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'python', 'catkin', '__init__.py')):
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'python'))
+from catkin.init_workspace import init_workspace
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Initializes a catkin workspace by creating a top-level CMakeLists.txt.')
+    parser.add_argument('workspace', nargs='?', default='.', help='The path to an existing folder (default: .)')
+    args = parser.parse_args()
+
+    # verify that workspace folder exists
+    workspace = os.path.abspath(args.workspace)
+    if not os.path.isdir(workspace):
+        parser.error('Workspace "%s" does not exist' % workspace)
+
+    try:
+        init_workspace(workspace)
+    except Exception as e:
+        sys.stderr.write(str(e))
+        sys.exit(2)
+
+
+if __name__ == '__main__':
+    main()

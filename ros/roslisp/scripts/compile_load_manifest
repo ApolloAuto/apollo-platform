@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+SBCL_CMD="/usr/bin/env sbcl"
+
+ROSLISP_PATH=`rospack find roslisp`
+if [ -z "$ROSLISP_PATH" ]; then
+  echo "roslisp not found"
+  exit 1
+fi
+
+$SBCL_CMD --noinform --end-runtime-options --noprint --non-interactive \
+    --load $ROSLISP_PATH/scripts/roslisp-sbcl-init

@@ -1,0 +1,13 @@
+# generated from genmsg/cmake/pkg-genmsg.context.in
+
+messages_str = "@ARG_MESSAGES@"
+services_str = "@ARG_SERVICES@"
+protos_str = "@ARG_PROTOS@"
+pkg_name = "@PROJECT_NAME@"
+dependencies_str = "@ARG_DEPENDENCIES@"
+langs = "@GEN_LANGS@"
+dep_include_paths_str = "@MSG_INCLUDE_DIRS@"
+dep_proto_include_paths_str = "@PROTO_INCLUDE_DIRS@"
+PYTHON_EXECUTABLE = "@PYTHON_EXECUTABLE@"
+package_has_static_sources = '@package_has_static_sources@' == 'TRUE'
+genmsg_check_deps_script = "@GENMSG_CHECK_DEPS_SCRIPT@"

@@ -1,0 +1,29 @@
+<package>
+  <name>bondcpp</name>
+  <version>1.7.19</version>
+  <description>
+    C++ implementation of bond, a mechanism for checking when
+    another process has terminated.
+  </description>
+  <author>Stuart Glaser</author>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/bondcpp</url>
+  <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
+  <url type="repository">https://github.com/ros/bond_core</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>bond</build_depend>
+  <build_depend>boost</build_depend>
+  <build_depend version_gte="0.3.2">cmake_modules</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>smclib</build_depend>
+  <build_depend>uuid</build_depend>
+
+  <run_depend>bond</run_depend>
+  <run_depend>boost</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>smclib</run_depend>
+  <run_depend>uuid</run_depend>
+</package>

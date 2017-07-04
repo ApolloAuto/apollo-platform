@@ -1,0 +1,11 @@
+/**
+@mainpage
+
+@htmlinclude manifest.html
+
+The Angles contains the following methods:
+ \li Angular conversions: angles::from_degrees, angles::to_degrees
+ \li Angular manipulations: angles::normalize_angle_positive, angles::normalize_angle
+ \li Angular distance: angles::shortest_angular_distance, angles::shortest_angular_distance_with_limits
+ \li Angular tools: angles::find_min_max_delta, angles::two_pi_complement
+**/

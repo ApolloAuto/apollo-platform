@@ -1,0 +1,24 @@
+<package>
+  <name>angles</name>
+  <version>1.9.10</version>
+  <description>This package provides a set of simple math utilities to work
+        with angles. The utilities cover simple things like
+        normalizing an angle and conversion between degrees and
+        radians. But even if you're trying to calculate things like
+        the shortest angular distance between two joinst space
+        positions of your robot, but the joint motion is constrained
+        by joint limits, this package is what you need. The code in
+        this packge is stable and well tested. There are no plans for
+        major changes in the near future.</description>
+  <author email="hsu@osrfoundation.org">John Hsu</author>
+  <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/angles</url>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

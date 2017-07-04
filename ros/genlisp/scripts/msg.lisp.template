@@ -1,0 +1,27 @@
+@###############################################
+@#
+@# ROS message source code generation for C++
+@#
+@# EmPy template for generating <msg>.h files
+@#
+@###############################################
+@# Start of Template
+@#
+@# Context:
+@#  - file_name_in (String) Source file
+@#  - spec (msggen.MsgSpec) Parsed specification of the .msg file
+@#  - md5sum (String) MD5Sum of the .msg specification
+@###############################################
+#include <boost/python.hpp>
+#include <@(spec.package)/@(spec.short_name).h>
+
+using namespace boost::python;
+
+void export_@(spec.short_name)()
+{
+  class_<@(spec.package)::@(spec.short_name)>("@(spec.short_name)")
+@[for field in spec.parsed_fields()]@
+    .def_readwrite("@(field.name)", &@(spec.package)::@(spec.short_name)::@(field.name))
+@[end for]@#field
+;
+}

@@ -1,0 +1,23 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classeprosima_1_1fastrtps_1_1_deadline_qos_policy.html" title="Class DeadlineQosPolicy, to indicate the Deadline of the samples. " alt="" coords="177,461,310,488"/>
+<area shape="rect" id="node3" href="$classeprosima_1_1fastrtps_1_1_destination_order_qos_policy.html" title="Class DestinationOrderQosPolicy, to indicate the Destination Order Qos. " alt="" coords="153,512,333,539"/>
+<area shape="rect" id="node4" href="$classeprosima_1_1fastrtps_1_1_durability_qos_policy.html" title="Class DurabilityQosPolicy, to indicate the durability of the samples. " alt="" coords="175,563,312,589"/>
+<area shape="rect" id="node5" href="$classeprosima_1_1fastrtps_1_1_durability_service_qos_policy.html" title="Class DurabilityServiceQosPolicy, to indicate the Durability Service. " alt="" coords="153,613,334,640"/>
+<area shape="rect" id="node6" href="$classeprosima_1_1fastrtps_1_1_group_data_qos_policy.html" title="Class GroupDataQosPolicy, to indicate the Group Data. " alt="" coords="171,664,316,691"/>
+<area shape="rect" id="node7" href="$classeprosima_1_1fastrtps_1_1_history_qos_policy.html" title="Class HistoryQosPolicy, defines the HistoryQos of the topic in the Writer or Reader side..." alt="" coords="181,715,305,741"/>
+<area shape="rect" id="node8" href="$classeprosima_1_1fastrtps_1_1_latency_budget_qos_policy.html" title="Class LatencyBudgetQosPolicy, to indicate the LatencyBudget of the samples. " alt="" coords="159,765,328,792"/>
+<area shape="rect" id="node9" href="$classeprosima_1_1fastrtps_1_1_lifespan_qos_policy.html" title="Class LifespanQosPolicy, currently unimplemented. " alt="" coords="178,816,309,843"/>
+<area shape="rect" id="node10" href="$classeprosima_1_1fastrtps_1_1_liveliness_qos_policy.html" title="Class LivelinessQosPolicy, to indicate the Liveliness of the Writers. " alt="" coords="173,867,313,893"/>
+<area shape="rect" id="node11" href="$classeprosima_1_1fastrtps_1_1_ownership_qos_policy.html" title="Class OwnershipQosPolicy, to indicate the ownership kind of the endpoints. " alt="" coords="171,917,315,944"/>
+<area shape="rect" id="node12" href="$classeprosima_1_1fastrtps_1_1_ownership_strength_qos_policy.html" title="Class OwnershipStrengthQosPolicy, to indicate the strength of the ownership. " alt="" coords="147,5,340,32"/>
+<area shape="rect" id="node13" href="$classeprosima_1_1fastrtps_1_1_partition_qos_policy.html" title="Class PartitionQosPolicy, to indicate the Partition Qos. " alt="" coords="178,56,309,83"/>
+<area shape="rect" id="node14" href="$classeprosima_1_1fastrtps_1_1_presentation_qos_policy.html" title="Class PresentationQosPolicy, to indicate the Presentation Qos Policy. " alt="" coords="166,107,321,133"/>
+<area shape="rect" id="node15" href="$classeprosima_1_1fastrtps_1_1_reliability_qos_policy.html" title="Class ReliabilityQosPolicy, to indicate the reliability of the endpoints. " alt="" coords="174,157,313,184"/>
+<area shape="rect" id="node16" href="$classeprosima_1_1fastrtps_1_1_resource_limits_qos_policy.html" title="Class ResourceLimitsQosPolicy, defines the ResourceLimits for the Writer or the Reader. " alt="" coords="157,208,330,235"/>
+<area shape="rect" id="node17" href="$classeprosima_1_1fastrtps_1_1_time_based_filter_qos_policy.html" title="Class TimeBasedFilterQosPolicy, to indicate the Time Based Filter Qos. " alt="" coords="155,259,332,285"/>
+<area shape="rect" id="node18" href="$classeprosima_1_1fastrtps_1_1_topic_data_qos_policy.html" title="Class TopicDataQosPolicy, to indicate the Topic Data. " alt="" coords="172,309,315,336"/>
+<area shape="rect" id="node19" href="$classeprosima_1_1fastrtps_1_1_transport_priority_qos_policy.html" title="Class TransportPriorityQosPolicy, currently unimplemented. " alt="" coords="154,360,333,387"/>
+<area shape="rect" id="node20" href="$classeprosima_1_1fastrtps_1_1_user_data_qos_policy.html" title="Class UserDataQosPolicy, to transmit user data during the discovery phase. " alt="" coords="174,411,313,437"/>
+<area shape="rect" id="node21" href="$classeprosima_1_1fastrtps_1_1_qos_policy.html" title="Class QosPolicy, base for all QoS policies defined for Writers and Readers. " alt="" coords="11,512,93,539"/>
+<area shape="rect" id="node22" href="$classeprosima_1_1fastrtps_1_1_publish_mode_qos_policy.html" title="Class PublishModeQosPolicy, defines the publication mode for a specific writer. " alt="" coords="165,968,322,995"/>
+</map>

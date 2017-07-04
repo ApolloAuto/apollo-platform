@@ -1,0 +1,5 @@
+# - if encoded as a list instead, serialize as bytes instead of string
+if type(data) in [list, tuple]:
+  buff.write(_struct_8B.pack(*data))
+else:
+  buff.write(_struct_8s.pack(data))

@@ -1,0 +1,3 @@
+start = end
+end += 8
+data = str[start:end]

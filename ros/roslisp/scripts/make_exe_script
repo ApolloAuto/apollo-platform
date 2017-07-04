@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+ROSLISP_PATH=`rospack find roslisp`
+if [ -z "$ROSLISP_PATH" ]; then
+  echo "roslisp not found"
+  exit 1
+fi
+
+if [ $# = 4 ]; then
+  pkg=$1
+  system=$2
+  entry=$3
+  output=$4
+  cat > $output <<EOF
+#!/usr/bin/env sh
+"true"; exec /usr/bin/env sbcl --noinform --load $ROSLISP_PATH/scripts/roslisp-sbcl-init --script "\$0" "\$@"
+
+(ros-load:load-system "${pkg}" "${system}")
+(${entry})
+EOF
+  chmod a+x $output
+else
+  echo "Usage: make_node_exec <pkg> <system> <entry> <output>"
+  exit 1
+fi

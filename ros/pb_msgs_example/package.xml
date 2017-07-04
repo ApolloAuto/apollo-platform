@@ -1,0 +1,20 @@
+<package>
+  <name>pb_msgs_example</name>
+  <version>1.0.0</version>
+  <description>The pb_msgs_example package</description>
+  <maintainer email="info@apollo.auto">Apollo Authors</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>gencpp</build_depend>
+  <build_depend>genmsg</build_depend>
+  <build_depend>genpy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>pb_msgs</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>gencpp</run_depend>
+  <run_depend>genmsg</run_depend>
+  <run_depend>genpy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>pb_msgs</run_depend>
+</package>

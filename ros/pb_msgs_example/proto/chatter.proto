@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package pb_msgs;
+
+import "time.proto";
+
+message ShortMessage {
+    required Time stamp = 1;
+    required string content = 2;
+}
+
+message Counter {
+    required uint64 count = 1 [default = 0];
+}

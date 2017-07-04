@@ -1,0 +1,10 @@
+############################################################
+#
+# Choose transport mode, in which nodes communicate with each other
+#
+# 0: shared memory, default
+# 1: socket
+#
+############################################################
+
+transport_mode: 0

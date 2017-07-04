@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="dynamic_reconfigure" type="dynamic_reconfigure-ref_server" name="ref_server" output="screen" />
+  
+  <test test-name="simple_python_client_test" pkg="dynamic_reconfigure" type="simple_python_client_test.py" />
+</launch>
