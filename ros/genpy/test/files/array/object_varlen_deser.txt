@@ -1,0 +1,10 @@
+start = end
+end += 4
+(length,) = _struct_I.unpack(str[start:end])
+data = []
+for i in range(0, length):
+  val0 = foo.msg.Object()
+  start = end
+  end += 4
+  (val0.data,) = _struct_i.unpack(str[start:end])
+  data.append(val0)

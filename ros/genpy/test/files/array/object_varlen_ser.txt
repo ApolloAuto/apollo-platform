@@ -1,0 +1,4 @@
+length = len(data)
+buff.write(_struct_I.pack(length))
+for val0 in data:
+  buff.write(_struct_i.pack(val0.data))

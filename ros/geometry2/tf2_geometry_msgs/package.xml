@@ -1,0 +1,29 @@
+<package>
+  <name>tf2_geometry_msgs</name>
+  <version>0.5.13</version>
+  <description>
+    tf2_geometry_msgs
+  </description>
+  <author>Wim Meeussen</author>
+  <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/tf2_ros</url>
+    
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>python_orocos_kdl</build_depend>
+ 
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>tf2_ros</run_depend>
+  <run_depend>tf2</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>python_orocos_kdl</run_depend>
+
+  <test_depend>rostest</test_depend>
+</package>
+

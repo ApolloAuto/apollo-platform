@@ -1,0 +1,12 @@
+data = []
+for i in range(0, 2):
+  start = end
+  end += 4
+  (length,) = _struct_I.unpack(str[start:end])
+  start = end
+  end += length
+  if python3:
+    val0 = str[start:end].decode('utf-8')
+  else:
+    val0 = str[start:end]
+  data.append(val0)

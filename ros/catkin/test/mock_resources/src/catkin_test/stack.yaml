@@ -1,0 +1,18 @@
+Package: catkin-test
+Version: 3.4.5
+Section: misc
+Priority: extra
+Architecture: all
+Depends: python-empy, cmake, make,
+  catkin, genmsg, genpy, gencpp, std_msgs, roscpp_core, common_msgs
+Description: Willow Garage low level build system macros and infrastructure
+Author: Troy Straszheim <straszheim@willowgarage.com>, Morten Kjaergaard, Ken Conley
+Maintainer: Troy Straszheim <straszheim@willowgarage.com>
+Homepage: http://www.ros.org
+
+Catkin-ProjectName: catkin_test
+Catkin-CopyrightType:  willowgarage
+Catkin-Depends: catkin, genmsg, common_msgs, roscpp_core
+
+Catkin-DebRulesType: +rules.em
+Catkin-ChangelogType: +changelog.em

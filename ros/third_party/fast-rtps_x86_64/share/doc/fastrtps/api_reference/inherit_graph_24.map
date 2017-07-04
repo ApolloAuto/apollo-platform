@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_flow_controller.html" title="Flow Controllers take a vector of cache changes (by reference) and return a filtered vector..." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$classeprosima_1_1fastrtps_1_1rtps_1_1_throughput_controller.html" title="Simple filter that only clears changes up to a certain accumulated payload size. " alt="" coords="160,5,303,32"/>
+</map>

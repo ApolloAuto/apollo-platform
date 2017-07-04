@@ -1,0 +1,9 @@
+for val0 in data:
+  length = len(val0)
+  if python3 or type(val0) == unicode:
+    val0 = val0.encode('utf-8')
+    length = len(val0)
+  if python3:
+    buff.write(struct.pack('<I%sB'%length, length, *val0))
+  else:
+    buff.write(struct.pack('<I%ss'%length, length, val0))

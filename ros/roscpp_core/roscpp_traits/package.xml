@@ -1,0 +1,20 @@
+<package>
+  <name>roscpp_traits</name>
+  <version>0.5.8</version>
+  <description>
+    roscpp_traits contains the message traits code as described in
+    <a href="http://www.ros.org/wiki/roscpp/Overview/MessagesTraits">MessagesTraits</a>.
+
+    This package is a component of <a href="http://www.ros.org/wiki/roscpp">roscpp</a>.
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/roscpp_traits</url>
+  <author>Josh Faust</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>cpp_common</run_depend>
+  <run_depend>rostime</run_depend>
+</package>

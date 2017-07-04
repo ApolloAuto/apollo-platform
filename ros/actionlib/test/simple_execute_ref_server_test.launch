@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="actionlib" type="actionlib-simple_execute_ref_server" name="ref_server" output="screen" />
+
+  <test test-name="simple_client_test" pkg="actionlib" type="actionlib-simple_client_test" />
+  <test test-name="simple_client_wait_test" pkg="actionlib" type="actionlib-simple_client_wait_test" />
+</launch>

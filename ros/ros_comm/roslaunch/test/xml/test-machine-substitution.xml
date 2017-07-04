@@ -1,0 +1,3 @@
+<launch>
+  <machine name="$(env NAME)" address="$(env ADDRESS)" />
+</launch> 

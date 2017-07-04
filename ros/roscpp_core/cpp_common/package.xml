@@ -1,0 +1,25 @@
+<package>
+  <name>cpp_common</name>
+  <version>0.5.8</version>
+  <description>
+    cpp_common contains C++ code for doing things that are not necessarily ROS
+    related, but are useful for multiple packages. This includes things like
+    the ROS_DEPRECATED and ROS_FORCE_INLINE macros, as well as code for getting
+    backtraces.
+
+    This package is a component of <a href="http://www.ros.org/wiki/roscpp">roscpp</a>.
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url>http://www.ros.org/wiki/cpp_common</url>
+  <author>John Faust</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>libconsole-bridge-dev</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>libconsole-bridge-dev</run_depend>
+</package>

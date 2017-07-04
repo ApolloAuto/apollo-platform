@@ -1,0 +1,3 @@
+start = end
+end += 20
+data = _struct_10h.unpack(str[start:end])

@@ -1,0 +1,5 @@
+<launch>
+  <test pkg="rostest" type="test_clean_master.py" test-name="clean_master1" />
+  <test pkg="rostest" type="test_clean_master.py" test-name="clean_master2" />
+  <test pkg="rostest" type="test_clean_master.py" test-name="clean_master3" />
+</launch>

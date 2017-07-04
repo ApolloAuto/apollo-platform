@@ -1,0 +1,9 @@
+string name
+string type
+string[] remap_source_args
+string[] remap_target_args
+string[] my_argv
+
+string bond_id
+---
+bool success

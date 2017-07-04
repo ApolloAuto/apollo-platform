@@ -1,0 +1,33 @@
+<package>
+  <name>rospack</name>
+  <version>2.2.8</version>
+  <description>ROS Package Tool</description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/rospack</url>
+  <url type="bugtracker">https://github.com/ros/rospack/issues</url>
+  <url type="repository">https://github.com/ros/rospack</url>
+
+  <author>Brian Gerkey</author>
+  <author>Morgan Quigley</author>
+  <author>Dirk Thomas</author>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>gtest</build_depend>
+  <build_depend>pkg-config</build_depend>
+  <build_depend>python</build_depend>
+  <build_depend>tinyxml</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>pkg-config</run_depend>
+  <run_depend>python</run_depend>
+  <run_depend>python-catkin-pkg</run_depend>
+  <run_depend>python-rosdep</run_depend>
+  <run_depend>tinyxml</run_depend>
+
+  <test_depend>python-coverage</test_depend>
+</package>

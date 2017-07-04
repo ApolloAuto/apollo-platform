@@ -1,0 +1,41 @@
+<package>
+  <name>tf_conversions</name>
+  <version>1.11.8</version>
+  <description>
+
+   This package contains a set of conversion functions to convert
+common tf datatypes (point, vector, pose, etc) into semantically
+identical datatypes used by other libraries. The conversion functions
+make it easier for users of the transform library (tf) to work with
+the datatype of their choice. Currently this package has support for
+the Kinematics and Dynamics Library (KDL) and the Eigen matrix
+library. This package is stable, and will get integrated into tf in
+the next major release cycle (see roadmap).
+
+  </description>
+  <author>Tully Foote</author>
+  <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+
+  <license>BSD</license>
+  <url>http://www.ros.org/wiki/tf_conversions</url>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>eigen</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>kdl_conversions</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>tf</build_depend>
+
+  <run_depend>eigen</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>kdl_conversions</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>python_orocos_kdl</run_depend>
+  <run_depend>tf</run_depend>
+
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

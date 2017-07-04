@@ -1,0 +1,4 @@
+#!/usr/bin/python
+
+from rospbconvertor import rospbconvertor
+rospbconvertor.rospbconvert_main()

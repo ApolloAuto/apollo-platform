@@ -1,0 +1,195 @@
+diff -Npur -x .git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2017-05-25 20:37:18.851594345 -0700
++++ b/CMakeLists.txt	2017-05-25 21:31:41.247771694 -0700
+@@ -175,9 +175,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PAT
+ # Default shared libraries
+ ###############################################################################
+ option(BUILD_SHARED_LIBS
+-    "Global flag to cause add_library() to create shared libraries if on. \
+-    If set to true, this will cause all libraries to be built shared \
+-    unless the library was explicitly added as a static library."
++    "Global flag to cause add_library() to create shared libraries if on."
+     ON)
+ 
+ ###############################################################################
+diff -Npur -x .git a/include/fastrtps/utils/IPFinder.h b/include/fastrtps/utils/IPFinder.h
+--- a/include/fastrtps/utils/IPFinder.h	2017-05-25 20:36:33.539369654 -0700
++++ b/include/fastrtps/utils/IPFinder.h	2017-06-08 15:28:09.021049038 -0700
+@@ -61,7 +61,7 @@ public:
+ 	IPFinder();
+ 	virtual ~IPFinder();
+ 
+-	RTPS_DllAPI static bool getIPs(std::vector<info_IP>* vec_name, bool return_loopback = false);
++	RTPS_DllAPI static bool getIPs(std::vector<info_IP>* vec_name, bool return_loopback = true);
+ 
+ 	/**
+     * Get the IP4Adresses in all interfaces.
+diff -Npur -x .git a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp
+--- a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-05-25 20:37:18.859594385 -0700
++++ b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-05-25 20:56:02.109164279 -0700
+@@ -129,6 +129,9 @@ bool EDPSimple::createSEDPEndpoints()
+         watt.times.nackResponseDelay.fraction = 0;
+         watt.times.initialHeartbeatDelay.seconds = 0;
+         watt.times.initialHeartbeatDelay.fraction = 0;
++        watt.times.heartbeatPeriod.seconds = 0;
++        watt.times.heartbeatPeriod.fraction = 4294967 * 500;
++
+         if(mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.bytesPerPeriod != UINT32_MAX &&
+                 mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.periodMillisecs != 0)
+             watt.mode = ASYNCHRONOUS_WRITER;
+@@ -219,6 +222,8 @@ bool EDPSimple::createSEDPEndpoints()
+         watt.times.nackResponseDelay.fraction = 0;
+         watt.times.initialHeartbeatDelay.seconds = 0;
+         watt.times.initialHeartbeatDelay.fraction = 0;
++        watt.times.heartbeatPeriod.seconds = 0;
++        watt.times.heartbeatPeriod.fraction = 4294967 * 500;
+         if(mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.bytesPerPeriod != UINT32_MAX &&
+                 mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.periodMillisecs != 0)
+             watt.mode = ASYNCHRONOUS_WRITER;
+diff -Npur -x .git a/src/cpp/transport/UDPv4Transport.cpp b/src/cpp/transport/UDPv4Transport.cpp
+--- a/src/cpp/transport/UDPv4Transport.cpp	2017-05-25 20:36:33.559369753 -0700
++++ b/src/cpp/transport/UDPv4Transport.cpp	2017-06-08 15:28:35.781181734 -0700
+@@ -31,7 +31,7 @@ static const uint32_t maximumUDPSocketSi
+ static const uint32_t maximumMessageSize = 65500;
+ static const uint8_t defaultTTL = 1;
+ 
+-static void GetIP4s(vector<IPFinder::info_IP>& locNames, bool return_loopback = false)
++static void GetIP4s(vector<IPFinder::info_IP>& locNames, bool return_loopback = true)
+ {
+     IPFinder::getIPs(&locNames, return_loopback);
+     auto newEnd = remove_if(locNames.begin(),
+@@ -169,11 +169,15 @@ bool UDPv4Transport::OpenInputChannel(co
+         for (const auto& infoIP : locNames)
+         {
+             auto ip = asio::ip::address_v4::from_string(infoIP.name);
++            try {
+ #if defined(ASIO_HAS_MOVE)
+             socket.set_option(ip::multicast::join_group(ip::address_v4::from_string(locator.to_IP4_string()), ip));
+ #else
+             socket->set_option(ip::multicast::join_group(ip::address_v4::from_string(locator.to_IP4_string()), ip));
+ #endif
++            } catch (std::exception &e) {
++                logWarning(RTPS_MSG_OUT, "Ignore nic bind mutiple ips error.");
++            }
+         }
+     }
+ 
+diff -Npur -x .git a/thirdparty/fastcdr/CMakeLists.txt b/thirdparty/fastcdr/CMakeLists.txt
+--- a/thirdparty/fastcdr/CMakeLists.txt	2017-05-25 20:41:04.208711831 -0700
++++ b/thirdparty/fastcdr/CMakeLists.txt	2017-05-25 21:31:55.783843775 -0700
+@@ -106,9 +106,7 @@ endif()
+ # Default shared libraries
+ ###############################################################################
+ option(BUILD_SHARED_LIBS
+-    "Global flag to cause add_library() to create shared libraries if on. \
+-    If set to true, this will cause all libraries to be built shared \
+-    unless the library was explicitly added as a static library."
++    "Global flag to cause add_library() to create shared libraries if on."
+     ON)
+ 
+ ###############################################################################
+diff -Npur -x .git a/thirdparty/fastcdr/include/fastcdr/Cdr.h b/thirdparty/fastcdr/include/fastcdr/Cdr.h
+--- a/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-05-25 20:41:04.244712009 -0700
++++ b/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-05-25 21:10:34.305489267 -0700
+@@ -726,6 +726,7 @@ namespace eprosima
+                  * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
+                  */
+                 Cdr& serialize(const char *string_t);
++                Cdr& serialize(const char *string_t, size_t length);
+ 
+                 /*!
+                  * @brief This function serializes a string with a different endianness.
+@@ -735,6 +736,7 @@ namespace eprosima
+                  * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
+                  */
+                 Cdr& serialize(const char *string_t, Endianness endianness);
++                Cdr& serialize(const char *string_t, size_t length, Endianness endianness);
+ 
+ 				//TODO
+ 				inline Cdr& serialize(char *string_t) {return serialize((const char*)string_t);}
+@@ -749,7 +751,7 @@ namespace eprosima
+                  * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
+                  */
+ 				inline
+-					Cdr& serialize(const std::string &string_t) {return serialize(string_t.c_str());}
++					Cdr& serialize(const std::string &string_t) {return serialize(string_t.c_str(), string_t.size());}
+ 
+                 /*!
+                  * @brief This function serializes a std::string with a different endianness.
+@@ -759,7 +761,7 @@ namespace eprosima
+                  * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
+                  */
+ 				inline
+-                Cdr& serialize(const std::string &string_t, Endianness endianness)  {return serialize(string_t.c_str(), endianness);}
++                Cdr& serialize(const std::string &string_t, Endianness endianness)  {return serialize(string_t.c_str(), string_t.size(), endianness);}
+ 
+ #if HAVE_CXX0X
+                 /*!
+diff -Npur -x .git a/thirdparty/fastcdr/src/cpp/Cdr.cpp b/thirdparty/fastcdr/src/cpp/Cdr.cpp
+--- a/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-05-25 20:41:04.244712009 -0700
++++ b/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-05-25 21:08:59.949021378 -0700
+@@ -570,6 +570,38 @@ Cdr& Cdr::serialize(const char *string_t
+     return *this;
+ }
+ 
++Cdr& Cdr::serialize(const char *string_t, size_t str_length)
++{
++    uint32_t length = 0;
++
++    if(string_t != nullptr)
++        length = (uint32_t)str_length + 1;
++
++    if(length > 0)
++    {
++        Cdr::state state(*this);
++        serialize(length);
++
++        if(((m_lastPosition - m_currentPosition) >= length) || resize(length))
++        {
++            // Save last datasize.
++            m_lastDataSize = sizeof(uint8_t);
++
++            m_currentPosition.memcopy(string_t, length);
++            m_currentPosition += length;
++        }
++        else
++        {
++            setState(state);
++            throw NotEnoughMemoryException(NotEnoughMemoryException::NOT_ENOUGH_MEMORY_MESSAGE_DEFAULT);
++        }
++    }
++    else
++        serialize(length);
++
++    return *this;
++}
++
+ Cdr& Cdr::serialize(const char *string_t, Endianness endianness)
+ {
+     bool auxSwap = m_swapBytes;
+@@ -581,6 +613,25 @@ Cdr& Cdr::serialize(const char *string_t
+         m_swapBytes = auxSwap;
+     }
+     catch(Exception &ex)
++    {
++        m_swapBytes = auxSwap;
++        ex.raise();
++    }
++
++    return *this;
++}
++
++Cdr& Cdr::serialize(const char *string_t, size_t length, Endianness endianness)
++{
++    bool auxSwap = m_swapBytes;
++    m_swapBytes = (m_swapBytes && (m_endianness == endianness)) || (!m_swapBytes && (m_endianness != endianness));
++
++    try
++    {
++        serialize(string_t, length);
++        m_swapBytes = auxSwap;
++    }
++    catch(Exception &ex)
+     {
+         m_swapBytes = auxSwap;
+         ex.raise();

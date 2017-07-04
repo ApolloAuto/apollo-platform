@@ -1,0 +1,26 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section ActionClientAPI ActionClient Code API
+- \link actionlib::SimpleActionClient SimpleActionClient (C++) \endlink
+- \link actionlib::simple_action_client::SimpleActionClient SimpleActionClient (Python) \endlink
+
+\section ActionServerAPI ActionServer Code API
+- actionlib::SimpleActionServer
+- \link actionlib::simple_action_server::SimpleActionServer SimpleActionServer (Python) \endlink
+
+\section protocol Communication Protocol
+The values for the status of a goal are as follows:
+- \b PENDING - The goal has yet to be processed by the action server
+- \b ACTIVE - The goal is currently being processed by the action server
+- \b REJECTED - The goal was rejected by the action server without being processed and without a request from the action client to cancel
+- \b SUCCEEDED - The goal was achieved successfully by the action server
+- \b ABORTED - The goal was aborted by the action server
+- \b PREEMPTING - Processing of the goal was canceled by either another goal, or a cancel request sent to the action server
+- \b PREEMPTED - The goal was preempted by either another goal, or a preempt message being sent to the action server
+- \b RECALLING - The goal has not been processed and a cancel request has been received from the action client, but the action server has not confirmed the goal is canceled
+- \b RECALLED - The goal was canceled by either another goal, or a cancel request before the action server began processing the goal
+- \b LOST - The goal was sent by the ActionClient, but disappeared due to some communication error
+
+*/

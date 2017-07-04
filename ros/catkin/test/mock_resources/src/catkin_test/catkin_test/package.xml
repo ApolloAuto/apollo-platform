@@ -1,0 +1,21 @@
+<package>
+  <name>catkin_test</name>
+  <version>3.4.5</version>
+  <description>foo</description>
+  <author>Somebody</author>
+  <maintainer email="Somebody@somewhere.org">Somebody</maintainer>
+  <license>Unknown</license>
+  <url/>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>catkin</run_depend>
+  <run_depend>gencpp</run_depend>
+  <run_depend>genmsg</run_depend>
+  <run_depend>genpy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>ros_comm</run_depend>
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

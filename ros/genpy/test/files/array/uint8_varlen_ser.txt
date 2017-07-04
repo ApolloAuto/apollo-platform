@@ -1,0 +1,6 @@
+length = len(data)
+# - if encoded as a list instead, serialize as bytes instead of string
+if type(data) in [list, tuple]:
+  buff.write(struct.pack('<I%sB'%length, length, *data))
+else:
+  buff.write(struct.pack('<I%ss'%length, length, data))

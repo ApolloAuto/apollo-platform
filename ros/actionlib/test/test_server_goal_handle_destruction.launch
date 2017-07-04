@@ -1,0 +1,3 @@
+<launch>
+  <test pkg="actionlib" type="actionlib-server_goal_handle_destruction" test-name="server_goal_handle_destruction_test" />
+</launch>

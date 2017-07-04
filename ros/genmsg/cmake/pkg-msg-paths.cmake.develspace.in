@@ -1,0 +1,5 @@
+# generated from genmsg/cmake/pkg-msg-paths.cmake.develspace.in
+
+set(@PROJECT_NAME@_MSG_INCLUDE_DIRS "@PKG_MSG_INCLUDE_DIRS@")
+set(@PROJECT_NAME@_PROTO_INCLUDE_DIRS "@PKG_PROTO_INCLUDE_DIRS@")
+set(@PROJECT_NAME@_MSG_DEPENDENCIES @ARG_DEPENDENCIES@)

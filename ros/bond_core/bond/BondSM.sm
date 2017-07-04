@@ -1,0 +1,38 @@
+// -*- tab-width: 4; -*-
+
+%start SM::WaitingForSister
+%class BondSM
+%header bondcpp/bond.h
+
+%map SM
+%%
+//		Transition				End State			Action(s)
+WaitingForSister {
+		SisterAlive				Alive				{ Connected(); }
+		SisterDead				Dead				{ Connected(); SisterDied(); Death(); }
+		ConnectTimeout			Dead				{ Death(); }
+		Die						Dead				{ Death(); }
+}
+Alive {
+		SisterAlive				Alive				{ Heartbeat(); }
+		SisterDead				Dead				{ SisterDied(); Death(); }
+		HeartbeatTimeout		Dead				{ Death(); }
+		Die						AwaitSisterDeath	{ StartDying(); }
+}
+AwaitSisterDeath {
+		SisterAlive				AwaitSisterDeath	{}
+		HeartbeatTimeout		AwaitSisterDeath	{}
+		Die						AwaitSisterDeath	{}
+		SisterDead				Dead				{ Death(); }
+		DisconnectTimeout		Dead				{ Death(); }
+}
+Dead {
+		SisterAlive				Dead				{}
+		SisterDead				Dead				{}
+		DisconnectTimeout		Dead				{}
+		HeartbeatTimeout		Dead				{}
+		ConnectTimeout			Dead				{}
+		Die						Dead				{}
+}
+
+%%

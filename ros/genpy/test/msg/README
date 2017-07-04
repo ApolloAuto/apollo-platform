@@ -1,0 +1,3 @@
+Record of messages used to generate genpy.test messages.  We 
+don't actually generate the messages during testing due to
+build ordering and nosetest issues

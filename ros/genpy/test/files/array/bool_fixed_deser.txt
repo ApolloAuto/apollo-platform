@@ -1,0 +1,4 @@
+start = end
+end += 3
+data = _struct_3B.unpack(str[start:end])
+data = map(bool, data)

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>bond_core</name>
+  <version>1.7.19</version>
+  <description>
+    A bond allows two processes, A and B, to know when the other has
+    terminated, either cleanly or by crashing. The bond remains
+    connected until it is either broken explicitly or until a
+    heartbeat times out.
+  </description>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/bond_core</url>
+  <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
+  <url type="repository">https://github.com/ros/bond_core</url>
+  <author>Stu Glaser</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>bond</run_depend>
+  <run_depend>bondcpp</run_depend>
+  <run_depend>bondpy</run_depend>
+  <run_depend>smclib</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

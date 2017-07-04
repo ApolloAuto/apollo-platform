@@ -1,0 +1,24 @@
+<package>
+  <name>smclib</name>
+  <version>1.7.19</version>
+  <description>
+    The State Machine Compiler (SMC) from http://smc.sourceforge.net/
+    converts a language-independent description of a state machine
+    into the source code to support that state machine.
+
+    This package contains the libraries that a compiled state machine
+    depends on, but it does not contain the compiler itself.
+  </description>
+  <author>Various</author>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>Mozilla Public License Version 1.1</license>
+  <url type="website">http://smc.sourceforge.net/</url>
+  <url type="bugtracker">https://github.com/ros/bond_core/issues</url>
+  <url type="repository">https://github.com/ros/bond_core</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

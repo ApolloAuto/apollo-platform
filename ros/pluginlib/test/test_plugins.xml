@@ -1,0 +1,11 @@
+<library path="lib/libtest_plugins">
+  <class name="pluginlib/foo" type="test_plugins::Foo" base_class_type="test_base::Fubar">
+    <description>This is a foo plugin.</description>
+  </class>
+  <class name="pluginlib/bar" type="test_plugins::Bar" base_class_type="test_base::Fubar">
+    <description>This is a bar plugin.</description>
+  </class>
+  <class name="pluginlib/none" type="test_plugins::None" base_class_type="test_base::Fubar">
+    <description>This is a broken none plugin.</description>
+  </class>
+</library>

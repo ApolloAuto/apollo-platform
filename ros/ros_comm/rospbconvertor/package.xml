@@ -1,0 +1,19 @@
+<package>
+  <name>rospbconvertor</name>
+  <version>1.0.0</version>
+  <description>
+    rospbconvertor used to transform Std::String to pb mseesage.
+  </description>
+
+  <license>Licensed under the Apache License, Version 2.0</license>
+  <maintainer email="info@apollo.auto">Apollo Authors</maintainer>
+
+  <author>Apollo Authors</author>
+
+  <buildtool_depend version_gte="0.5.78">catkin</buildtool_depend>
+
+
+  <run_depend version_gte="0.5.4">genpy</run_depend>
+  <run_depend>rospy</run_depend>
+
+</package>

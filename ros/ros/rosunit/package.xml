@@ -1,0 +1,23 @@
+<package>
+  <name>rosunit</name>
+  <version>1.11.14</version>
+  <description>
+     Unit-testing package for ROS. This is a lower-level library for rostest and handles unit tests, whereas rostest handles integration tests.
+  </description>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/rosunit</url>
+  <url type="bugtracker">https://github.com/ros/ros/issues</url>
+  <url type="repository">https://github.com/ros/ros</url>
+  <author>Ken Conley</author>
+
+  <buildtool_depend version_gte="0.5.78">catkin</buildtool_depend>
+
+  <run_depend>python-rospkg</run_depend>
+  <run_depend>roslib</run_depend>
+
+  <export>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

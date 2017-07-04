@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="rostopic" type="rostopic" name="rostopic_pub" 
+        args="pub input std_msgs/String chatter"/>
+  <node pkg="topic_tools" type="relay" name="relay"
+        args="input output"/>
+  <test test-name="relay_latched" pkg="test_topic_tools" type="test_one_message.py" time-limit="10"/>
+</launch>

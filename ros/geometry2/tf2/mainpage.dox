@@ -1,0 +1,19 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b tf2 is the second generation of the tf library.
+
+This library implements the interface defined by 
+tf2::BufferCore
+
+There is also a python wrapper with the same API.  
+
+\section codeapi Code API
+
+The main interface is through the tf2::BufferCore interface.  
+
+It uses the exceptions in exceptions.h and the Stamped datatype 
+in transform_datatypes.h. 
+
+*/

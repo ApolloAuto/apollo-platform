@@ -1,0 +1,66 @@
+@import url("theme.css");
+
+/*Estilos ogilvy*/
+.wy-side-nav-search{background-color:#00275a !important}
+.wy-side-nav-search a{color:#fff !important}
+.wy-nav-side{background-color:#f5f5f5 !important}
+.wy-menu-vertical a{color:#333 !important}
+.wy-menu-vertical span{color:#00275a !important;font-weight:bold !important}
+.wy-menu-vertical li.current a{color:#00d3de !important;background-color:#f5f5f5 !important;border-right:0 !important}
+.wy-menu-vertical li.on a, .wy-menu-vertical li.current > a{border:0 !important}
+.wy-menu-vertical a:hover{background-color:#e2e2e2 !important}
+body{font-family:verdana !important}
+h1{color:#00275a !important;font-family:"Neo Tech W02 Medium" !important}
+h2{color:#00275a !important;font-family:"Neo Tech W02 Medium" !important}
+h3{color:#00275a !important;font-family:"Neo Tech W02 Medium" !important}
+h4{color:#00275a !important;font-family:"Neo Tech W02 Medium" !important}
+a{color:#00275a !important}
+a:hover{color:#00d3de !important}
+.wy-nav-content{background-color:#fff !important}
+.wy-nav-content-wrap{background-color:#fff !important}
+.wy-nav-top{background-color:#00275a !important;color:#fff !important}
+.wy-nav-top a{color:#fff !important}
+p{font-size:14px !important;line-height:auto !important}
+.btn-neutral{background-color:#00d3de !important;color:#fff !important}
+.btn{box-shadow:0 0 0 !important;border:0 !important;border-radius:0 !important}
+.btn-neutral:hover{background-color:#00d3de !important;color:#fff !important}
+.rst-versions{background:#00275a none !important;border-top:0 !important;font-family:Verdana !important}
+.rst-versions .rst-current-version{background-color:#00275a !important}
+.rst-versions a{color:#fff !important}
+.rst-versions a:hover{color:#00d3de !important}
+.fa-book,.fa{font-family:verdana !important}
+.rst-versions .rst-other-versions{color:#fff !important}
+.rst-versions .rst-other-versions hr{border-color:#fff !important}
+.fa-home:before, .icon-home:after{content:}
+#rtd-search-form{margin-top:10px !important}
+a.icon-home{color:#fff !important;font-family:"Neo Tech W02 Medium" !important;font-size:25px !important;font-weight:normal !important;color:#aeadb3 !important; text-transform:uppercase !important}
+.fa-home:before, .icon-home:before{content:url('imgs/logo.png') !important}
+.wy-side-nav-search > a:hover, .wy-side-nav-search .wy-dropdown > a:hover{background-color:#00275a !important}
+
+/*Fin estilos ogilvy*/
+
+@font-face{
+font-family:"Neo Tech W02 Light";
+src:url("Fonts/742891/fda10a2c-b5db-41d3-a8a5-739e00a24795.eot?#iefix");
+src:url("Fonts/742891/fda10a2c-b5db-41d3-a8a5-739e00a24795.eot?#iefix") format("eot"),url("Fonts/742891/ad8c23b8-3c32-4776-8d87-ea920efdd7c3.woff2") format("woff2"),url("Fonts/742891/500ecc0b-eac4-485b-88d0-3013b177dda6.woff") format("woff"),url("Fonts/742891/2ad852dd-a933-4668-a90e-15f16b4fa647.ttf") format("truetype"),url("Fonts/742891/ded5966b-f662-4af3-acf7-af2e819cf3bc.svg#ded5966b-f662-4af3-acf7-af2e819cf3bc") format("svg");
+}
+@font-face{
+font-family:"Neo Tech W02";
+src:url("Fonts/742903/9d5d1ae3-e34f-44fd-a57e-dbfacbe0ec4c.eot?#iefix");
+src:url("Fonts/742903/9d5d1ae3-e34f-44fd-a57e-dbfacbe0ec4c.eot?#iefix") format("eot"),url("Fonts/742903/8224aa90-b7ba-47af-8c9c-3b9870b709b6.woff2") format("woff2"),url("Fonts/742903/f62a7192-52d1-4e92-bccb-cb84ed5c753f.woff") format("woff"),url("Fonts/742903/2a9eef49-66bc-4fee-be90-f7fce5bc7404.ttf") format("truetype"),url("Fonts/742903/7ded18ef-b3a6-4803-94a5-13aa49034550.svg#7ded18ef-b3a6-4803-94a5-13aa49034550") format("svg");
+}
+@font-face{
+font-family:"Neo Tech W02 Medium";
+src:url("Fonts/742897/086a5263-141e-4fc1-96a8-c180c98ed609.eot?#iefix");
+src:url("Fonts/742897/086a5263-141e-4fc1-96a8-c180c98ed609.eot?#iefix") format("eot"),url("Fonts/742897/cb5ed948-7e71-4a51-9b94-816094388cd2.woff2") format("woff2"),url("Fonts/742897/e33f1dff-6aee-45fb-9f91-10b04c9f559f.woff") format("woff"),url("Fonts/742897/7d1c0641-f8d4-4a52-a13f-decf2319529d.ttf") format("truetype"),url("Fonts/742897/8f40b40a-9bda-4a13-a00e-cc961cebb971.svg#8f40b40a-9bda-4a13-a00e-cc961cebb971") format("svg");
+}
+@font-face{
+font-family:"Neo Tech W02 Bold";
+src:url("Fonts/742885/39974d8a-38de-4853-a4d1-778234a08061.eot?#iefix");
+src:url("Fonts/742885/39974d8a-38de-4853-a4d1-778234a08061.eot?#iefix") format("eot"),url("Fonts/742885/99982ea6-cc23-4076-85e9-0a0bf3909a31.woff2") format("woff2"),url("Fonts/742885/c647fd16-b021-4fda-88fb-c69967cdb3b4.woff") format("woff"),url("Fonts/742885/a9afb560-1f8d-4920-865c-1325f98d4b82.ttf") format("truetype"),url("Fonts/742885/41720127-f18c-4437-a9eb-543a99d63fea.svg#41720127-f18c-4437-a9eb-543a99d63fea") format("svg");
+}
+
+/* Custom width read the docs */
+.wy-nav-content {
+  max-width: none !important;
+}

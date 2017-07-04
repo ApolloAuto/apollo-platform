@@ -1,0 +1,29 @@
+<package>
+  <name>tf2_kdl</name>
+  <version>0.5.13</version>
+  <description>
+    KDL binding for tf2
+  </description>
+  <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
+  <author>Wim Meeussen</author>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/tf2</url>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+ 
+  <build_depend>cmake_modules</build_depend> <!-- needed for eigen -->
+  <build_depend>eigen</build_depend> <!-- needed by kdl interally -->
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>tf2_ros</build_depend>
+
+  <run_depend>cmake_modules</run_depend> <!-- needed for eigen -->
+  <run_depend>eigen</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>tf2</run_depend>
+  <run_depend>tf2_ros</run_depend>
+
+  <test_depend>rostest</test_depend>
+
+</package>

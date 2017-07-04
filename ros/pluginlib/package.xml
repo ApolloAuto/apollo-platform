@@ -1,0 +1,38 @@
+<package>
+  <name>pluginlib</name>
+  <version>1.10.5</version>
+  <description>
+    The pluginlib package provides tools for writing and dynamically loading plugins using the ROS build infrastructure.
+    To work, these tools require plugin providers to register their plugins in the package.xml of their package.
+  </description>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <license>BSD</license>
+
+  <url>http://www.ros.org/wiki/pluginlib</url>
+  <url type="bugtracker">https://github.com/ros/pluginlib/issues</url>
+  <url type="repository">https://github.com/ros/pluginlib</url>
+  <author>Eitan Marder-Eppstein</author>
+  <author>Tully Foote</author>
+  <author>Dirk Thomas</author>
+  <author>Mirza Shah</author>
+
+  <buildtool_depend version_gte="0.5.68">catkin</buildtool_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>class_loader</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend version_gte="1.11.1">roslib</build_depend>
+  <build_depend>tinyxml</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>class_loader</run_depend>
+  <run_depend>rosconsole</run_depend>
+  <run_depend version_gte="1.11.1">roslib</run_depend>
+  <run_depend>tinyxml</run_depend>
+
+  <export>
+    <pluginlib plugin="${prefix}/test/test_plugins.xml"/>
+    <pluginlib plugin_test="${prefix}/test/test_plugins_broken.xml"/>
+  </export>
+</package>
