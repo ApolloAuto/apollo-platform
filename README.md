@@ -21,7 +21,7 @@ Compared to original ROS, we made the following improvements to enhance its stab
 
 For more details of each feature, please find in the [Design Docs](https://github.com/ApolloAuto/apollo-platform/blob/master/ros/docs/design).
 
-The Apollo team would like to thank everybody in the open source community. The GitHub apollo-platform/ros is based on ROS. Currently, Apollo team maintains this repository. In near future, we’ll send patches back to ROS community.
+The Apollo team would like to thank everybody in the open source community. The GitHub apollo-platform/ros is based on [ROS](https://github.com/ros/ros) and [Fast-RTPS](https://github.com/eProsima/Fast-RTPS). Currently, Apollo team maintains this repository. In near future, we’ll send patches back to the corresponding communities.
 
 ### License
 
