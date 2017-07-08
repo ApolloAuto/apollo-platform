@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2017, The Apollo Authors. All Rights Reserved
 #
-# VERSIION:   1.0
+# VERSION:    1.0
 # FILEIN:     third_party
 # FILEOUT:    fast-rtps_$MACHINE_ARCH
 
