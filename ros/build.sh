@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2017, The Apollo Authors. All Rights Reserved
 #
-# VERSIION:   1.0
+# VERSION:    1.0
 # FILEIN:     ros
 # FILEOUT:    install/ros_$MACHINE_ARCH
 
