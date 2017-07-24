@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>pcl_msgs</name>
+  <version>0.2.0</version>
+  <description>Package containing PCL (Point Cloud Library)-related ROS messages.</description>
+
+  <author>Open Perception</author>
+  <author email="jkammerl@willowgarage.com">Julius Kammerl</author>
+  <author email="william@osrfoundation.org">William Woodall</author>
+  <maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+  <maintainer email="bill@neautomation.com">Bill Morris</maintainer>
+
+  <license>BSD</license>
+
+  <url>http://wiki.ros.org/pcl_msgs</url>
+  <url type="repository">https://github.com/ros-perception/pcl_msgs</url>
+  <url type="bugtracker">https://github.com/ros-perception/pcl_msgs/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

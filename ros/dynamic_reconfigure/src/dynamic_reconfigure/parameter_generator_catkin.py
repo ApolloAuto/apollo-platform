@@ -47,7 +47,7 @@ from __future__ import print_function
 from string import Template
 import os
 import inspect
-import string 
+import string
 import sys
 import re
 
@@ -83,21 +83,21 @@ class ParameterGenerator:
             'str' : '',
             'bool' : False,
             }
-            
+
     maxval = {
             'int' : 0x7FFFFFFF, #'INT_MAX',
             'double' : 'std::numeric_limits<double>::infinity()',
             'str' : '',
             'bool' : True,
             }
-    
+
     defval = {
             'int' : 0,
             'double' : 0,
             'str' : '',
             'bool' : False,
             }
-        
+
     class Group:
         instances = {}
         def __init__(self, gen, name, type, state, id, parent):
@@ -177,7 +177,7 @@ class ParameterGenerator:
                 else:
                     ret.append(x.upper())
             return "::".join(ret)
-            
+
         def get_class(self, parent = False):
             cls = []
             cls.extend(self.get_parents())
@@ -240,7 +240,7 @@ class ParameterGenerator:
             return
         # Check that value type is compatible with type.
         self.check_type(param, field)
-    
+
     def __init__(self):
         global id
         self.group = self.Group(self, "Default", "", True, 0, 0)
@@ -250,10 +250,10 @@ class ParameterGenerator:
           msg = """
 ahhhh! Unexpected command line syntax!
 
-Are you trying to call a dynamic_reconfigure configuration generation script 
-directly? When you are using dynamic_reconfigure with python, you don't ever 
+Are you trying to call a dynamic_reconfigure configuration generation script
+directly? When you are using dynamic_reconfigure with python, you don't ever
 need to invoke the configuration generator script yourself; it loads
-automatically. If you are using dynamic_reconfigure from C++, you need to 
+automatically. If you are using dynamic_reconfigure from C++, you need to
 add a call to generate_dynamic_reconfigure_options() in your CMakeLists.txt
 
 For an example, see http://wiki.ros.org/dynamic_reconfigure/Tutorials
@@ -268,9 +268,9 @@ Have a nice day
         self.py_gen_dir = sys.argv[4]
 
     def const(self, name, type, value, descr):
-        newconst = { 
-                'name':name, 
-                'type':type, 
+        newconst = {
+                'name':name,
+                'type':type,
                 'value':value,
                 'srcline' : inspect.currentframe().f_back.f_lineno,
                 'srcfile' : inspect.getsourcefile(inspect.currentframe().f_back.f_code),
@@ -286,11 +286,11 @@ Have a nice day
         if len(set(const['type'] for const in constants)) != 1:
             raise Exception("Inconsistent types in enum!")
         check_description(description)
-        return repr({ 'enum' : constants, 'enum_description' : description }) 
+        return repr({ 'enum' : constants, 'enum_description' : description })
 
     # Wrap add and add_group for the default group
     def add(self, name, paramtype, level, description, default = None, min = None, max = None, edit_method = ""):
-        self.group.add(name, paramtype, level, description, default, min, max, edit_method) 
+        self.group.add(name, paramtype, level, description, default, min, max, edit_method)
 
     def add_group(self, name, type="", state=True):
         return self.group.add_group(name, type=type, state=state)
@@ -325,12 +325,12 @@ Have a nice day
             self.name = name
             self.nodename = nodename
             self.msgname = name+"Config"
-            #print '**************************************************************'
-            #print '**************************************************************'
+            #print('**************************************************************')
+            #print('**************************************************************')
             print(Template("Generating reconfiguration files for $name in $pkgname").\
                     substitute(name=self.name, pkgname = self.pkgname))
-            #print '**************************************************************'
-            #print '**************************************************************'
+            #print('**************************************************************')
+            #print('**************************************************************')
             self.generatecpp()
             self.generatedoc()
             self.generatewikidoc()
@@ -375,25 +375,25 @@ $i.desc=$description $range"""
     def generateusage(self):
         self.mkdirabs("docs")
         f = open(os.path.join(self.binary_dir, "docs", self.msgname+"-usage.dox"), 'w')
-        #print >> f, "/**"
-        print >> f, "\\subsubsection usage Usage"
-        print >> f, '\\verbatim'
-        print >> f, Template('<node name="$nodename" pkg="$pkgname" type="$nodename">').\
-                substitute(pkgname = self.pkgname, nodename = self.nodename)
+        #print("/**", file=f)
+        print("\\subsubsection usage Usage", file=f)
+        print('\\verbatim', file=f)
+        print(Template('<node name="$nodename" pkg="$pkgname" type="$nodename">').\
+                substitute(pkgname = self.pkgname, nodename = self.nodename), file=f)
         for param in self.group.get_parameters():
-            print >> f, Template('  <param name="$name" type="$type" value="$default" />').substitute(param)
-        print >> f, '</node>'
-        print >> f, '\\endverbatim'
-        print >> f
-        #print >> f, "*/"
+            print(Template('  <param name="$name" type="$type" value="$default" />').substitute(param), file=f)
+        print('</node>', file=f)
+        print('\\endverbatim', file=f)
+        print('', file=f)
+        #print("*/", file=f)
         f.close()
-    
+
     def generatedoc(self):
         self.mkdirabs("docs")
         dir_path = os.path.join(self.binary_dir, "docs")
         self.mkdirabs(dir_path)
         f = open(os.path.join(dir_path, self.msgname+".dox"), 'w')
-        #print >> f, "/**"
+        #print("/**", file=f)
         print("\\subsubsection parameters ROS parameters", file=f)
         print("", file=f)
         print("Reads and maintains the following parameters on the ROS server", file=f)
@@ -401,13 +401,13 @@ $i.desc=$description $range"""
         for param in self.group.get_parameters():
             print(Template("- \\b \"~$name\" : \\b [$type] $description min: $min, default: $default, max: $max").substitute(param), file=f)
         print("", file=f)
-        #print >> f, "*/"
+        #print("*/", file=f)
         f.close()
 
     def generateusage(self):
         self.mkdirabs("docs")
         f = open(os.path.join(self.binary_dir, "docs", self.msgname+"-usage.dox"), 'w')
-        #print >> f, "/**"
+        #print("/**", file=f)
         print("\\subsubsection usage Usage", file=f)
         print('\\verbatim', file=f)
         print(Template('<node name="$nodename" pkg="$pkgname" type="$nodename">').\
@@ -417,7 +417,7 @@ $i.desc=$description $range"""
         print('</node>', file=f)
         print('\\endverbatim', file=f)
         print("", file=f)
-        #print >> f, "*/"
+        #print("*/", file=f)
         f.close()
 
     def crepr(self, param, val):
@@ -448,7 +448,7 @@ $i.desc=$description $range"""
         else:
             val = self.crepr(param, param[value])
         list.append(Template('${doline} $srcline "$srcfile"\n      '+text).safe_substitute(param, v=val, doline=LINEDEBUG, configname=self.name))
-    
+
     def appendgroup(self, list, group):
         subgroups = []
         for g in group.groups:
@@ -459,7 +459,7 @@ $i.desc=$description $range"""
             setters.append(Template("        if(\"${name}\"==(*_i)->name){${name} = boost::any_cast<${ctype}>(val);}").substitute(p));
             params.append(Template("${ctype} ${name};").substitute(p));
 
-        subgroups = "\n".join(subgroups) 
+        subgroups = "\n".join(subgroups)
         setters = "\n".join(setters)
         params = "\n".join(params)
         grouptemplate = open(os.path.join(self.dynconfpath, "templates", "GroupClass.h.template")).read()
@@ -477,7 +477,7 @@ $i.desc=$description $range"""
             templatelines.append(Template(line).safe_substitute(linenum=curline,filename=templatefilesafe))
         f.close()
         template = ''.join(templatelines)
-        
+
         # Write the configuration manipulator.
         self.mkdirabs(self.cpp_gen_dir)
         f = open(os.path.join(self.cpp_gen_dir, self.name+"Config.h"), 'w')
@@ -500,13 +500,13 @@ $i.desc=$description $range"""
                 self.appendline(paramdescr, "__default__.${name} = $v;", param, "default")
                 self.appendline(paramdescr, group.to_dict()['name']+".abstract_parameters.push_back(${configname}Config::AbstractParamDescriptionConstPtr(new ${configname}Config::ParamDescription<${ctype}>(\"${name}\", \"${type}\", ${level}, "\
                         "\"${description}\", \"${edit_method}\", &${configname}Config::${name})));", param)
-                self.appendline(paramdescr, 
+                self.appendline(paramdescr,
                         "__param_descriptions__.push_back(${configname}Config::AbstractParamDescriptionConstPtr(new ${configname}Config::ParamDescription<${ctype}>(\"${name}\", \"${type}\", ${level}, "\
                         "\"${description}\", \"${edit_method}\", &${configname}Config::${name})));", param)
-                
+
             for g in group.groups:
-                write_params(g)    
-            
+                write_params(g)
+
             self.appendline(paramdescr, "${name}.convertParams();", group.to_dict())
             if group.id == 0:
                 self.appendline(paramdescr, "__group_descriptions__.push_back(${configname}Config::AbstractGroupDescriptionConstPtr(new ${configname}Config::GroupDescription<${configname}Config::${class}, ${configname}Config>(${name})));", group.to_dict())
@@ -521,7 +521,7 @@ $i.desc=$description $range"""
         members = '\n'.join(members)
         constants = '\n'.join(constants)
         groups = '\n'.join(groups)
-        f.write(Template(template).substitute(uname=self.name.upper(), 
+        f.write(Template(template).substitute(uname=self.name.upper(),
             configname=self.name, pkgname = self.pkgname, paramdescr = paramdescr,
             members = members, groups = groups, doline = LINEDEBUG, constants = constants))
         f.close()
@@ -547,33 +547,33 @@ $i.desc=$description $range"""
 #    def generatemsg(self):
 #        self.mkdir("msg")
 #        f = open(os.path.join(self.pkgpath, "msg", self.msgname+".msg"), 'w')
-#        print >> f, "# This is an autogerenated file. Please do not edit."
-#        print >> f, ""
+#        print("# This is an autogerenated file. Please do not edit.", file=f)
+#        print("", file=f)
 #        for param in self.parameters:
-#            print >> f, Template("$type $name # $description").substitute(param, type=self.msgtype(param['type']))
+#            print(Template("$type $name # $description").substitute(param, type=self.msgtype(param['type'])), file=f)
 #        f.close()
 #
 #    def generategetsrv(self):
 #        self.mkdir("srv")
 #        f = open(os.path.join(self.pkgpath, "srv", "Get"+self.msgname+".srv"), 'w')
-#        print >> f, "# This is an autogerenated file. Please do not edit."
-#        print >> f, ""
-#        print >> f, "---" 
-#        print >> f, self.msgname, "config", "# Current configuration of node."
-#        print >> f, self.msgname, "defaults", "# Minimum values where appropriate."
-#        print >> f, self.msgname, "min", "# Minimum values where appropriate."
-#        print >> f, self.msgname, "max", "# Maximum values where appropriate."
+#        print("# This is an autogerenated file. Please do not edit.", file=f)
+#        print("", file=f)
+#        print("---", file=f)
+#        print(self.msgname, "config", "# Current configuration of node.", file=f)
+#        print(self.msgname, "defaults", "# Minimum values where appropriate.", file=f)
+#        print(self.msgname, "min", "# Minimum values where appropriate.", file=f)
+#        print(self.msgname, "max", "# Maximum values where appropriate.", file=f)
 #        f.close()
 #
 #    def generatesetsrv(self):
 #        self.mkdir("srv")
 #        f = open(os.path.join(self.pkgpath, "srv", "Set"+self.msgname+".srv"), 'w')
-#        print >> f, "# This is an autogerenated file. Please do not edit."
-#        print >> f, self.msgname, "config", "# Requested node configuration."
-#        print >> f, "---"        
-#        print >> f, self.msgname, "config", "# What the node's configuration was actually set to."
+#        print("# This is an autogerenated file. Please do not edit.", file=f)
+#        print(self.msgname, "config", "# Requested node configuration.", file=f)
+#        print("---", file=f)
+#        print(self.msgname, "config", "# What the node's configuration was actually set to.", file=f)
 #        f.close()
-    
+
     def _rreplace_str_with_val_in_dict(self, orig_dict, old_str, new_val):
         # Recursively replace any match of old_str by new_val in a dictionary
         for k, v in orig_dict.items():
@@ -602,16 +602,16 @@ $i.desc=$description $range"""
         f = open(templatefile)
         template = f.read()
         f.close()
-        
+
         # Write the configuration manipulator.
         self.mkdirabs(os.path.join(self.py_gen_dir, "cfg"))
         f = open(os.path.join(self.py_gen_dir, "cfg", self.name+"Config.py"), 'w')
         pycfgdata = self.replace_infinity(self.group.to_dict())
-        f.write(Template(template).substitute(name = self.name, 
+        f.write(Template(template).substitute(name = self.name,
             pkgname = self.pkgname, pycfgdata = pycfgdata))
         for const in self.constants:
             f.write(Template("${configname}_${name} = $v\n").
-                    substitute(const, v = repr(const['value']), 
+                    substitute(const, v = repr(const['value']),
                         configname=self.name))
         f.close()
 

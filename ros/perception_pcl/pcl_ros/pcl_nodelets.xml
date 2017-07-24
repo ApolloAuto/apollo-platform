@@ -1,0 +1,232 @@
+<!-- PCL Features library component -->
+<library path="lib/libpcl_ros_features">
+  <class name="pcl/BoundaryEstimation" type="BoundaryEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      BoundaryEstimation estimates whether a set of points is lying on surface boundaries using an angle criterion. The
+      code makes use of the estimated surface normals at each point in the input data set.
+    </description>
+  </class>
+
+  <class name="pcl/FPFHEstimation" type="FPFHEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      FPFHEstimation estimates the Fast Point Feature Histogram (FPFH) descriptor for a given point cloud dataset
+      containing points and normals.
+    </description>
+  </class>
+
+  <class name="pcl/FPFHEstimationOMP" type="FPFHEstimationOMP" base_class_type="nodelet::Nodelet">
+    <description>
+      FPFHEstimationOMP estimates the Fast Point Feature Histogram (FPFH) descriptor for a given point cloud dataset
+      containing points and normals, in parallel, using the OpenMP standard.
+    </description>
+  </class>
+
+  <class name="pcl/SHOTEstimation" type="SHOTEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      SHOTEstimation estimates SHOT descriptor for a given point cloud dataset
+      containing points and normals.
+    </description>
+  </class>
+
+  <class name="pcl/SHOTEstimationOMP" type="SHOTEstimationOMP" base_class_type="nodelet::Nodelet">
+    <description>
+      SHOTEstimationOMP estimates SHOT descriptor for a given point cloud dataset
+      containing points and normals, in parallel, using the OpenMP standard.
+    </description>
+  </class>
+  
+  <class name="pcl/MomentInvariantsEstimation" type="MomentInvariantsEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      MomentInvariantsEstimation estimates the 3 moment invariants (j1, j2, j3) at each 3D point.
+    </description>
+  </class>
+
+  <class name="pcl/NormalEstimationOMP" type="NormalEstimationOMP" base_class_type="nodelet::Nodelet">
+    <description>
+      NormalEstimationOMP estimates local surface properties at each 3D point, such as surface normals and curvatures,
+      in parallel, using the OpenMP standard.
+    </description>
+  </class>
+
+  <class name="pcl/NormalEstimationTBB" type="NormalEstimationTBB" base_class_type="nodelet::Nodelet">
+    <description>
+      NormalEstimationTBB estimates local surface properties at each 3D point, such as surface normals and curvatures, in
+      parallel, using Intel's Threading Building Blocks library.
+    </description>
+  </class>
+
+  <class name="pcl/NormalEstimation" type="NormalEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      NormalEstimation estimates local surface properties at each 3D point, such as surface normals and curvatures.
+    </description>
+  </class>
+
+  <class name="pcl/PFHEstimation" type="PFHEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      PFHEstimation estimates the Point Feature Histogram (PFH) descriptor for a given point cloud dataset containing
+      points and normals.
+    </description>
+  </class>
+
+  <class name="pcl/PrincipalCurvaturesEstimation" type="PrincipalCurvaturesEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      PrincipalCurvaturesEstimation estimates the directions (eigenvectors) and magnitudes (eigenvalues) of principal surface 
+      curvatures for a given point cloud dataset containing points and normals.
+    </description>
+  </class>
+
+  <class name="pcl/VFHEstimation" type="VFHEstimation" base_class_type="nodelet::Nodelet">
+    <description>
+      VFHEstimation estimates the Viewpoint Feature Histogram (VFH) global descriptor for a given point cloud cluster dataset
+      containing points and normals.
+    </description>
+  </class>
+
+</library>
+
+<!-- PCL IO library component -->
+<library path="lib/libpcl_ros_io">
+  <class name="pcl/NodeletMUX" type="NodeletMUX" base_class_type="nodelet::Nodelet">
+    <description>
+      NodeletMUX represent a mux nodelet for PointCloud topics: it takes N (up
+      to 8) input topics, and publishes all of them on one output topic.
+    </description>
+  </class>
+
+  <class name="pcl/NodeletDEMUX" type="NodeletDEMUX" base_class_type="nodelet::Nodelet">
+    <description>
+      NodeletDEMUX represent a demux nodelet for PointCloud topics: it
+      publishes 1 input topic to N output topics.
+    </description>
+  </class>
+
+  <class name="pcl/PCDReader" type="PCDReader" base_class_type="nodelet::Nodelet">
+    <description>
+      PCDReader reads in a PCD (Point Cloud Data) v.5 file from disk and converts it to a PointCloud message.
+    </description>
+  </class>
+
+  <class name="pcl/BAGReader" type="BAGReader" base_class_type="nodelet::Nodelet">
+    <description>
+      BAGReader reads in sensor_msgs/PointCloud2 messages from BAG files.
+    </description>
+  </class>
+
+  <class name="pcl/PCDWriter" type="PCDWriter" base_class_type="nodelet::Nodelet">
+    <description>
+      PCDWriter writes a PointCloud message to disk in a PCD (Point Cloud Data) v.5 file format.
+    </description>
+  </class>
+
+  <class name="pcl/PointCloudConcatenateFieldsSynchronizer" type="PointCloudConcatenateFieldsSynchronizer" base_class_type="nodelet::Nodelet">
+    <description>
+      PointCloudConcatenateFieldsSynchronizer is a special form of data synchronizer: it listens for a set of input PointCloud messages on the
+      same topic, checks their timestamps, and concatenates their fields together into a single PointCloud output message.
+    </description>
+  </class>
+  <class name="pcl/PointCloudConcatenateDataSynchronizer" type="PointCloudConcatenateDataSynchronizer" base_class_type="nodelet::Nodelet">
+    <description>
+      PointCloudConcatenateDataSynchronizer is a special form of data
+      synchronizer: it listens for a set of input PointCloud messages on
+      different topics, and concatenates them together into a single PointCloud
+      output message.  
+    </description>
+  </class>
+</library>
+  
+<!-- PCL Filters library component -->
+<library path="lib/libpcl_ros_filters">
+  <class name="pcl/PassThrough" type="PassThrough" base_class_type="nodelet::Nodelet">
+    <description>
+      PassThrough is a filter that uses the basic Filter class mechanisms for passing data around.
+    </description>
+  </class>
+
+  <class name="pcl/VoxelGrid" type="VoxelGrid" base_class_type="nodelet::Nodelet">
+    <description>
+      VoxelGrid assembles a local 3D grid over a given PointCloud, and uses that to downsample the data.
+    </description>
+  </class>
+
+  <class name="pcl/ProjectInliers" type="ProjectInliers" base_class_type="nodelet::Nodelet">
+    <description>
+      ProjectInliers uses a model and a set of inlier indices from a PointCloud to project them into a separate PointCloud.
+    </description>
+  </class>
+
+  <class name="pcl/ExtractIndices" type="ExtractIndices" base_class_type="nodelet::Nodelet">
+    <description>
+      ExtractIndices extracts a set of indices from a PointCloud as a separate PointCloud.
+    </description>
+  </class>
+
+  <class name="pcl/StatisticalOutlierRemoval" type="StatisticalOutlierRemoval" base_class_type="nodelet::Nodelet">
+    <description>
+      StatisticalOutlierRemoval uses point neighborhood statistics to filter outlier data.
+    </description>
+  </class>
+  <class name="pcl/RadiusOutlierRemoval" type="RadiusOutlierRemoval" base_class_type="nodelet::Nodelet">
+    <description>
+      RadiusOutlierRemoval uses point neighborhood statistics to filter outlier data.
+    </description>
+  </class>
+
+  <class name="pcl/CropBox" type="CropBox" base_class_type="nodelet::Nodelet">
+    <description>
+      CropBox is a filter that allows the user to filter all the data inside of a given box.
+    </description>
+  </class>
+</library>
+
+<!-- PCL Segmentation library component -->
+<library path="lib/libpcl_ros_segmentation">
+  <class name="pcl/ExtractPolygonalPrismData" type="ExtractPolygonalPrismData" base_class_type="nodelet::Nodelet">
+    <description>
+      ExtractPolygonalPrismData uses a set of point indices that represent a planar model, and together with a given
+      height, generates a 3D polygonal prism. The polygonal prism is then used to segment all points lying inside it.
+    </description>
+  </class>
+
+   <class name="pcl/EuclideanClusterExtraction" type="EuclideanClusterExtraction" base_class_type="nodelet::Nodelet">
+     <description>
+       EuclideanClusterExtraction represents a segmentation class for cluster extraction in an Euclidean sense.
+    </description>
+  </class>
+
+  <class name="pcl/SACSegmentationFromNormals" type="SACSegmentationFromNormals" base_class_type="nodelet::Nodelet">
+    <description>
+      SACSegmentation represents the Nodelet segmentation class for Sample Consensus methods and models, in the sense that
+      it just creates a Nodelet wrapper for generic-purpose SAC-based segmentation.
+    </description>
+  </class>
+
+  <class name="pcl/SACSegmentation" type="SACSegmentation" base_class_type="nodelet::Nodelet">
+    <description>
+      SACSegmentation represents the Nodelet segmentation class for Sample Consensus methods and models, in the sense that
+      it just creates a Nodelet wrapper for generic-purpose SAC-based segmentation.
+    </description>
+  </class>
+
+  <class name="pcl/SegmentDifferences" type="SegmentDifferences" base_class_type="nodelet::Nodelet">
+     <description>
+       SegmentDifferences obtains the difference between two spatially aligned point clouds and returns the
+       difference between them for a maximum given distance threshold.
+    </description>
+  </class>
+
+</library>
+
+<!-- PCL Surface reconstruction library component -->
+<library path="lib/libpcl_ros_surface">
+  <class name="pcl/MovingLeastSquares" type="MovingLeastSquares" base_class_type="nodelet::Nodelet">
+    <description>
+      MovingLeastSquares is an implementation of the MLS algorithm for data reconstruction through bivariate polynomial fitting.
+    </description>
+  </class>
+  <class name="pcl/ConvexHull2D" type="ConvexHull2D" base_class_type="nodelet::Nodelet">
+    <description>
+      ConvexHull2D represents a 2D ConvexHull implementation.
+    </description>
+  </class>
+</library>
+
