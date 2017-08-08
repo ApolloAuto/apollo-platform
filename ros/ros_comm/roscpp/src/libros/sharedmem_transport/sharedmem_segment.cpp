@@ -184,9 +184,10 @@ bool SharedMemorySegment::write_data(const ros::SerializedMessage& msg,
   return true;
 }
 
-bool SharedMemorySegment::read_data(int32_t& last_read_index,
-  SharedMemoryBlock* descriptors_sub, const std::string& topic,
-  int32_t& msg_buffer, uint32_t& msg_size)
+bool SharedMemorySegment::read_data(ros::VoidConstPtr& msg, int32_t& last_read_index,
+  SharedMemoryBlock* descriptors_sub, uint8_t** addr_sub,
+  ros::SubscriptionCallbackHelperPtr& helper, const std::string& topic,
+  ros::M_stringPtr& header_ptr)
 {
   ROS_DEBUG("Read radical start!");
 
@@ -237,9 +238,8 @@ bool SharedMemorySegment::read_data(int32_t& last_read_index,
   // Get descriptor current pointer
   SharedMemoryBlock* descriptors_curr = descriptors_sub + block_index;
 
-  // Read from block, get msg_buffer and msg_size
-  msg_buffer = block_index;
-  bool result = descriptors_curr->read_from_block(msg_size);
+  // Read from block
+  bool result = descriptors_curr->read_from_block(addr_sub[block_index], msg, helper, header_ptr);
 
   // Release reserve block, after we have read from block
   descriptors_curr->release_reserve_for_radical_read();
