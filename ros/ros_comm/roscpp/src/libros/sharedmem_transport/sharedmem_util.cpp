@@ -73,6 +73,7 @@ bool SharedMemoryUtil::init_sharedmem(const char* topic_name,
 
   if (!segment_mgr || !descriptors)
   {
+    delete segment;
     return false;
   }
 

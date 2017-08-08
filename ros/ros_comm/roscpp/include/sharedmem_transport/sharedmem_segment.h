@@ -39,6 +39,7 @@
 #include "ros/message_deserializer.h"
 #include "ros/subscription_callback_helper.h"
 #include "ros/forwards.h"
+#include "ros/datatypes.h"
 
 namespace sharedmem_transport
 {
@@ -100,17 +101,21 @@ public:
     SharedMemoryBlock* descriptors_pub, uint8_t** addr_pub, int32_t& last_index);
 
   /**
-   * \brief Read data from block for sharedmem subscriber
-   *
-   * @param last_read_index: index which is used to record last readable block
-   * @param descriptors_sub: descriptors maped address from sharedmem subscriber
-   * @param topic: topic name
-   * @param msg_buffer: msg buffer
-   * @param msg_size: msg size
-   * Return read result, true or false
-   */
-  bool read_data(int32_t& last_read_index, SharedMemoryBlock* descriptors_sub, 
-    const std::string& topic, int32_t& msg_buffer, uint32_t& msg_size);
+     * \brief Read data from block for sharedmem subscriber
+     *
+     * @param msg: msg waited to be read
+     * @param last_read_index: index which is used to record last readable block
+     * @param descriptors_sub: descriptors maped address from sharedmem subscriber
+     * @param addr_sub: block maped address from sharedmem subscriber
+     * @param helper: subscription callback helper
+     * @param topic: topic name
+     * @param header_ptr: header pointer
+     * Return read result, true or false
+     */
+  bool read_data(ros::VoidConstPtr& msg, int32_t& last_read_index,
+    SharedMemoryBlock* descriptors_sub, uint8_t** addr_sub,
+    ros::SubscriptionCallbackHelperPtr& helper, const std::string& topic,
+    ros::M_stringPtr& header_ptr);
 
   /**
    * \brief Set _wrote_num, after publisher wrote data to block

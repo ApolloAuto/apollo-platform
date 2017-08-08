@@ -116,13 +116,17 @@ public:
    */
   bool write_to_block(uint8_t* dest, const ros::SerializedMessage& msg);
 
-  /**
-   * \brief Read from block
-   *
-   * @param msg: msg waited to be deserialized to
-   * Return read result, true or false
-   */
-  bool read_from_block(uint32_t& msg_size);
+    /**
+     * \brief Read from block
+     *
+     * @param src: block address
+     * @param msg: msg waited to be deserialized to
+     * @param helper: subscription callback helper
+     * @param header_ptr: header pointer
+     * Return read result, true or false
+     */
+  bool read_from_block(uint8_t* src, ros::VoidConstPtr& msg,
+      ros::SubscriptionCallbackHelperPtr& helper, ros::M_stringPtr& header_ptr);
 
   /**
    * \brief Get real alloc_size

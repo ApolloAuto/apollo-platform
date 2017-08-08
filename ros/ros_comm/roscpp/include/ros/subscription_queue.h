@@ -63,7 +63,6 @@ class ROSCPP_DECL SubscriptionQueue : public CallbackInterface, public boost::en
 private:
   struct Item
   {
-    int32_t msg_index;      
     bool default_transport;    
     SubscriptionCallbackHelperPtr helper;
     MessageDeserializerPtr deserializer;
@@ -80,9 +79,9 @@ public:
   SubscriptionQueue(const std::string& topic, int32_t queue_size, bool allow_concurrent_callbacks);
   ~SubscriptionQueue();
 
-  void push(int32_t msg_index, bool default_transport, const SubscriptionCallbackHelperPtr& helper, const MessageDeserializerPtr& deserializer, 
-	    bool has_tracked_object, const VoidConstWPtr& tracked_object, bool nonconst_need_copy, 
-	    ros::Time receipt_time = ros::Time(), bool* was_full = 0);
+  void push(bool default_transport, const SubscriptionCallbackHelperPtr& helper, const MessageDeserializerPtr& deserializer,
+	  bool has_tracked_object, const VoidConstWPtr& tracked_object, bool nonconst_need_copy,
+	  ros::Time receipt_time = ros::Time(), bool* was_full = 0);
   void clear();
 
   virtual CallbackInterface::CallResult call();
