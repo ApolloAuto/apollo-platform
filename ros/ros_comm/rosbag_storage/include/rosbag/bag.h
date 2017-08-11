@@ -46,8 +46,10 @@
 #include "ros/header.h"
 #include "ros/time.h"
 #include "ros/message_traits.h"
+#include "ros/protobuffer_traits.h"
 #include "ros/message_event.h"
 #include "ros/serialization.h"
+#include "ros/serialization_protobuffer.h"
 
 //#include "ros/subscription_callback_helper.h"
 
