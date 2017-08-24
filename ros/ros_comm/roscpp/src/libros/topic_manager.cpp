@@ -45,7 +45,7 @@
 #include "XmlRpc.h"
 
 #include <ros/console.h>
-#include "ros/broadcast_manager.h"
+
 
 using namespace XmlRpc; // A battle to be fought later
 using namespace std; // sigh
