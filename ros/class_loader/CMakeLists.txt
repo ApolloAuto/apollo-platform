@@ -12,7 +12,8 @@ find_package(console_bridge REQUIRED)
 
 if(${catkin_FOUND})
   find_package(catkin REQUIRED COMPONENTS cmake_modules)
-  find_package(Poco REQUIRED COMPONENTS Foundation)
+  #find_package(Poco REQUIRED COMPONENTS Foundation)
+  set(Poco_LIBRARIES PocoFoundation)
   catkin_package(
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME} ${Poco_LIBRARIES}
