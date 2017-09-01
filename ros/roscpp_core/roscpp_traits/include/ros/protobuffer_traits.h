@@ -69,7 +69,7 @@ struct MD5Sum<T, typename boost::enable_if<boost::is_base_of< ::google::protobuf
 {
   static const char* value() 
   {
-    std::string data_type(DataType<T>::value(), strlen(DataType<T>::value()));
+    std::string data_type(DataType<T>::value());
     if (type_md5_map.count(data_type) == 0) 
     {
       type_md5_map[data_type] = ros::md5::MD5(data_type).toStr();
