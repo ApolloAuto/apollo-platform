@@ -87,6 +87,7 @@ private:
 
   struct ItemShm
   {
+    boost::interprocess::managed_shared_memory* segment;
     sharedmem_transport::SharedMemorySegment* segment_mgr;
     sharedmem_transport::SharedMemoryBlock* descriptors_sub;
     uint32_t queue_size;
@@ -109,6 +110,7 @@ private:
   mutable std::mutex mutex_;
   bool started_;
   boost::interprocess::interprocess_mutex shm_sub_mutex_;
+  std::map<std::string, bool> shm_skip_first_msg_;
 };
 
 }

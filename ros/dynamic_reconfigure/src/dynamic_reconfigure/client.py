@@ -31,28 +31,30 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-Python client API for dynamic_reconfigure (L{DynamicReconfigureClient}) as well as 
+Python client API for dynamic_reconfigure (L{DynamicReconfigureClient}) as well as
 example server implementation (L{DynamicReconfigureServer}).
 """
 
-from __future__ import with_statement
+from __future__ import print_function, with_statement
 
 try:
     import roslib; roslib.load_manifest('dynamic_reconfigure')
 except:
     pass
 import rospy
-import rosservice                  
+import rosservice
 import sys
 import threading
 import time
 import types
+from dynamic_reconfigure import DynamicReconfigureCallbackException
 from dynamic_reconfigure import DynamicReconfigureParameterException
 from dynamic_reconfigure.srv import Reconfigure as ReconfigureSrv
 from dynamic_reconfigure.msg import Config as ConfigMsg
 from dynamic_reconfigure.msg import ConfigDescription as ConfigDescrMsg
 from dynamic_reconfigure.msg import IntParameter, BoolParameter, StrParameter, DoubleParameter, ParamDescription
 from dynamic_reconfigure.encoding import *
+from rospy.service import ServiceException
 
 class Client(object):
     """
@@ -61,7 +63,7 @@ class Client(object):
     def __init__(self, name, timeout=None, config_callback=None, description_callback=None):
         """
         Connect to dynamic_reconfigure server and return a client object
-        
+
         @param name: name of the server to connect to (usually the node name)
         @type  name: str
         @param timeout: time to wait before giving up
@@ -73,7 +75,7 @@ class Client(object):
         self.config            = None
         self.param_description = None
         self.group_description = None
-        
+
         self._param_types = None
 
         self._cv = threading.Condition()
@@ -81,7 +83,7 @@ class Client(object):
         self._config_callback      = config_callback
         self._description_callback = description_callback
 
-        self._set_service      = self._get_service_proxy('set_parameters', timeout)       
+        self._set_service      = self._get_service_proxy('set_parameters', timeout)
         self._descriptions_sub = self._get_subscriber('parameter_descriptions', ConfigDescrMsg, self._descriptions_msg)
         self._updates_sub      = self._get_subscriber('parameter_updates',      ConfigMsg,      self._updates_msg)
 
@@ -97,8 +99,8 @@ class Client(object):
         """
         if timeout is None or timeout == 0.0:
             if self.get_configuration(timeout=1.0) is None:
-                print >> sys.stderr, 'Waiting for configuration...'
-                
+                print('Waiting for configuration...', file=sys.stderr)
+
                 with self._cv:
                     while self.config is None:
                         if rospy.is_shutdown():
@@ -121,7 +123,7 @@ class Client(object):
         """
         UNSTABLE. Return a description of the parameters for the server.
         Do not use this method as the type that is returned may change.
-        
+
         @param timeout: time to wait before giving up
         @type  timeout: float
         """
@@ -182,7 +184,7 @@ class Client(object):
                     dest_type = self._param_types.get(name)
                     if dest_type is None:
                         raise DynamicReconfigureParameterException('don\'t know parameter: %s' % name)
-                
+
                     try:
                         found = False
                         descr = [x for x in self.param_description if x['name'].lower() == name.lower()][0]
@@ -216,7 +218,12 @@ class Client(object):
             changes['groups'] = self.update_groups(changes['groups'])
 
         config = encode_config(changes)
-        msg    = self._set_service(config).config
+
+        try:
+            msg    = self._set_service(config).config
+        except ServiceException as e:
+            raise DynamicReconfigureCallbackException('service call failed')
+
         if self.group_description is None:
             self.get_group_descriptions()
         resp   = decode_config(msg, self.group_description)
@@ -230,7 +237,7 @@ class Client(object):
         @param changes: dictionary of key value pairs for the parameters that are changing
         @type  changes: {str: value}
         """
-        
+
         descr = self.get_group_descriptions()
 
         groups = []
@@ -241,7 +248,7 @@ class Client(object):
                 else:
                     update_state(group, g)
             return description
- 
+
         for change in changes:
             descr = update_state(change, descr)
 
@@ -272,7 +279,7 @@ class Client(object):
 
     config_callback = property(get_config_callback, set_config_callback)
 
-    ## description_callback        
+    ## description_callback
 
     def get_description_callback(self):
         """
@@ -299,7 +306,7 @@ class Client(object):
             try:
                 rospy.wait_for_service(service_name, 1.0)
             except rospy.exceptions.ROSException:
-                print >> sys.stderr, 'Waiting for service %s...' % service_name
+                print('Waiting for service %s...' % service_name, file=sys.stderr)
                 rospy.wait_for_service(service_name, timeout)
         else:
             rospy.wait_for_service(service_name, timeout)
@@ -308,14 +315,14 @@ class Client(object):
 
     def _get_subscriber(self, suffix, type, callback):
         topic_name = rospy.resolve_name(self.name + '/' + suffix)
-        
+
         return rospy.Subscriber(topic_name, type, callback=callback)
 
     def _updates_msg(self, msg):
         if self.group_description is None:
             self.get_group_descriptions()
         self.config = decode_config(msg, self.group_description)
-        
+
         with self._cv:
             self._cv.notifyAll()
         if self._config_callback is not None:

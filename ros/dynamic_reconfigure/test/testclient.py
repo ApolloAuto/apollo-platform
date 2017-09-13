@@ -30,6 +30,7 @@
 # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+from __future__ import print_function
 
 import roslib; roslib.load_manifest('dynamic_reconfigure')
 import rospy
@@ -38,8 +39,8 @@ import time
 
 # This example assumes that testserver in dynamic_reconfigure is running
 # with its default node name, and will show how to reconfigure it from
-# python. 
-# 
+# python.
+#
 # Note that testserver often changes the parameters it is given, so the
 # values you get back from it will often be different from the ones you
 # requested. Look at test/testserver.cpp to understand the changes that are
@@ -49,40 +50,40 @@ import time
 # rosrun dynamic_reconfigure testserver
 #
 # In another window do:
-# rosrun dynamic_reconfigure testclient.py 
+# rosrun dynamic_reconfigure testclient.py
 
 def print_config(config):
     for k, v in config.iteritems():
-        print k, ":", v
-    print
+        print(k, ":", v)
+    print('')
 
 # The config_callback (introduced below) receives a dictionary containing
 # the current configuration of the server each time the server's
 # configuration changes.
-def config_callback(config): 
-    print "Got callback, configuration is: "
+def config_callback(config):
+    print("Got callback, configuration is: ")
     print_config(config)
 
 def new_config_callback(config):
     global old_callback
-    print "New callback is calling old callback..."
+    print("New callback is calling old callback...")
     old_callback(config)
-    print "New callback is done..."
-    print
+    print("New callback is done...")
+    print('')
 
 # First you need to connect to the server. You can optionally specify a
 # timeout and a config_callback that is called each time the server's
 # configuration changes. If you do not indicate a timeout, the client is
 # willing to wait forever for the server to be available.
 #
-# Note that the config_callback could get called before the constructor 
+# Note that the config_callback could get called before the constructor
 # returns.
 rospy.init_node('testclient_py', anonymous=True)
 client = DynamicReconfigureClient('/dynamic_reconfigure_test_server', config_callback=config_callback, timeout=5)
 time.sleep(1)
 
 # You can also get the configuration manually by calling get_configuration.
-print "Configuration from get_configuration:"
+print("Configuration from get_configuration:")
 print_config(client.get_configuration(timeout=5))
 time.sleep(1)
 
@@ -90,20 +91,20 @@ time.sleep(1)
 # You can set any subset of the node's parameters using this method. It
 # returns out the full new configuration of the server (which may differ
 # from what you requested if you asked for something illegal).
-print "Configuration after setting int_ to 4:"
+print("Configuration after setting int_ to 4:")
 print_config(client.update_configuration({'int_' : 4}))
 time.sleep(1)
 
-print "Configuration after setting int_ to 0 and bool_ to True:"
+print("Configuration after setting int_ to 0 and bool_ to True:")
 print_config(client.update_configuration({'int_' : 0, 'bool_' : True}))
 time.sleep(1)
 
 # You can access constants defined in Test.cfg file in the following way:
 import dynamic_reconfigure.cfg.TestConfig as Config
-print "Medium is a constant that is set to 1:", Config.Test_Medium
+print("Medium is a constant that is set to 1:", Config.Test_Medium)
 
 # This is useful for setting enums:
-print "Configuration after setting int_enum_ to Medium:"
+print("Configuration after setting int_enum_ to Medium:")
 print_config(client.update_configuration({'int_enum_' : Config.Test_Medium}))
 time.sleep(1)
 

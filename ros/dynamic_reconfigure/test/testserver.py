@@ -32,6 +32,7 @@
 #  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #  POSSIBILITY OF SUCH DAMAGE.
 #********************************************************************/
+from __future__ import print_function
 
 import roslib; roslib.load_manifest('dynamic_reconfigure')
 import rospy
@@ -46,19 +47,19 @@ def main():
         time.sleep(0.1)
 
 def reconfigure(config, level):
-    print config
+    print(config)
     rospy.loginfo("Reconfigure request : %i %f %s %s %i"%(config['int_'], config['double_'], config['str_'], config['bool_'], config['level']))
-    
+
     config['int_'] |= 1;
     config['double_'] = -config['double_'];
     config['str_'] += "A";
     config['bool_'] = not config['bool_'];
     config['level'] = level;
-  
+
     rospy.loginfo("Reconfigured to     : %i %f %s %s %i"%(config['int_'], config['double_'], config['str_'], config['bool_'], config['level']))
 
     return config # Returns the updated configuration.
-  
+
 
 if __name__ == '__main__':
     main()

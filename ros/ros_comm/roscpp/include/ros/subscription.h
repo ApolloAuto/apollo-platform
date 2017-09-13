@@ -107,8 +107,6 @@ public:
    */
   uint32_t handleMessage(const SerializedMessage& m, bool ser, bool nocopy, const boost::shared_ptr<M_string>& connection_header, const PublisherLinkPtr& link);
 
-  uint32_t handleMessage(int32_t msg_index, const SerializedMessage& m, bool ser, bool nocopy, const boost::shared_ptr<M_string>& connection_header);
-
   const std::string datatype();
   const std::string md5sum();
 
@@ -259,6 +257,19 @@ private:
   int32_t last_read_index_;
 
   boost::interprocess::interprocess_mutex shm_sub_mutex_;
+
+  SubscriptionCallbackHelperPtr helper_;
+
+public:
+  SubscriptionCallbackHelperPtr& get_helper()
+  {
+    return helper_;
+  }
+
+  std::vector<PublisherLinkPtr> get_publisher_links()
+  {
+    return publisher_links_;
+  }
 };
 
 }

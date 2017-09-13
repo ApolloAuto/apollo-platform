@@ -112,10 +112,16 @@ bool SharedMemoryBlock::write_to_block(uint8_t* dest, const ros::SerializedMessa
   return result;
 }
 
-
-bool SharedMemoryBlock::read_from_block(uint32_t& msg_size)
+bool SharedMemoryBlock::read_from_block(uint8_t* src, ros::VoidConstPtr& msg,
+  ros::SubscriptionCallbackHelperPtr& helper, ros::M_stringPtr& header_ptr)
 {
-  msg_size = (uint32_t)_msg_size;
+  // Deserialze msg from block
+  ros::SubscriptionCallbackHelperDeserializeParams params ;
+  params.buffer = src;
+  params.length = (uint32_t)_msg_size;
+  params.connection_header = header_ptr;
+  msg = helper->deserialize(params);
+
   return true;
 }
 

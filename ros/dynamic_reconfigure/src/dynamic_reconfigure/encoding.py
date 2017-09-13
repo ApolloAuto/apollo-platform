@@ -57,7 +57,7 @@ class Config(dict):
             self.__dict__[key] = val
 
     def __repr__(self):
-        return super(Config, self).__repr__() 
+        return super(Config, self).__repr__()
 
     def __setitem__(self, key, value):
         return super(Config, self).__setitem__(key, value)
@@ -80,7 +80,7 @@ class Config(dict):
             c[copy.deepcopy(key)] = copy.deepcopy(value)
 
         return c
-        
+
 
 def encode_description(descr):
     msg = ConfigDescrMsg()
@@ -92,7 +92,7 @@ def encode_description(descr):
 
 def encode_groups(parent, group):
     group_list = []
-    
+
     msg = GroupMsg()
 
     msg.name = group['name']
@@ -181,7 +181,7 @@ def decode_description(msg):
         if group.id == 0:
             groups = group_dict(group)
             groups['parameters'] = params_from_msg(group)
-  
+
     def build_tree(group):
         children = Config({})
         for g in grouplist:
@@ -189,7 +189,7 @@ def decode_description(msg):
                pass
             elif g.parent == group['id']:
                gd = group_dict(g)
-               
+
                gd['parameters'] = params_from_msg(g)
                gd['groups'] = build_tree(gd)
                # add the dictionary into the tree
@@ -274,7 +274,7 @@ def initial_config(msg, description = None):
 
         add_params(d['groups'], description)
 
-    return d 
+    return d
 
 def decode_config(msg, description = None):
     if sys.version_info.major < 3:
@@ -288,7 +288,7 @@ def decode_config(msg, description = None):
     d = Config([(kv.name, kv.value) for kv in msg.bools + msg.ints + msg.strs + msg.doubles])
     if not msg.groups == [] and description is not None:
         d["groups"] = get_tree(msg)
-        
+
         def add_params(group, descr):
             for param in descr['parameters']:
                 if param['name'] in d.keys():
@@ -300,7 +300,7 @@ def decode_config(msg, description = None):
 
         add_params(d['groups'], description)
 
-    return d 
+    return d
 
 def extract_params(group):
     params = []

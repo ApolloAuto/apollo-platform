@@ -32,8 +32,9 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+from __future__ import print_function
 
 if __name__ == '__main__':
-    print '\033[91m' + "reconfigure_gui has moved!\n" + '\033[0m'
-    print " Try: " + '\033[92m' + "rosrun rqt_reconfigure rqt_reconfigure\n" + '\033[0m'
-    print " If you see this as part of a tutorial or a script, please update to reflect this change."
+    print('\033[91m' + "reconfigure_gui has moved!\n" + '\033[0m')
+    print(" Try: " + '\033[92m' + "rosrun rqt_reconfigure rqt_reconfigure\n" + '\033[0m')
+    print(" If you see this as part of a tutorial or a script, please update to reflect this change.")

@@ -1,10 +1,17 @@
 ############################################################
 #
-# Choose transport mode, in which nodes communicate with each other
+# ### transport_mode ###
+# Choose transport mode, in which nodes communicate with each other.
 #
 # 0: shared memory, default
 # 1: socket
 #
+# ### topic_white_list ###
+# Exclude some topics, which will be transported in socket mode.
+# This key takes effect only when transport_mode is 0.
+#
 ############################################################
 
 transport_mode: 0
+
+topic_white_list: ["/shm_sample1", "/shm_sample2"]

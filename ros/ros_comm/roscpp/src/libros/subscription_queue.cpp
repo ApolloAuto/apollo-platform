@@ -54,9 +54,9 @@ SubscriptionQueue::~SubscriptionQueue()
 {
 }
 
-void SubscriptionQueue::push(int32_t msg_index, bool default_transport, const SubscriptionCallbackHelperPtr& helper, const MessageDeserializerPtr& deserializer,
-                                 bool has_tracked_object, const VoidConstWPtr& tracked_object, bool nonconst_need_copy,
-                                 ros::Time receipt_time, bool* was_full)
+void SubscriptionQueue::push(bool default_transport, const SubscriptionCallbackHelperPtr& helper, const MessageDeserializerPtr& deserializer,
+                             bool has_tracked_object, const VoidConstWPtr& tracked_object, bool nonconst_need_copy,
+                             ros::Time receipt_time, bool* was_full)
 {
   boost::mutex::scoped_lock lock(queue_mutex_);
 
@@ -88,7 +88,6 @@ void SubscriptionQueue::push(int32_t msg_index, bool default_transport, const Su
   }
 
   Item i;
-  i.msg_index = msg_index;
   i.default_transport = default_transport;
   i.helper = helper;
   i.deserializer = deserializer;

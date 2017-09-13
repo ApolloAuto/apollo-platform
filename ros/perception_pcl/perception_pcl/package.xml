@@ -1,0 +1,30 @@
+<package>
+  <name>perception_pcl</name>
+  <version>1.2.7</version>
+  <description>
+
+  PCL (Point Cloud Library) ROS interface stack. PCL-ROS is the preferred
+  bridge for 3D applications involving n-D Point Clouds and 3D geometry
+  processing in ROS.
+
+  </description>
+  <author>Open Perception</author>
+  <author email="william@osrfoundation.org">William Woodall</author>
+  <author email="julius@kammerl.de">Julius Kammerl</author>
+  <maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+  <maintainer email="bill@neautomation.com">Bill Morris</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/perception_pcl</url>
+  <url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
+  <url type="repository">https://github.com/ros-perception/perception_pcl</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>pcl_conversions</run_depend>
+  <run_depend>pcl_msgs</run_depend>
+  <run_depend>pcl_ros</run_depend>
+  <run_depend>pointcloud_to_laserscan</run_depend>
+  <export>
+    <metapackage/>
+  </export>
+</package>
