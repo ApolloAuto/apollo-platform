@@ -37,7 +37,7 @@
 
  Author: Blaise Gassend
 
- Handles synchronizing node state with the configuration server, and 
+ Handles synchronizing node state with the configuration server, and
  handling of services to get and set configuration.
 
 */
@@ -60,7 +60,7 @@ namespace dynamic_reconfigure
 /**
  * Keeps track of the reconfigure callback function.
  */
-template <class ConfigType>  
+template <class ConfigType>
 class Server
 {
 public:
@@ -81,7 +81,7 @@ public:
   }
 
   typedef boost::function<void(ConfigType &, uint32_t level)> CallbackType;
-  
+
   void setCallback(const CallbackType &callback)
   {
     boost::recursive_mutex::scoped_lock lock(mutex_);
@@ -181,10 +181,10 @@ private:
     boost::recursive_mutex::scoped_lock lock(mutex_);
     set_service_ = node_handle_.advertiseService("set_parameters",
         &Server<ConfigType>::setConfigCallback, this);
-    
+
     descr_pub_ = node_handle_.advertise<dynamic_reconfigure::ConfigDescription>("parameter_descriptions", 1, true);
     descr_pub_.publish(ConfigType::__getDescriptionMessage__());
-    
+
     update_pub_ = node_handle_.advertise<dynamic_reconfigure::Config>("parameter_updates", 1, true);
     ConfigType init_config = ConfigType::__getDefault__();
     init_config.__fromServer__(node_handle_);
@@ -210,7 +210,7 @@ private:
       ROS_DEBUG("setCallback did not call callback because it was zero."); /// @todo kill this line.
   }
 
-  bool setConfigCallback(dynamic_reconfigure::Reconfigure::Request &req, 
+  bool setConfigCallback(dynamic_reconfigure::Reconfigure::Request &req,
           dynamic_reconfigure::Reconfigure::Response &rsp)
   {
     boost::recursive_mutex::scoped_lock lock(mutex_);
@@ -219,14 +219,14 @@ private:
     new_config.__fromMessage__(req.config);
     new_config.__clamp__();
     uint32_t level = config_.__level__(new_config);
-    
+
     callCallback(new_config, level);
 
     updateConfigInternal(new_config);
     new_config.__toMessage__(rsp.config);
     return true;
   }
-  
+
   void updateConfigInternal(const ConfigType &config)
   {
     boost::recursive_mutex::scoped_lock lock(mutex_);

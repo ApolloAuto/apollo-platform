@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package>
+    <name>pointcloud_to_laserscan</name>
+    <version>1.2.7</version>
+    <description>Converts a 3D Point Cloud into a 2D laser scan. This is useful for making devices like the Kinect appear like a laser scanner for 2D-based algorithms (e.g. laser-based SLAM).</description>
+
+    <maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
+    <author>Tully Foote</author>
+
+    <license>BSD</license>
+    
+    <url type="website">http://ros.org/wiki/perception_pcl</url>
+    <url type="bugtracker">https://github.com/ros-perception/perception_pcl/issues</url>
+    <url type="repository">https://github.com/ros-perception/perception_pcl</url>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    
+    <build_depend>message_filters</build_depend>
+    <build_depend>nodelet</build_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>sensor_msgs</build_depend>
+    <build_depend>tf2</build_depend>
+    <build_depend>tf2_ros</build_depend>
+    <build_depend>tf2_sensor_msgs</build_depend>
+
+    <run_depend>message_filters</run_depend>
+    <run_depend>nodelet</run_depend>
+    <run_depend>roscpp</run_depend>
+    <run_depend>sensor_msgs</run_depend>
+    <run_depend>tf2</run_depend>
+    <run_depend>tf2_ros</run_depend>
+    <run_depend>tf2_sensor_msgs</run_depend>
+
+    <export>
+        <nodelet plugin="${prefix}/nodelets.xml"/>
+    </export>
+</package>
