@@ -620,15 +620,16 @@ uint32_t Subscription::handleMessage(const SerializedMessage& m, bool ser, bool 
 
   uint32_t drops = 0;
 
-  // Cache the deserializers by type info.  If all the subscriptions are the same type this has the same performance as before.  If
-  // there are subscriptions with different C++ type (but same ROS message type), this now works correctly rather than passing
+  // Cache the deserializers by type info.  If all the subscriptions are the same
+  // type this has the same performance as before.  If
+  // there are subscriptions with different C++ type (but same ROS message type),
+  // this now works correctly rather than passing
   // garbage to the messages with different C++ types than the first one.
   cached_deserializers_.clear();
 
   ros::Time receipt_time = ros::Time::now();
 
-  for (V_CallbackInfo::iterator cb = callbacks_.begin();
-       cb != callbacks_.end(); ++cb)
+  for (V_CallbackInfo::iterator cb = callbacks_.begin(); cb != callbacks_.end(); ++cb)
   {
     const CallbackInfoPtr& info = *cb;
 
@@ -664,8 +665,9 @@ uint32_t Subscription::handleMessage(const SerializedMessage& m, bool ser, bool 
         nonconst_need_copy = true;
       }
 
-      info->subscription_queue_->push(0, default_transport_, info->helper_, deserializer, 
-        info->has_tracked_object_, info->tracked_object_, nonconst_need_copy, receipt_time, &was_full);
+      info->subscription_queue_->push(false, info->helper_, deserializer,
+        info->has_tracked_object_, info->tracked_object_,
+        nonconst_need_copy, receipt_time, &was_full);
 
       if (was_full)
       {
@@ -678,111 +680,22 @@ uint32_t Subscription::handleMessage(const SerializedMessage& m, bool ser, bool 
     }
   }
 
-  // measure statistics
-  statistics_.callback(connection_header, name_, link->getCallerID(), m, 
-    link->getStats().bytes_received_, receipt_time, drops > 0);
-
-  // If this link is latched, store off the message so we can immediately pass it to new subscribers later
-  if (link->isLatched())
+  for (V_PublisherLink::iterator it = publisher_links_.begin(); it != publisher_links_.end(); ++it)
   {
-    LatchInfo li;
-    li.connection_header = connection_header;
-    li.link = link;
-    li.message = m;
-    li.receipt_time = receipt_time;
-    latched_messages_[link] = li;
+    if ((*it)->isLatched())
+    {
+      LatchInfo li;
+      li.connection_header = connection_header;
+      li.link = (*it);
+      li.message = m;
+      li.receipt_time = receipt_time;
+      latched_messages_[(*it)] = li;
+    }
   }
 
   cached_deserializers_.clear();
 
   return drops;
-}
-
-uint32_t Subscription::handleMessage(int32_t msg_index, const SerializedMessage& m, bool ser, 
-  bool nocopy, const boost::shared_ptr<M_string>& connection_header)
-{
-    boost::mutex::scoped_lock lock(callbacks_mutex_);
-
-    uint32_t drops = 0;
-
-    // Cache the deserializers by type info.  If all the subscriptions are the same 
-    // type this has the same performance as before.  If
-    // there are subscriptions with different C++ type (but same ROS message type), 
-    // this now works correctly rather than passing
-    // garbage to the messages with different C++ types than the first one.
-    cached_deserializers_.clear();
-
-    ros::Time receipt_time = ros::Time::now();
-
-    for (V_CallbackInfo::iterator cb = callbacks_.begin(); cb != callbacks_.end(); ++cb)
-    {
-      const CallbackInfoPtr& info = *cb;
-
-      ROS_ASSERT(info->callback_queue_);
-
-      const std::type_info* ti = &info->helper_->getTypeInfo();
-
-      if ((nocopy && m.type_info && *ti == *m.type_info) || (ser && (!m.type_info || *ti != *m.type_info)))
-      {
-        MessageDeserializerPtr deserializer;
-
-        V_TypeAndDeserializer::iterator des_it = cached_deserializers_.begin();
-        V_TypeAndDeserializer::iterator des_end = cached_deserializers_.end();
-        for (; des_it != des_end; ++des_it)
-        {
-          if (*des_it->first == *ti)
-          {
-            deserializer = des_it->second;
-            break;
-          }
-        }
-
-        if (!deserializer)
-        {
-          deserializer = boost::make_shared<MessageDeserializer>(info->helper_, m, connection_header);
-          cached_deserializers_.push_back(std::make_pair(ti, deserializer));
-        }
-
-        bool was_full = false;
-        bool nonconst_need_copy = false;
-        if (callbacks_.size() > 1)
-        {
-          nonconst_need_copy = true;
-        }
-
-        info->subscription_queue_->push(msg_index, false, info->helper_, deserializer, 
-            info->has_tracked_object_, info->tracked_object_, 
-            nonconst_need_copy, receipt_time, &was_full);
-
-        if (was_full)
-        {
-          ++drops;
-        }
-        else
-        {
-          info->callback_queue_->addCallback(info->subscription_queue_, (uint64_t)info.get());
-        }
-      }
-    }
-
-    for (V_PublisherLink::iterator it = publisher_links_.begin(); it != publisher_links_.end(); ++it) 
-    {
-      ROS_DEBUG("PUB LINK latched: %d", (*it)->isLatched());
-      ROS_DEBUG("PUB LINK : %s", (*it)->getCallerID().c_str());
-      if ((*it)->isLatched())
-      {
-        LatchInfo li;
-        li.connection_header = connection_header;
-        li.link = (*it);
-        li.message = m;
-        li.receipt_time = receipt_time;
-        latched_messages_[(*it)] = li;
-      }
-    }
-
-    cached_deserializers_.clear();
-
-    return drops;
 }
 
 bool Subscription::addCallback(const SubscriptionCallbackHelperPtr& helper, const std::string& md5sum, 
@@ -792,6 +705,8 @@ bool Subscription::addCallback(const SubscriptionCallbackHelperPtr& helper, cons
   ROS_ASSERT(queue);
 
   statistics_.init(helper);
+
+  helper_ = helper;
 
   // Decay to a real type as soon as we have a subscriber with a real type
   {
@@ -846,10 +761,10 @@ bool Subscription::addCallback(const SubscriptionCallbackHelperPtr& helper, cons
           {
             const LatchInfo& latch_info = des_it->second;
 
-            MessageDeserializerPtr des(boost::make_shared<MessageDeserializer>(helper, 
+            MessageDeserializerPtr des(boost::make_shared<MessageDeserializer>(helper,
               latch_info.message, latch_info.connection_header));
             bool was_full = false;
-            info->subscription_queue_->push(0, default_transport_, info->helper_, des, info->has_tracked_object_, 
+            info->subscription_queue_->push(default_transport_, info->helper_, des, info->has_tracked_object_, 
               info->tracked_object_, true, latch_info.receipt_time, &was_full);
             if (!was_full)
             {

@@ -38,7 +38,7 @@
 void callback(dynamic_reconfigure::Server<dynamic_reconfigure::TestConfig>& srv, dynamic_reconfigure::TestConfig &config, uint32_t level)
 {
   ROS_INFO("Reconfigure request : %i %f %s %i %i Group1:%i Group2: %f %s", config.int_, config.double_, config.str_.c_str(), (int) config.bool_, config.level, config.group1_int, config.group2_double, config.group2_string.c_str());
-  
+
   config.int_ |= 1;
   config.double_ = -config.double_;
   config.str_ += "A";

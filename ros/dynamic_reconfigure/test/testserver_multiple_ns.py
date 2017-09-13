@@ -32,6 +32,7 @@
 #  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #  POSSIBILITY OF SUCH DAMAGE.
 #********************************************************************/
+from __future__ import print_function
 
 import roslib; roslib.load_manifest('dynamic_reconfigure')
 import rospy
@@ -52,7 +53,7 @@ def main():
         time.sleep(0.1)
 
 def reconfigure(config, level):
-    print config
+    print(config)
 
     config['int_'] |= 1;
     config['double_'] = -config['double_'];

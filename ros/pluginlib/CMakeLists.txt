@@ -16,7 +16,7 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${TinyXML_INCLUDE_DIRS})
 
 add_executable(plugin_tool src/plugin_tool.cpp)
-target_link_libraries(plugin_tool ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${TinyXML_LIBRARIES})
+target_link_libraries(plugin_tool ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${TinyXML_LIBRARIES} dl)
 
 install(TARGETS plugin_tool
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

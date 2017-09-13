@@ -13,19 +13,19 @@ macro(generate_dynamic_reconfigure_options)
     if(NOT IS_ABSOLUTE ${_input})
       set(_input ${PROJECT_SOURCE_DIR}/${_input})
     endif()
-    
+
     # The .cfg file is its own generator.
-    set(gencfg_build_files 
+    set(gencfg_build_files
       ${dynamic_reconfigure_BASE_DIR}/templates/ConfigType.py.template
       ${dynamic_reconfigure_BASE_DIR}/templates/ConfigType.h.template
-    ) 
+    )
 
     get_filename_component(_cfgonly ${_cfg} NAME_WE)
     set(_output_cpp ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_INCLUDE_DESTINATION}/${_cfgonly}Config.h)
     set(_output_py ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_PYTHON_DESTINATION}/cfg/${_cfgonly}Config.py)
     set(_output_dox ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/docs/${_cfgonly}Config.dox)
     set(_output_wikidoc ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/docs/${_cfgonly}Config.wikidoc)
-    set(_output_usage ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/docs/${_cfgonly}Config-usage.dox) 
+    set(_output_usage ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/docs/${_cfgonly}Config-usage.dox)
 
     # we need to explicitly add the devel space to the PYTHONPATH
     # since it might contain dynamic_reconfigure or Python code of the current package
@@ -54,7 +54,7 @@ macro(generate_dynamic_reconfigure_options)
 
     add_custom_command(OUTPUT
       ${_output_cpp} ${_output_dox} ${_output_usage} ${_output_py} ${_output_wikidoc}
-      COMMAND ${_cmd} 
+      COMMAND ${_cmd}
       DEPENDS ${_input} ${gencfg_build_files}
       COMMENT "Generating dynamic reconfigure files from ${_cfg}: ${_output_cpp} ${_output_py}"
     )

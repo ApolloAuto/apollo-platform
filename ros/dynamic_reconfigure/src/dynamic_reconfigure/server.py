@@ -31,7 +31,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-Python client API for dynamic_reconfigure (L{DynamicReconfigureClient}) as well as 
+Python client API for dynamic_reconfigure (L{DynamicReconfigureClient}) as well as
 example server implementation (L{DynamicReconfigureServer}).
 """
 
@@ -42,7 +42,7 @@ try:
 except:
     pass
 import rospy
-import rosservice                  
+import rosservice
 import threading
 import time
 import copy
@@ -69,7 +69,7 @@ class Server(object):
         self.description = encode_description(type)
         self._copy_from_parameter_server()
         self.callback = callback
-        self._clamp(self.config) 
+        self._clamp(self.config)
 
         # setup group defaults
         self.config['groups'] = get_tree(self.description)
@@ -107,13 +107,13 @@ class Server(object):
             msg = 'Reconfigure callback should return a possibly updated configuration.'
             rospy.logerr(msg)
             raise DynamicReconfigureCallbackException(msg)
-        
+
         self._copy_to_parameter_server()
-        
+
         self.update_topic.publish(encode_config(self.config))
 
         return self.config
-   
+
     def _calc_level(self, config1, config2):
         level = 0
         for param in extract_params(self.type.config_description):
@@ -123,14 +123,14 @@ class Server(object):
         return level
 
     def _clamp(self, config):
-        for param in extract_params(self.type.config_description): 
-            maxval = self.type.max[param['name']] 
-            minval = self.type.min[param['name']] 
+        for param in extract_params(self.type.config_description):
+            maxval = self.type.max[param['name']]
+            minval = self.type.min[param['name']]
             val = config[param['name']]
-            if val > maxval and maxval != "": 
-                config[param['name']] = maxval 
-            elif val < minval and minval != "": 
-                config[param['name']] = minval 
+            if val > maxval and maxval != "":
+                config[param['name']] = maxval
+            elif val < minval and minval != "":
+                config[param['name']] = minval
 
     def _set_callback(self, req):
         return encode_config(self.update_configuration(decode_config(req.config, self.type.config_description)))

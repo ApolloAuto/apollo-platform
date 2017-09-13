@@ -667,6 +667,7 @@ bool configParse(std::string file)
       return false;
     }
 
+    // For transport_mode
     if (node["transport_mode"])
     {
       g_config_comm.transport_mode =  node["transport_mode"].as<int>();
@@ -678,6 +679,28 @@ bool configParse(std::string file)
     else
     {
       ROS_WARN_STREAM("Key transport_mode doesn't exist"); 
+    }
+
+    // For topic_white_list
+    if (node["topic_white_list"])
+    {
+      if (node["topic_white_list"].IsSequence())
+      {
+        std::string topic;
+        for (int i = 0; i < node["topic_white_list"].size(); i++)
+        {
+          topic = node["topic_white_list"][i].as<std::string>();
+          g_config_comm.topic_white_list.insert(topic);
+        }
+      }
+      else
+      {
+        ROS_WARN_STREAM("Key topic_white_list is not Sequece");
+      }
+    }
+    else
+    {
+      ROS_WARN_STREAM("Key topic_white_list doesn't exist");
     }
 
     return true ;

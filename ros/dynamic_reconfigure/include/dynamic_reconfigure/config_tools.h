@@ -16,42 +16,42 @@ public:
   {
     return set.bools;
   }
-  
+
   static std::vector<dynamic_reconfigure::IntParameter> &getVectorForType(dynamic_reconfigure::Config &set, const int /*val*/)
   {
     return set.ints;
   }
-  
+
   static std::vector<dynamic_reconfigure::StrParameter> &getVectorForType(dynamic_reconfigure::Config &set, const std::string& /*val*/)
   {
     return set.strs;
   }
-  
+
   static std::vector<dynamic_reconfigure::DoubleParameter> &getVectorForType(dynamic_reconfigure::Config &set, const double /*val*/)
   {
     return set.doubles;
   }
-  
+
   static const std::vector<dynamic_reconfigure::BoolParameter> &getVectorForType(const dynamic_reconfigure::Config &set, const bool /*val*/)
   {
     return set.bools;
   }
-  
+
   static const std::vector<dynamic_reconfigure::IntParameter> &getVectorForType(const dynamic_reconfigure::Config &set, const int /*val*/)
   {
     return set.ints;
   }
-  
+
   static const std::vector<dynamic_reconfigure::StrParameter> &getVectorForType(const dynamic_reconfigure::Config &set, const std::string& /*val*/)
   {
     return set.strs;
   }
-  
+
   static const std::vector<dynamic_reconfigure::DoubleParameter> &getVectorForType(const dynamic_reconfigure::Config &set, const double /*val*/)
   {
     return set.doubles;
   }
-  
+
   static dynamic_reconfigure::BoolParameter makeKeyValuePair(const std::string &name, const bool val)
   {
     dynamic_reconfigure::BoolParameter param;
@@ -109,7 +109,7 @@ public:
   }
 
   template<class T>
-  static void appendGroup(dynamic_reconfigure::Config &set, const std::string &name, int id, int parent, const T &val) 
+  static void appendGroup(dynamic_reconfigure::Config &set, const std::string &name, int id, int parent, const T &val)
   {
     dynamic_reconfigure::GroupState msg;
     msg.name = name;
