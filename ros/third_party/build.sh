@@ -6,6 +6,7 @@
 # FILEIN:     third_party
 # FILEOUT:    fast-rtps_$MACHINE_ARCH
 
+
 #------------------------ global variable --------------------------
 MACHINE_ARCH=$(uname -m)
 INSTALL_PATH="fast-rtps_${MACHINE_ARCH}"

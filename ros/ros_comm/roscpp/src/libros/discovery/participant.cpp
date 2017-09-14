@@ -158,8 +158,8 @@ bool Participant::init(user_callback cb)
   pub_param.topic.historyQos.depth = 5000;
   pub_param.topic.resourceLimitsQos.max_samples = 10000;
 
-  pub_param.times.heartbeatPeriod.seconds = 0;
-  pub_param.times.heartbeatPeriod.fraction = 4294967 * 500;
+  pub_param.times.heartbeatPeriod.seconds = 2;
+  pub_param.times.heartbeatPeriod.fraction = 0;
 
   _meta_publisher = Domain::createPublisher(_participant, pub_param, &_pub_listener);
   if (_meta_publisher == nullptr) 
