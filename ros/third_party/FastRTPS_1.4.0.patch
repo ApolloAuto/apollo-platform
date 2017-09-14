@@ -1,6 +1,6 @@
 diff -Npur -x .git a/CMakeLists.txt b/CMakeLists.txt
---- a/CMakeLists.txt	2017-05-25 20:37:18.851594345 -0700
-+++ b/CMakeLists.txt	2017-05-25 21:31:41.247771694 -0700
+--- a/CMakeLists.txt	2017-09-14 15:59:29.813198704 +0800
++++ b/CMakeLists.txt	2017-09-14 16:01:09.589195047 +0800
 @@ -175,9 +175,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PAT
  # Default shared libraries
  ###############################################################################
@@ -13,8 +13,8 @@ diff -Npur -x .git a/CMakeLists.txt b/CMakeLists.txt
  
  ###############################################################################
 diff -Npur -x .git a/include/fastrtps/utils/IPFinder.h b/include/fastrtps/utils/IPFinder.h
---- a/include/fastrtps/utils/IPFinder.h	2017-05-25 20:36:33.539369654 -0700
-+++ b/include/fastrtps/utils/IPFinder.h	2017-06-08 15:28:09.021049038 -0700
+--- a/include/fastrtps/utils/IPFinder.h	2017-09-14 15:55:02.933208485 +0800
++++ b/include/fastrtps/utils/IPFinder.h	2017-09-14 16:01:09.693195043 +0800
 @@ -61,7 +61,7 @@ public:
  	IPFinder();
  	virtual ~IPFinder();
@@ -25,14 +25,14 @@ diff -Npur -x .git a/include/fastrtps/utils/IPFinder.h b/include/fastrtps/utils/
  	/**
      * Get the IP4Adresses in all interfaces.
 diff -Npur -x .git a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp
---- a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-05-25 20:37:18.859594385 -0700
-+++ b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-05-25 20:56:02.109164279 -0700
+--- a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-09-14 15:59:29.821198703 +0800
++++ b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-09-14 16:01:09.593195047 +0800
 @@ -129,6 +129,9 @@ bool EDPSimple::createSEDPEndpoints()
          watt.times.nackResponseDelay.fraction = 0;
          watt.times.initialHeartbeatDelay.seconds = 0;
          watt.times.initialHeartbeatDelay.fraction = 0;
-+        watt.times.heartbeatPeriod.seconds = 0;
-+        watt.times.heartbeatPeriod.fraction = 4294967 * 500;
++        watt.times.heartbeatPeriod.seconds = 1;
++        watt.times.heartbeatPeriod.fraction = 0;
 +
          if(mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.bytesPerPeriod != UINT32_MAX &&
                  mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.periodMillisecs != 0)
@@ -41,14 +41,50 @@ diff -Npur -x .git a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp b/src
          watt.times.nackResponseDelay.fraction = 0;
          watt.times.initialHeartbeatDelay.seconds = 0;
          watt.times.initialHeartbeatDelay.fraction = 0;
-+        watt.times.heartbeatPeriod.seconds = 0;
-+        watt.times.heartbeatPeriod.fraction = 4294967 * 500;
++        watt.times.heartbeatPeriod.seconds = 1;
++        watt.times.heartbeatPeriod.fraction = 0;
          if(mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.bytesPerPeriod != UINT32_MAX &&
                  mp_RTPSParticipant->getRTPSParticipantAttributes().throughputController.periodMillisecs != 0)
              watt.mode = ASYNCHRONOUS_WRITER;
+@@ -384,7 +389,7 @@ void EDPSimple::assignRemoteEndpoints(Pa
+         watt.guid.guidPrefix = pdata->m_guid.guidPrefix;
+         watt.guid.entityId = c_EntityId_SEDPPubWriter;
+         watt.endpoint.unicastLocatorList = pdata->m_metatrafficUnicastLocatorList;
+-        watt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
++        //watt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
+         watt.endpoint.reliabilityKind = RELIABLE;
+         watt.endpoint.durabilityKind = TRANSIENT_LOCAL;
+         pdata->m_builtinWriters.push_back(watt);
+@@ -402,7 +407,7 @@ void EDPSimple::assignRemoteEndpoints(Pa
+         ratt.guid.guidPrefix = pdata->m_guid.guidPrefix;
+         ratt.guid.entityId = c_EntityId_SEDPPubReader;
+         ratt.endpoint.unicastLocatorList = pdata->m_metatrafficUnicastLocatorList;
+-        ratt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
++        //ratt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
+         ratt.endpoint.durabilityKind = TRANSIENT_LOCAL;
+         ratt.endpoint.reliabilityKind = RELIABLE;
+         pdata->m_builtinReaders.push_back(ratt);
+@@ -419,7 +424,7 @@ void EDPSimple::assignRemoteEndpoints(Pa
+         watt.guid.guidPrefix = pdata->m_guid.guidPrefix;
+         watt.guid.entityId = c_EntityId_SEDPSubWriter;
+         watt.endpoint.unicastLocatorList = pdata->m_metatrafficUnicastLocatorList;
+-        watt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
++        //watt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
+         watt.endpoint.reliabilityKind = RELIABLE;
+         watt.endpoint.durabilityKind = TRANSIENT_LOCAL;
+         pdata->m_builtinWriters.push_back(watt);
+@@ -437,7 +442,7 @@ void EDPSimple::assignRemoteEndpoints(Pa
+         ratt.guid.guidPrefix = pdata->m_guid.guidPrefix;
+         ratt.guid.entityId = c_EntityId_SEDPSubReader;
+         ratt.endpoint.unicastLocatorList = pdata->m_metatrafficUnicastLocatorList;
+-        ratt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
++        //ratt.endpoint.multicastLocatorList = pdata->m_metatrafficMulticastLocatorList;
+         ratt.endpoint.durabilityKind = TRANSIENT_LOCAL;
+         ratt.endpoint.reliabilityKind = RELIABLE;
+         pdata->m_builtinReaders.push_back(ratt);
 diff -Npur -x .git a/src/cpp/transport/UDPv4Transport.cpp b/src/cpp/transport/UDPv4Transport.cpp
---- a/src/cpp/transport/UDPv4Transport.cpp	2017-05-25 20:36:33.559369753 -0700
-+++ b/src/cpp/transport/UDPv4Transport.cpp	2017-06-08 15:28:35.781181734 -0700
+--- a/src/cpp/transport/UDPv4Transport.cpp	2017-09-14 15:59:29.845198702 +0800
++++ b/src/cpp/transport/UDPv4Transport.cpp	2017-09-14 16:01:09.593195047 +0800
 @@ -31,7 +31,7 @@ static const uint32_t maximumUDPSocketSi
  static const uint32_t maximumMessageSize = 65500;
  static const uint8_t defaultTTL = 1;
@@ -75,8 +111,8 @@ diff -Npur -x .git a/src/cpp/transport/UDPv4Transport.cpp b/src/cpp/transport/UD
      }
  
 diff -Npur -x .git a/thirdparty/fastcdr/CMakeLists.txt b/thirdparty/fastcdr/CMakeLists.txt
---- a/thirdparty/fastcdr/CMakeLists.txt	2017-05-25 20:41:04.208711831 -0700
-+++ b/thirdparty/fastcdr/CMakeLists.txt	2017-05-25 21:31:55.783843775 -0700
+--- a/thirdparty/fastcdr/CMakeLists.txt	2017-09-14 16:00:20.797196835 +0800
++++ b/thirdparty/fastcdr/CMakeLists.txt	2017-09-14 16:01:09.629195045 +0800
 @@ -106,9 +106,7 @@ endif()
  # Default shared libraries
  ###############################################################################
@@ -89,8 +125,8 @@ diff -Npur -x .git a/thirdparty/fastcdr/CMakeLists.txt b/thirdparty/fastcdr/CMak
  
  ###############################################################################
 diff -Npur -x .git a/thirdparty/fastcdr/include/fastcdr/Cdr.h b/thirdparty/fastcdr/include/fastcdr/Cdr.h
---- a/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-05-25 20:41:04.244712009 -0700
-+++ b/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-05-25 21:10:34.305489267 -0700
+--- a/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-09-14 16:00:20.821196834 +0800
++++ b/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-09-14 16:01:09.629195045 +0800
 @@ -726,6 +726,7 @@ namespace eprosima
                   * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
                   */
@@ -126,8 +162,8 @@ diff -Npur -x .git a/thirdparty/fastcdr/include/fastcdr/Cdr.h b/thirdparty/fastc
  #if HAVE_CXX0X
                  /*!
 diff -Npur -x .git a/thirdparty/fastcdr/src/cpp/Cdr.cpp b/thirdparty/fastcdr/src/cpp/Cdr.cpp
---- a/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-05-25 20:41:04.244712009 -0700
-+++ b/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-05-25 21:08:59.949021378 -0700
+--- a/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-09-14 16:00:20.821196834 +0800
++++ b/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-09-14 16:01:09.629195045 +0800
 @@ -570,6 +570,38 @@ Cdr& Cdr::serialize(const char *string_t
      return *this;
  }
