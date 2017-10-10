@@ -1,0 +1,15 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b camera_calibration_parsers contains routines for reading and writing
+camera calibration parameters. Two human-readable file formats are
+supported: YAML and the Videre INI format.
+
+\section codeapi Code API
+
+- camera_calibration_parsers::writeCalibration - Write parameters to a file
+- camera_calibration_parsers::readCalibration - Read parameters from a file
+- camera_calibration_parsers::parseCalibration - Read parameters from an in-memory buffer
+
+*/

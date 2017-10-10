@@ -1,0 +1,48 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+NOTE: This package's API is not yet released. It may change from its current form.
+
+\b polled_camera contains a service definition for requesting polled images,
+as well as a C++ server class to simplify publishing polled images to clients.
+
+The protocol for polling images from a camera driver node that supports it is as
+follows:
+ - The camera driver advertises a service call \c \<camera\>/request_image.
+ - The client calls the service, specifying an output namespace in the request.
+ - On receiving a request, the driver captures an image and returns its time stamp
+in the service response.
+ - The \c Image and \c CameraInfo are published to \c \<response_namespace\>/image_raw
+and \c \<response_namespace\>/camera_info, latched.
+ - Clients subscribe to the response topics just like any other camera image stream.
+
+\section codeapi Code API
+Use polled_camera::PublicationServer in camera driver nodes (or similar) to
+track client connections and respond to image requests.
+
+There is not currently a matching client class, but receiving polled images
+is identical to subscribing to any other image topic. The only additional
+step is using a ros::ServiceClient to make explicit requests:
+
+\code
+#include <ros/ros.h>
+#include <image_transport/image_transport.h>
+#include <polled_camera/GetPolledImage.h>
+
+void callback(const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& info);
+
+ros::NodeHandle nh;
+image_transport::ImageTransport it(nh);
+
+image_transport::CameraSubscriber sub = it.subscribeCamera("output_ns/image_raw", 1, callback);
+ros::ServiceClient client = nh.serviceClient<polled_camera::GetPolledImage>("my_camera/request_image");
+polled_camera::GetPolledImage srv;
+srv.request.response_namespace = "output_ns";
+if (client.call(srv))
+{
+  ROS_INFO_STREAM("Image captured with timestamp " << srv.response.stamp);
+}
+\endcode
+
+*/

@@ -1,0 +1,43 @@
+<package>
+   <name>sound_play</name>
+   <version>0.2.12</version>
+   <description>
+      sound_play provides a ROS node that translates commands on a ROS topic (<tt>robotsound</tt>) into sounds. The node supports built-in sounds, playing OGG/WAV files, and doing speech synthesis via festival. C++ and Python bindings allow this node to be used without understanding the details of the message format, allowing faster development and resilience to message format changes.
+   </description>
+   <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+   <author>Blaise Gassend</author>
+   <license>BSD</license>
+   <url type="website">http://ros.org/wiki/sound_play</url>
+   <url type="repository">https://github.com/ros-drivers/audio_common</url>
+   <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+   <build_depend>roscpp</build_depend>
+   <build_depend>roslib</build_depend>
+   <build_depend>actionlib_msgs</build_depend>
+   <build_depend>actionlib</build_depend>
+   <build_depend>audio_common_msgs</build_depend>
+   <build_depend>diagnostic_msgs</build_depend>
+   <build_depend>libgstreamer0.10-dev</build_depend>
+   <build_depend>libgstreamer-plugins-base0.10-dev</build_depend>
+   <build_depend>message_generation</build_depend>
+
+   <run_depend>roscpp</run_depend>
+   <run_depend>roslib</run_depend>
+   <run_depend>actionlib_msgs</run_depend>
+   <run_depend>audio_common_msgs</run_depend>
+   <run_depend>diagnostic_msgs</run_depend>
+   <run_depend>libgstreamer0.10-0</run_depend>
+   <run_depend>libgstreamer-plugins-base0.10-0</run_depend>
+   <run_depend>gstreamer0.10-plugins-ugly</run_depend>
+   <run_depend>gstreamer0.10-plugins-good</run_depend>
+   <run_depend>rospy</run_depend>
+   <run_depend>festival</run_depend>
+   <run_depend>python-gst</run_depend>
+   <run_depend>message_runtime</run_depend>
+
+   <export>
+      <cpp cflags="-I${prefix}/include -I${prefix}/msg/cpp" />
+   </export>
+</package>

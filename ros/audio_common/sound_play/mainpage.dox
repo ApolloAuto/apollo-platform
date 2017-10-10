@@ -1,0 +1,23 @@
+/**
+
+\mainpage
+\htmlinclude manifest.html
+
+The \b sound_play package provides a way to say strings,
+play WAV or OGG files and to play builtin sounds. Documentation for the
+package can be found here at http://www.ros.org/wiki/sound_play 
+
+Multiple sounds can be played concurrently (up to 4 currently because of
+limitations in pygame).
+
+Python and C++ client classes are provide for ease of use:
+
+- sound_play::SoundClient and sound_play::SoundClient::Sound for C++
+- libsoundplay::SoundClient and libsoundplay::SoundClient::Sound for Python
+
+Example uses are in:
+
+- test.cpp
+- test.py
+
+*/

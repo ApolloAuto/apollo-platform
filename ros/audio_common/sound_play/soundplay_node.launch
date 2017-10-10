@@ -1,0 +1,8 @@
+<!-- 
+This launch file starts soundplay_node.py, which is the node that plays
+sounds based on messages on the robotsound topic.  
+-->
+
+<launch>
+  <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
+</launch>

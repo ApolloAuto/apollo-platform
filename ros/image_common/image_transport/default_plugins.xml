@@ -1,0 +1,13 @@
+<library path="lib/libimage_transport_plugins">
+  <class name="image_transport/raw_pub" type="image_transport::RawPublisher" base_class_type="image_transport::PublisherPlugin">
+    <description>
+      This is the default publisher. It publishes the Image as-is on the base topic.
+    </description>
+  </class>
+
+  <class name="image_transport/raw_sub" type="image_transport::RawSubscriber" base_class_type="image_transport::SubscriberPlugin">
+    <description>
+      This is the default pass-through subscriber for topics of type sensor_msgs/Image.
+    </description>
+  </class>
+</library>

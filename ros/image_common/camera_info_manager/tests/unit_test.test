@@ -1,0 +1,17 @@
+<!-- -*- mode: XML -*- -->
+<!-- rostest launch file for camera_info_manager
+
+     This unit test uses rostest, because the camera_info_manager
+     constructor requires a node handle. Apart from needing a ROS
+     environment, it is completely self-contained.
+
+     $Id$
+  -->
+
+<launch>
+
+  <!-- start unit-test node -->
+  <test pkg="camera_info_manager" type="unit_test" name="unit_test"
+        test-name="unit_test" time-limit="2.0" />
+
+</launch>

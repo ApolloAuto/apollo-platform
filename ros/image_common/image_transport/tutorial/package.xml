@@ -1,0 +1,26 @@
+<package>
+  <name>image_transport_tutorial</name>
+  <version>0.0.0</version>
+  <description>Tutorial for image_transport. This is useful for the tutorials at http://wiki.ros.org/image_transport/Tutorials/</description>
+  <author>Vincent Rabaud</author>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>Apache 2.0</license>
+
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>opencv2</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>opencv2</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <image_transport plugin="${prefix}/resized_plugins.xml"/>
+  </export>
+</package>

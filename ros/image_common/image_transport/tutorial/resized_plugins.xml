@@ -1,0 +1,13 @@
+<library path="lib/libresized_image_transport">
+  <class name="resized_pub" type="ResizedPublisher" base_class_type="image_transport::PublisherPlugin">
+    <description>
+      This plugin publishes a decimated version of the image.
+    </description>
+  </class>
+
+  <class name="resized_sub" type="ResizedSubscriber" base_class_type="image_transport::SubscriberPlugin">
+    <description>
+      This plugin rescales a decimated image to its original size.
+    </description>
+  </class>
+</library>

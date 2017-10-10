@@ -1,0 +1,23 @@
+<package>
+  <name>vision_opencv</name>
+  <version>1.11.15</version>
+  <description>Packages for interfacing ROS with OpenCV, a library of programming functions for real time computer vision.</description>
+  <author>Patrick Mihelich</author>
+  <author>James Bowman</author>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+  
+  <url type="website">http://www.ros.org/wiki/vision_opencv</url>
+  <url type="bugtracker">https://github.com/ros-perception/vision_opencv/issues</url>
+  <url type="repository">https://github.com/ros-perception/vision_opencv</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <!-- Old stack contents -->
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>image_geometry</run_depend>
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

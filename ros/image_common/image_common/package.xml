@@ -1,0 +1,27 @@
+<package>
+  <name>image_common</name>
+  <version>1.11.12</version>
+  <description>Common code for working with images in ROS.</description>
+  <author>Patrick Mihelich</author>
+  <author>James Bowman</author>
+  <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+  
+  <url type="website">http://www.ros.org/wiki/image_common</url>
+  <url type="bugtracker">https://github.com/ros-perception/image_common/issues</url>
+  <url type="repository">https://github.com/ros-perception/image_common</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <!-- Old stack contents -->
+  <run_depend>camera_calibration_parsers</run_depend>
+  <run_depend>camera_info_manager</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>polled_camera</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

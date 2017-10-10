@@ -1,0 +1,33 @@
+<package>
+  <name>polled_camera</name>
+  <version>1.11.12</version>
+  <description>
+
+     polled_camera contains a service and C++ helper classes for implementing a polled
+     camera driver node and requesting images from it. The package is currently for
+     internal use as the API is still under development.
+
+  </description>
+  <author>Patrick Mihelich</author>
+  <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/polled_camera</url>
+  <url type="bugtracker">https://github.com/ros-perception/image_common/issues</url>
+  <url type="repository">https://github.com/ros-perception/image_common</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>image_transport</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>image_transport</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

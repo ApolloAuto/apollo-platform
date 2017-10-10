@@ -1,0 +1,22 @@
+# Namespace to publish response topics in. A polled camera driver node
+# should publish:
+#   <response_namespace>/image_raw
+#   <response_namespace>/camera_info
+string response_namespace
+
+# Timeout for attempting to capture data from the device. This does not
+# include latency from ROS communication, post-processing of raw camera
+# data, etc. A zero duration indicates no time limit.
+duration timeout
+
+# Binning settings, if supported by the camera.
+uint32 binning_x
+uint32 binning_y
+
+# Region of interest, if supported by the camera.
+sensor_msgs/RegionOfInterest roi
+---
+bool success          # Could the image be captured?
+string status_message # Error message in case of failure
+time stamp            # Timestamp of the captured image. Can be matched
+                      # against incoming sensor_msgs/Image header.
