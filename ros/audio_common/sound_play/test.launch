@@ -1,0 +1,9 @@
+<!-- 
+This launch file runs the sound_play node and a test script that excersises
+most of its functionality.
+-->
+
+<launch>
+  <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
+  <node name="sound_test" pkg="sound_play" type="test.py"/>
+</launch>

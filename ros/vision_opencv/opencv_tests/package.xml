@@ -1,0 +1,15 @@
+<package>
+  <name>opencv_tests</name>
+  <version>1.11.15</version>
+  <description>
+    Tests the enumerants of the ROS Image message, and functionally tests the Python and C++ implementations of CvBridge.
+  </description>
+  <author>James Bowman</author>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+  <url>http://wiki.ros.org/opencv_tests</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>cv_bridge</run_depend>
+</package>

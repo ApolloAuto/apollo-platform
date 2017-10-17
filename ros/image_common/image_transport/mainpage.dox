@@ -1,0 +1,45 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section codeapi Code API
+When transporting images, you should use image_transport's classes as drop-in
+replacements for ros::Publisher and ros::Subscriber.
+- image_transport::ImageTransport - use this to create a Publisher or Subscriber
+- image_transport::Publisher - manage advertisements for an image topic, using all available transport options
+- image_transport::Subscriber - manage an Image subscription callback using a particular transport
+
+Camera drivers publish a "camera_info" sibling topic containing important metadata on how to
+interpret an image for vision applications. image_transport included helper classes to
+publish (image, info) message pairs and re-synchronize them on the client side:
+- image_transport::CameraPublisher - manage advertisements for camera images
+- image_transport::CameraSubscriber - manage a single subscription callback to synchronized image (using any transport) and CameraInfo topics
+
+For other synchronization or filtering needs, see the low-level filter class:
+- image_transport::SubscriberFilter - a wrapper for image_transport::Subscriber compatible with message_filters
+
+\subsection writing_plugin Writing a plugin
+If you are an advanced user implementing your own image transport option, you will need to
+implement these base-level interfaces:
+- image_transport::PublisherPlugin
+- image_transport::SubscriberPlugin
+
+In the common case that all communication between PublisherPlugin and SubscriberPlugin happens
+over a single ROS topic using a transport-specific message type, writing the plugins is vastly
+simplified by using these base classes instead:
+- image_transport::SimplePublisherPlugin - see image_transport::RawPublisher for a trivial example
+- image_transport::SimpleSubscriberPlugin - see image_transport::RawSubscriber for a trivial example
+
+\section rosapi ROS API
+
+\subsection pub_sub_rosapi Publishers and Subscribers
+
+Because they encapsulate complicated communication behavior, image_transport publisher
+and subscriber classes have a public ROS API as well as a code API. See the wiki
+documentation for details.
+
+Although image_transport::Publisher may publish many topics, in all code interfaces you should
+use only the name of the "base topic." The image transport classes will figure out the name of
+the dedicated ROS topic to use for the desired transport.
+
+*/

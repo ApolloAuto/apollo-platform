@@ -1,0 +1,24 @@
+<package>
+   <name>audio_common</name>
+   <version>0.2.12</version>
+   <description>
+      Common code for working with audio in ROS
+   </description>
+   <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+   <author>Blaise Gassend</author>
+   <license>BSD</license>  
+   <url type="website">http://ros.org/wiki/audio_common</url>
+   <url type="repository">https://github.com/ros-drivers/audio_common</url>
+   <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+   <run_depend>audio_capture</run_depend>
+   <run_depend>audio_common_msgs</run_depend>
+   <run_depend>audio_play</run_depend>
+   <run_depend>sound_play</run_depend>
+
+   <export>
+      <metapackage/>
+   </export>
+</package>

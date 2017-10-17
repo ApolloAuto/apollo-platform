@@ -1,0 +1,11 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b audio_common_msgs contain messages for transimitting audio via ROS.
+
+
+\section codeapi Code API
+
+
+*/

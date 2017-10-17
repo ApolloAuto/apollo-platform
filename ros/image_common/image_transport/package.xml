@@ -1,0 +1,39 @@
+<package>
+  <name>image_transport</name>
+  <version>1.11.12</version>
+  <description>
+
+     image_transport should always be used to subscribe to and publish images. It provides transparent
+     support for transporting images in low-bandwidth compressed formats. Examples (provided by separate
+     plugin packages) include JPEG/PNG compression and Theora streaming video.
+
+  </description>
+  <author>Patrick Mihelich</author>
+  <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/image_transport</url>
+  <url type="bugtracker">https://github.com/ros-perception/image_common/issues</url>
+  <url type="repository">https://github.com/ros-perception/image_common</url>
+
+  <export>
+    <image_transport plugin="${prefix}/default_plugins.xml" />
+  </export>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>message_filters</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>message_filters</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>rosconsole</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+</package>

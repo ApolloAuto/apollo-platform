@@ -1,0 +1,19 @@
+<package>
+   <name>audio_common_msgs</name>
+   <version>0.2.12</version>
+   <description>
+      Messages for transmitting audio via ROS
+   </description>
+   <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+   <author>Nate Koenig</author>
+   <license>BSD</license>
+   <url type="website">http://ros.org/wiki/audio_common_msgs</url>
+   <url type="repository">https://github.com/ros-drivers/audio_common</url>
+   <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+   <build_depend>message_generation</build_depend>
+
+   <run_depend>message_runtime</run_depend>
+</package>

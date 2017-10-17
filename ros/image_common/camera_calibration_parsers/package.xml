@@ -1,0 +1,34 @@
+<package>
+  <name>camera_calibration_parsers</name>
+  <version>1.11.12</version>
+  <description>
+     camera_calibration_parsers contains routines for reading and writing camera calibration parameters.
+  </description>
+  <author>Patrick Mihelich</author>
+  <maintainer email="jack.oquin@gmail.com">Jack O'Quin</maintainer>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/camera_calibration_parsers</url>
+  <url type="bugtracker">https://github.com/ros-perception/image_common/issues</url>
+  <url type="repository">https://github.com/ros-perception/image_common</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>boost</build_depend>
+  <build_depend>pkg-config</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>yaml-cpp</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roscpp_serialization</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>yaml-cpp</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>roscpp_serialization</run_depend>
+
+  <test_depend>rosbash</test_depend>
+  <test_depend>rosunit</test_depend>
+</package>
