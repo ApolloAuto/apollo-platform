@@ -13,6 +13,7 @@ MACHINE_ARCH="$(uname -m)"
 
 INSTALL_PATH="${CURRENT_PATH}/install/ros_$MACHINE_ARCH"
 FASTRTPS_PATH="${CURRENT_PATH}/third_party/fast-rtps"
+TP_LIB_PATH="${CURRENT_PATH}/third_party/lib"
 
 BUILD_TYPE="Release"
 export LD_LIBRARY_PATH="${CURRENT_PATH}/third_party/fast-rtps/lib:$LD_LIBRARY_PATH"
@@ -66,8 +67,9 @@ function clean() {
 
 function build_ros() {
     
-    rm -f ${FASTRTPS_PATH}
+    rm -f ${FASTRTPS_PATH} ${TP_LIB_PATH}
     ln -sf ${FASTRTPS_PATH}_${MACHINE_ARCH} ${FASTRTPS_PATH} &&
+    ln -sf ${TP_LIB_PATH}_${MACHINE_ARCH} ${TP_LIB_PATH} &&
 
     ./catkin/bin/catkin_make_isolated --install --source . \
         --install-space ${INSTALL_PATH} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
