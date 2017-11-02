@@ -163,6 +163,7 @@ target_link_libraries(roscpp
   fastrtps
   fastcdr
   yaml-cpp
+  -lrt
   )
 
 add_library(shm_manager SHARED
@@ -214,8 +215,8 @@ install(FILES transport_mode.yaml
 add_executable(talker test_node/talker.cpp)
 add_executable(listener test_node/listener.cpp)
 
-target_link_libraries(talker ${catkin_LIBRARIES} ${PROJECT_NAME} -lrt)
-target_link_libraries(listener ${catkin_LIBRARIES} ${PROJECT_NAME} -lrt)
+target_link_libraries(talker ${catkin_LIBRARIES} ${PROJECT_NAME})
+target_link_libraries(listener ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 install(TARGETS talker
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
