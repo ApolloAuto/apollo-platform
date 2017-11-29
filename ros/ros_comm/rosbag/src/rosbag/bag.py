@@ -349,6 +349,7 @@ class Bag(object):
                 header = { 'topic' : topic, 'type' : msg_type, 'md5sum' : md5sum, 'message_definition' : pytype._full_text }
             else:
                 if issubclass(msg.__class__, google.protobuf.message.Message):
+                    roslib.message.add_rosmsg_interface_for_protobuf(msg.__class__)
                     header = { 'topic' : topic, 'type' : msg.__class__._type, 'md5sum' : msg.__class__._md5sum, 'message_definition' : 'protobuf' }
                 else:
                     header = { 'topic' : topic, 'type' : msg.__class__._type, 'md5sum' : msg.__class__._md5sum, 'message_definition' : msg._full_text }
