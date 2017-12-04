@@ -111,6 +111,8 @@ private:
   bool started_;
   boost::interprocess::interprocess_mutex shm_sub_mutex_;
   std::map<std::string, bool> shm_skip_first_msg_;
+  boost::mutex shm_map_mutex_;
+  boost::mutex shm_first_msg_map_mutex_;
 };
 
 }
