@@ -35,6 +35,8 @@
 #ifndef ROSCPP_BROADCAST_MANAGER_H
 #define ROSCPP_BROADCAST_MANAGER_H
 
+#define BOOST_SPIRIT_THREADSAFE // must define before include boost libs
+
 #include <condition_variable> 
 #include <functional>
 #include <future>
