@@ -183,8 +183,12 @@ void ShmManager::threadFunc()
             item.datatype = sharedmem_util.get_datatype(segment);
             item.message_definition = sharedmem_util.get_msg_def(segment);
 
+            boost::mutex::scoped_lock lock(shm_map_mutex_);
+
             shm_map_[topic] = item;
           }
+
+          boost::mutex::scoped_lock lock(shm_first_msg_map_mutex_);
 
           if (shm_skip_first_msg_.find(topic) == shm_skip_first_msg_.end())
           {
@@ -242,12 +246,21 @@ void ShmManager::threadFunc()
                   if (read_index == sharedmem_transport::ROS_SHM_SEGMENT_WROTE_NUM ||
                     shm_map_[topic].shm_sub_ptr->get_publisher_links().size() == 0)
                   {
-                    if (shm_map_[topic].addr_sub)
                     {
-                      delete [](shm_map_[topic].addr_sub);
+                      boost::mutex::scoped_lock lock(shm_map_mutex_);
+                      
+                      if (shm_map_[topic].addr_sub)
+                      {
+                        delete [](shm_map_[topic].addr_sub);
+                      }
+                      shm_map_.erase(topic);
                     }
-                    shm_map_.erase(topic);
-                    shm_skip_first_msg_.erase(topic);
+                    
+                    {
+                      boost::mutex::scoped_lock lock(shm_first_msg_map_mutex_);
+                      shm_skip_first_msg_.erase(topic);
+                    }
+
                     is_new_msg = false;
                     exit = true;
                   }
