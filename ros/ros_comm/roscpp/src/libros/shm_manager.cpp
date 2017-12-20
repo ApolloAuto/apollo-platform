@@ -118,15 +118,14 @@ void ShmManager::shutdown()
 void ShmManager::threadFunc()
 {
   sharedmem_transport::SharedMemoryUtil sharedmem_util;
-  L_Subscription subs;
-  L_Subscription::iterator it;
   std::string topic;
 
   while (started_ && ros::ok())
   {
     if (TopicManager::instance()->getNumSubscriptions() > 0)
     {
-      subs = TopicManager::instance()->getAllSubscription();
+      L_Subscription subs = TopicManager::instance()->getAllSubscription();
+      L_Subscription::iterator it;
       if (!g_config_comm.transport_mode && 
         shm_map_.size() < TopicManager::instance()->getNumSubscriptions())
       {
