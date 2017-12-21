@@ -680,16 +680,19 @@ uint32_t Subscription::handleMessage(const SerializedMessage& m, bool ser, bool 
     }
   }
 
-  for (V_PublisherLink::iterator it = publisher_links_.begin(); it != publisher_links_.end(); ++it)
   {
-    if ((*it)->isLatched())
+    boost::mutex::scoped_lock lock(publisher_links_mutex_);
+    for (V_PublisherLink::iterator it = publisher_links_.begin(); it != publisher_links_.end(); ++it)
     {
-      LatchInfo li;
-      li.connection_header = connection_header;
-      li.link = (*it);
-      li.message = m;
-      li.receipt_time = receipt_time;
-      latched_messages_[(*it)] = li;
+      if ((*it)->isLatched())
+      {
+        LatchInfo li;
+        li.connection_header = connection_header;
+        li.link = (*it);
+        li.message = m;
+        li.receipt_time = receipt_time;
+        latched_messages_[(*it)] = li;
+      }
     }
   }
 
