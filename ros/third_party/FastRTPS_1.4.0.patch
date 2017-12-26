@@ -1,6 +1,6 @@
 diff -Npur -x .git a/CMakeLists.txt b/CMakeLists.txt
---- a/CMakeLists.txt	2017-09-14 15:59:29.813198704 +0800
-+++ b/CMakeLists.txt	2017-09-14 16:01:09.589195047 +0800
+--- a/CMakeLists.txt	2017-12-26 10:43:48.180704161 +0800
++++ b/CMakeLists.txt	2017-12-26 10:47:06.596700607 +0800
 @@ -175,9 +175,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PAT
  # Default shared libraries
  ###############################################################################
@@ -13,8 +13,8 @@ diff -Npur -x .git a/CMakeLists.txt b/CMakeLists.txt
  
  ###############################################################################
 diff -Npur -x .git a/include/fastrtps/utils/IPFinder.h b/include/fastrtps/utils/IPFinder.h
---- a/include/fastrtps/utils/IPFinder.h	2017-09-14 15:55:02.933208485 +0800
-+++ b/include/fastrtps/utils/IPFinder.h	2017-09-14 16:01:09.693195043 +0800
+--- a/include/fastrtps/utils/IPFinder.h	2017-12-26 10:43:48.296704159 +0800
++++ b/include/fastrtps/utils/IPFinder.h	2017-12-26 10:47:06.720700605 +0800
 @@ -61,7 +61,7 @@ public:
  	IPFinder();
  	virtual ~IPFinder();
@@ -24,9 +24,21 @@ diff -Npur -x .git a/include/fastrtps/utils/IPFinder.h b/include/fastrtps/utils/
  
  	/**
      * Get the IP4Adresses in all interfaces.
+diff -Npur -x .git a/src/cpp/qos/ParameterList.cpp b/src/cpp/qos/ParameterList.cpp
+--- a/src/cpp/qos/ParameterList.cpp	2017-12-26 10:43:48.184704161 +0800
++++ b/src/cpp/qos/ParameterList.cpp	2017-12-26 11:09:55.248676097 +0800
+@@ -369,7 +369,7 @@ int32_t ParameterList::readParameterList
+                         //cout << "Parameter length " << plength << endl;
+                         uint32_t vec_size = 0;
+                         valid&=CDRMessage::readUInt32(msg,&vec_size);
+-                        if(!valid || msg->pos+vec_size > msg->length){
++                        if(!valid || msg->pos > msg->length - vec_size){
+                             delete(p);
+                             return -1;
+                         }
 diff -Npur -x .git a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp
---- a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-09-14 15:59:29.821198703 +0800
-+++ b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-09-14 16:01:09.593195047 +0800
+--- a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-12-26 10:43:48.184704161 +0800
++++ b/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp	2017-12-26 10:47:06.600700607 +0800
 @@ -129,6 +129,9 @@ bool EDPSimple::createSEDPEndpoints()
          watt.times.nackResponseDelay.fraction = 0;
          watt.times.initialHeartbeatDelay.seconds = 0;
@@ -83,8 +95,8 @@ diff -Npur -x .git a/src/cpp/rtps/builtin/discovery/endpoint/EDPSimple.cpp b/src
          ratt.endpoint.reliabilityKind = RELIABLE;
          pdata->m_builtinReaders.push_back(ratt);
 diff -Npur -x .git a/src/cpp/transport/UDPv4Transport.cpp b/src/cpp/transport/UDPv4Transport.cpp
---- a/src/cpp/transport/UDPv4Transport.cpp	2017-09-14 15:59:29.845198702 +0800
-+++ b/src/cpp/transport/UDPv4Transport.cpp	2017-09-14 16:01:09.593195047 +0800
+--- a/src/cpp/transport/UDPv4Transport.cpp	2017-12-26 10:43:48.184704161 +0800
++++ b/src/cpp/transport/UDPv4Transport.cpp	2017-12-26 10:47:06.600700607 +0800
 @@ -31,7 +31,7 @@ static const uint32_t maximumUDPSocketSi
  static const uint32_t maximumMessageSize = 65500;
  static const uint8_t defaultTTL = 1;
@@ -111,8 +123,8 @@ diff -Npur -x .git a/src/cpp/transport/UDPv4Transport.cpp b/src/cpp/transport/UD
      }
  
 diff -Npur -x .git a/thirdparty/fastcdr/CMakeLists.txt b/thirdparty/fastcdr/CMakeLists.txt
---- a/thirdparty/fastcdr/CMakeLists.txt	2017-09-14 16:00:20.797196835 +0800
-+++ b/thirdparty/fastcdr/CMakeLists.txt	2017-09-14 16:01:09.629195045 +0800
+--- a/thirdparty/fastcdr/CMakeLists.txt	2017-12-26 10:43:48.228704160 +0800
++++ b/thirdparty/fastcdr/CMakeLists.txt	2017-12-26 10:47:06.640700607 +0800
 @@ -106,9 +106,7 @@ endif()
  # Default shared libraries
  ###############################################################################
@@ -125,8 +137,8 @@ diff -Npur -x .git a/thirdparty/fastcdr/CMakeLists.txt b/thirdparty/fastcdr/CMak
  
  ###############################################################################
 diff -Npur -x .git a/thirdparty/fastcdr/include/fastcdr/Cdr.h b/thirdparty/fastcdr/include/fastcdr/Cdr.h
---- a/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-09-14 16:00:20.821196834 +0800
-+++ b/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-09-14 16:01:09.629195045 +0800
+--- a/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-12-26 10:43:48.228704160 +0800
++++ b/thirdparty/fastcdr/include/fastcdr/Cdr.h	2017-12-26 10:47:06.644700607 +0800
 @@ -726,6 +726,7 @@ namespace eprosima
                   * @exception exception::NotEnoughMemoryException This exception is thrown when trying to serialize a position that exceeds the internal memory size.
                   */
@@ -162,8 +174,8 @@ diff -Npur -x .git a/thirdparty/fastcdr/include/fastcdr/Cdr.h b/thirdparty/fastc
  #if HAVE_CXX0X
                  /*!
 diff -Npur -x .git a/thirdparty/fastcdr/src/cpp/Cdr.cpp b/thirdparty/fastcdr/src/cpp/Cdr.cpp
---- a/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-09-14 16:00:20.821196834 +0800
-+++ b/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-09-14 16:01:09.629195045 +0800
+--- a/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-12-26 10:43:48.228704160 +0800
++++ b/thirdparty/fastcdr/src/cpp/Cdr.cpp	2017-12-26 10:47:06.640700607 +0800
 @@ -570,6 +570,38 @@ Cdr& Cdr::serialize(const char *string_t
      return *this;
  }
