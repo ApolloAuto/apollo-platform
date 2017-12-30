@@ -680,6 +680,27 @@ uint32_t Subscription::handleMessage(const SerializedMessage& m, bool ser, bool 
     }
   }
 
+  if (name_ == "/rosout" || name_ == "/rosout_agg" || name_ == "/tf") 
+  {
+    if (link)
+    {
+      // measure statistics
+      statistics_.callback(connection_header, name_, link->getCallerID(),
+      m, link->getStats().bytes_received_, receipt_time, drops > 0);
+      // If this link is latched, store off the message so we can immediately 
+      // pass it to new subscribers later
+      if (link->isLatched())
+      {
+      LatchInfo li;
+      li.connection_header = connection_header;
+      li.link = link;
+      li.message = m;
+      li.receipt_time = receipt_time;
+      latched_messages_[link] = li;
+      }
+    }
+  } 
+  else
   {
     boost::mutex::scoped_lock lock(publisher_links_mutex_);
     for (V_PublisherLink::iterator it = publisher_links_.begin(); it != publisher_links_.end(); ++it)
