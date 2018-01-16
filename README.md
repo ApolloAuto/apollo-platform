@@ -42,7 +42,7 @@ https://github.com/ApolloAuto/apollo-platform/releases
 After having the release package downloaded:
 
 ```
-tar zxvf ros-indigo-apollo-1.0.0.x86_64.tar.gz
+tar zxvf ros-indigo-apollo-2.0.0-x86_64.tar.gz
 rsync -av ros/ /apollo/third_party/ros_x86_64
 source /apollo/third_party/ros_x86_64/setup.bash
 ```
@@ -51,4 +51,4 @@ source /apollo/third_party/ros_x86_64/setup.bash
 
 ### How to Build
 
-If you would like customize and build your own ROS, please reference the [Apollo 1.0 Quick Start for Developers](https://github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_1_0_quick_start_developer.md)
+If you would like customize and build your own ROS, please reference the [Apollo 2.0 Quick Start for Developers](https://github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_2_0_quick_start_developer.md)
