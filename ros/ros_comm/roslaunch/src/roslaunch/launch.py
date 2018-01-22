@@ -59,8 +59,8 @@ from roslaunch.rlutil import update_terminal_name
 
 from rosmaster.master_api import NUM_WORKERS
 
-_TIMEOUT_MASTER_START = 10.0 #seconds
-_TIMEOUT_MASTER_STOP  = 10.0 #seconds
+_TIMEOUT_MASTER_START = 60.0 #seconds
+_TIMEOUT_MASTER_STOP  = 60.0 #seconds
 
 _ID = '/roslaunch'
 
