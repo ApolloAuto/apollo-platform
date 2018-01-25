@@ -51,4 +51,4 @@ source /apollo/third_party/ros_x86_64/setup.bash
 
 ### How to Build
 
-If you would like customize and build your own ROS, please reference the [Apollo 2.0 Quick Start for Developers](https://github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_2_0_quick_start_developer.md)
+If you would like customize and build your own ROS, please reference the [Apollo 2.0 Quick Start](https://github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_2_0_quick_start.md)
