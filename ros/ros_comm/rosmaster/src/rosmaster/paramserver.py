@@ -70,11 +70,11 @@ class ParamDictionary(object):
 
         if "ROS_MASTER_SNAPSHOT" in os.environ:
             try:
+                self.snapshot = True
                 self.snapshot_file = os.path.join(os.environ["ROS_ROOT"], ".master_snapshot")
                 with open(self.snapshot_file, "r") as f:
                     self.parameters = json.loads(f.read())
                 del self.parameters["run_id"]
-                self.snapshot = True
             except IOError:
                 pass
             except KeyError:
