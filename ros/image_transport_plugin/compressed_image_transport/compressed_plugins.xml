@@ -1,0 +1,13 @@
+<library path="lib/libcompressed_image_transport">
+  <class name="image_transport/compressed_pub" type="compressed_image_transport::CompressedPublisher" base_class_type="image_transport::PublisherPlugin">
+    <description>
+      This plugin publishes a CompressedImage using either JPEG or PNG compression.
+    </description>
+  </class>
+
+  <class name="image_transport/compressed_sub" type="compressed_image_transport::CompressedSubscriber" base_class_type="image_transport::SubscriberPlugin">
+    <description>
+      This plugin decompresses a CompressedImage topic.
+    </description>
+  </class>
+</library>
