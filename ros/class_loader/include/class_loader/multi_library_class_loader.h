@@ -68,7 +68,7 @@ class MultiLibraryClassLoader
     template <class Base>
     boost::shared_ptr<Base> createInstance(const std::string& class_name)
     {
-      logDebug("class_loader::MultiLibraryClassLoader: Attempting to create instance of class type %s.", class_name.c_str());
+      CONSOLE_BRIDGE_logDebug("class_loader::MultiLibraryClassLoader: Attempting to create instance of class type %s.", class_name.c_str());
       ClassLoader* loader = getClassLoaderForClass<Base>(class_name);
       if (loader == NULL)
         throw class_loader::CreateClassException("MultiLibraryClassLoader: Could not create object of class type " + class_name + " as no factory exists for it. Make sure that the library exists and was explicitly loaded through MultiLibraryClassLoader::loadLibrary()");
@@ -103,7 +103,7 @@ class MultiLibraryClassLoader
     template <class Base>
     ClassLoader::UniquePtr<Base> createUniqueInstance(const std::string& class_name)
     {
-      logDebug("class_loader::MultiLibraryClassLoader: Attempting to create instance of class type %s.", class_name.c_str());
+      CONSOLE_BRIDGE_logDebug("class_loader::MultiLibraryClassLoader: Attempting to create instance of class type %s.", class_name.c_str());
       ClassLoader* loader = getClassLoaderForClass<Base>(class_name);
       if (loader == nullptr)
         throw class_loader::CreateClassException("MultiLibraryClassLoader: Could not create object of class type " + class_name + " as no factory exists for it. Make sure that the library exists and was explicitly loaded through MultiLibraryClassLoader::loadLibrary()");

@@ -200,7 +200,7 @@ class ClassLoader
     template <class Base>
     void onPluginDeletion(Base* obj)
     {
-      logDebug("class_loader::ClassLoader: Calling onPluginDeletion() for obj ptr = %p.\n", obj);
+      CONSOLE_BRIDGE_logDebug("class_loader::ClassLoader: Calling onPluginDeletion() for obj ptr = %p.\n", obj);
       if(obj)
       {
         boost::recursive_mutex::scoped_lock lock(plugin_ref_count_mutex_);
@@ -212,7 +212,7 @@ class ClassLoader
           if(!ClassLoader::hasUnmanagedInstanceBeenCreated())
             unloadLibraryInternal(false);
           else
-            logWarn("class_loader::ClassLoader: Cannot unload library %s even though last shared pointer went out of scope. This is because createUnmanagedInstance was used within the scope of this process, perhaps by a different ClassLoader. Library will NOT be closed.", getLibraryPath().c_str());
+            CONSOLE_BRIDGE_logWarn("class_loader::ClassLoader: Cannot unload library %s even though last shared pointer went out of scope. This is because createUnmanagedInstance was used within the scope of this process, perhaps by a different ClassLoader. Library will NOT be closed.", getLibraryPath().c_str());
         }
       }
     }
@@ -234,7 +234,7 @@ class ClassLoader
         has_unmananged_instance_been_created_ = true;
 
       if (managed && ClassLoader::hasUnmanagedInstanceBeenCreated() && isOnDemandLoadUnloadEnabled())
-        logInform("class_loader::ClassLoader: An attempt is being made to create a managed plugin instance (i.e. boost::shared_ptr), however an unmanaged instance was created within this process address space. This means libraries for the managed instances will not be shutdown automatically on final plugin destruction if on demand (lazy) loading/unloading mode is used.");
+        CONSOLE_BRIDGE_logInform("class_loader::ClassLoader: An attempt is being made to create a managed plugin instance (i.e. boost::shared_ptr), however an unmanaged instance was created within this process address space. This means libraries for the managed instances will not be shutdown automatically on final plugin destruction if on demand (lazy) loading/unloading mode is used.");
 
       if (!isLibraryLoaded())
         loadLibrary();

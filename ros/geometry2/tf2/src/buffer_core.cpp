@@ -119,7 +119,7 @@ bool BufferCore::warnFrameId(const char* function_name_arg, const std::string& f
   {
     std::stringstream ss;
     ss << "Invalid argument passed to "<< function_name_arg <<" in tf2 frame_ids cannot be empty";
-    logWarn("%s",ss.str().c_str());
+    CONSOLE_BRIDGE_logWarn("%s",ss.str().c_str());
     return true;
   }
 
@@ -127,7 +127,7 @@ bool BufferCore::warnFrameId(const char* function_name_arg, const std::string& f
   {
     std::stringstream ss;
     ss << "Invalid argument \"" << frame_id << "\" passed to "<< function_name_arg <<" in tf2 frame_ids cannot start with a '/' like: ";
-    logWarn("%s",ss.str().c_str());
+    CONSOLE_BRIDGE_logWarn("%s",ss.str().c_str());
     return true;
   }
 
@@ -214,26 +214,26 @@ bool BufferCore::setTransform(const geometry_msgs::TransformStamped& transform_i
   bool error_exists = false;
   if (stripped.child_frame_id == stripped.header.frame_id)
   {
-    logError("TF_SELF_TRANSFORM: Ignoring transform from authority \"%s\" with frame_id and child_frame_id  \"%s\" because they are the same",  authority.c_str(), stripped.child_frame_id.c_str());
+    CONSOLE_BRIDGE_logError("TF_SELF_TRANSFORM: Ignoring transform from authority \"%s\" with frame_id and child_frame_id  \"%s\" because they are the same",  authority.c_str(), stripped.child_frame_id.c_str());
     error_exists = true;
   }
 
   if (stripped.child_frame_id == "")
   {
-    logError("TF_NO_CHILD_FRAME_ID: Ignoring transform from authority \"%s\" because child_frame_id not set ", authority.c_str());
+    CONSOLE_BRIDGE_logError("TF_NO_CHILD_FRAME_ID: Ignoring transform from authority \"%s\" because child_frame_id not set ", authority.c_str());
     error_exists = true;
   }
 
   if (stripped.header.frame_id == "")
   {
-    logError("TF_NO_FRAME_ID: Ignoring transform with child_frame_id \"%s\"  from authority \"%s\" because frame_id not set", stripped.child_frame_id.c_str(), authority.c_str());
+    CONSOLE_BRIDGE_logError("TF_NO_FRAME_ID: Ignoring transform with child_frame_id \"%s\"  from authority \"%s\" because frame_id not set", stripped.child_frame_id.c_str(), authority.c_str());
     error_exists = true;
   }
 
   if (std::isnan(stripped.transform.translation.x) || std::isnan(stripped.transform.translation.y) || std::isnan(stripped.transform.translation.z)||
       std::isnan(stripped.transform.rotation.x) ||       std::isnan(stripped.transform.rotation.y) ||       std::isnan(stripped.transform.rotation.z) ||       std::isnan(stripped.transform.rotation.w))
   {
-    logError("TF_NAN_INPUT: Ignoring transform for child_frame_id \"%s\" from authority \"%s\" because of a nan value in the transform (%f %f %f) (%f %f %f %f)",
+    CONSOLE_BRIDGE_logError("TF_NAN_INPUT: Ignoring transform for child_frame_id \"%s\" from authority \"%s\" because of a nan value in the transform (%f %f %f) (%f %f %f %f)",
               stripped.child_frame_id.c_str(), authority.c_str(),
               stripped.transform.translation.x, stripped.transform.translation.y, stripped.transform.translation.z,
               stripped.transform.rotation.x, stripped.transform.rotation.y, stripped.transform.rotation.z, stripped.transform.rotation.w
@@ -257,7 +257,7 @@ bool BufferCore::setTransform(const geometry_msgs::TransformStamped& transform_i
     }
     else
     {
-      logWarn("TF_OLD_DATA ignoring data from the past for frame %s at time %g according to authority %s\nPossible reasons are listed at http://wiki.ros.org/tf/Errors%%20explained", stripped.child_frame_id.c_str(), stripped.header.stamp.toSec(), authority.c_str());
+      CONSOLE_BRIDGE_logWarn("TF_OLD_DATA ignoring data from the past for frame %s at time %g according to authority %s\nPossible reasons are listed at http://wiki.ros.org/tf/Errors%%20explained", stripped.child_frame_id.c_str(), stripped.header.stamp.toSec(), authority.c_str());
       return false;
     }
   }
@@ -605,7 +605,7 @@ geometry_msgs::TransformStamped BufferCore::lookupTransform(const std::string& t
     case tf2_msgs::TF2Error::LOOKUP_ERROR:
       throw LookupException(error_string);
     default:
-      logError("Unknown error code: %d", retval);
+      CONSOLE_BRIDGE_logError("Unknown error code: %d", retval);
       assert(0);
     }
   }
@@ -1496,7 +1496,7 @@ void BufferCore::_chainAsVector(const std::string & target_frame, ros::Time targ
     case tf2_msgs::TF2Error::LOOKUP_ERROR:
       throw LookupException(error_string);
     default:
-      logError("Unknown error code: %d", retval);
+      CONSOLE_BRIDGE_logError("Unknown error code: %d", retval);
       assert(0);
     }
   }
@@ -1516,7 +1516,7 @@ void BufferCore::_chainAsVector(const std::string & target_frame, ros::Time targ
       case tf2_msgs::TF2Error::LOOKUP_ERROR:
         throw LookupException(error_string);
       default:
-        logError("Unknown error code: %d", retval);
+        CONSOLE_BRIDGE_logError("Unknown error code: %d", retval);
         assert(0);
       }
     }
