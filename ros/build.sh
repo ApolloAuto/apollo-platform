@@ -76,8 +76,10 @@ function build_ros() {
        -DFASTRTPS_PATH=${FASTRTPS_PATH} --cmake-args --no-warn-unused-cli &&
  
     cp -r ${CURRENT_PATH}/third_party/fast-rtps/lib/* ${INSTALL_PATH}/lib/ &&
-    cp -r ${CURRENT_PATH}/third_party/lib/* ${INSTALL_PATH}/lib/ &&
-    cp -r ${CURRENT_PATH}/third_party/bin/* ${INSTALL_PATH}/bin/ &&
+    cp -r ${CURRENT_PATH}/third_party/bin/* ${INSTALL_PATH}/bin/	
+    rsync -rv ${CURRENT_PATH}/third_party/lib/  --exclude=librosconsole_log4cxx.so  ${INSTALL_PATH}/lib/ &&
+    ${CURRENT_PATH}/third_party/swig_wrapper/build.sh
+	
     find -name "*.pyc" -print0 | xargs -0 rm -rf
 
     if [ $? -ne 0 ]; then
