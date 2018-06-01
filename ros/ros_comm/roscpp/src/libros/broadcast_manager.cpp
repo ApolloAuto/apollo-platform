@@ -156,8 +156,9 @@ void BroadcastManager::registerPublisherCallback(const MsgInfo& result)
 {
   std::string topic_name = result.get<std::string>(TOPIC_NAME);
   std::string pub_uri = result.get<std::string>(XMLRPC_URI);
+  std::string data_type = result.get<std::string>(TOPIC_TYPE);
   pub_cache_[topic_name].insert(pub_uri);
-  topic_cache_.emplace_back(topic_name, pub_uri);
+  topic_cache_.emplace_back(topic_name, data_type);
   publisherUpdate(topic_name);
 }
 
