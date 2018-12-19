@@ -200,7 +200,7 @@ public:
 
   bool operator==(const MessageEvent<M>& rhs)
   {
-    return message_ = rhs.message_ && receipt_time_ == rhs.receipt_time_ && nonconst_need_copy_ == rhs.nonconst_need_copy_;
+    return message_ == rhs.message_ && receipt_time_ == rhs.receipt_time_ && nonconst_need_copy_ == rhs.nonconst_need_copy_;
   }
 
   bool operator!=(const MessageEvent<M>& rhs)
