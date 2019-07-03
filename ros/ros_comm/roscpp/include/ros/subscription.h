@@ -268,6 +268,7 @@ public:
 
   std::vector<PublisherLinkPtr> get_publisher_links()
   {
+    boost::mutex::scoped_lock lock(publisher_links_mutex_);
     return publisher_links_;
   }
 };
