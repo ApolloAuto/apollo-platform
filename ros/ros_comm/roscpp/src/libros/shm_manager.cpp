@@ -136,7 +136,7 @@ void ShmManager::threadFunc()
           if (g_config_comm.topic_white_list.find(topic) != 
             g_config_comm.topic_white_list.end() || 
             shm_map_.find(topic) != shm_map_.end() ||
-            (*it)->get_publisher_links().size() == 0)
+            (*it)->getNumPublishers() == 0)
           {
             continue;
           }
@@ -243,7 +243,7 @@ void ShmManager::threadFunc()
 
                   // Block needs to be allocated
                   if (read_index == sharedmem_transport::ROS_SHM_SEGMENT_WROTE_NUM ||
-                    shm_map_[topic].shm_sub_ptr->get_publisher_links().size() == 0)
+                    shm_map_[topic].shm_sub_ptr->getNumPublishers() == 0)
                   {
                     {
                       boost::mutex::scoped_lock lock(shm_map_mutex_);

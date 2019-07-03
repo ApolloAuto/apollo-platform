@@ -229,6 +229,7 @@ SubscriptionPtr TopicManager::lookupSubscription(const std::string& topic)
 
 L_Subscription  TopicManager::getAllSubscription()
 {
+  boost::mutex::scoped_lock lock(subs_mutex_);
   return subscriptions_ ;
 }
 
